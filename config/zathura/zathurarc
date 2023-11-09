@@ -1,0 +1,12 @@
+set window-title-basename "true"
+set continuous-hist-save true
+set selection-clipboard clipboard
+
+set window-height 3000
+set window-width 3000
+
+set font "JetBrains Mono 11"
+
+set recolor-keephue             "true"
+
+include catppuccin-mocha

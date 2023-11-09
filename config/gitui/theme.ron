@@ -1,0 +1,6 @@
+(
+    selection_bg: Some(Black),
+    cmdbar_bg: Some(Black),
+    cmdbar_extra_lines_bg: Some(Black),
+    push_gauge_bg: Some(Reset),
+)
