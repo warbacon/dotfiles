@@ -13,20 +13,23 @@ Arch linux is my current favorite GNU/Linux distribution because of its
 
 - **Terminal emulator:** Kitty
 
-- **Colorscheme:** Catppuccin Mocha
+- **Colorscheme:** Kanagawa Wave
 
 - **Shell:** zsh ([zunder-zsh](https://github.com/Warbacon/zunder-zsh))
 
-- **Code editor:** Neovim/VSCode
+- **Code editor:** [Neovim](https://github.com/Warbacon/nvim-config)/VSCode
 
 - **Video player:** Celluloid/mpv
 
 ### Windows 11 (Main PC)
 
-- **Terminal:** Windows Terminal
+- **Terminal emulator:** Windows Terminal
 
-- **Shell:** Powershell 7
+- **Colorscheme:** Kanagawa Wave
 
-- **Code editor:** Neovim/VSCode
+- **Shell:** Powershell 7 
+([My Powershell profile](https://github.com/Warbacon/powershell-profile))
+
+- **Code editor:** [Neovim](https://github.com/Warbacon/nvim-config)/VSCode
 
 - **Video player:** mpv
