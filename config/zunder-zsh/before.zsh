@@ -4,12 +4,10 @@
 # DISABLE_EXA=true
 
 # ZUNDER-PROMPT ----------------------------------------------------------------
-ZUNDER_PROMPT_CHAR="%B>%b"
-
 # DISABLE_ZUNDER_PROMPT=true
-# PROMPT="[$USERNAME@$HOST %~]%# "
 # zinit snippet "$HOME/Git/zunder-prompt/zunder-prompt.plugin.zsh"
-# zinit snippet $ZUNDER_ZSH_DIR/prompt.zsh
+# zinit snippet "$ZUNDER_ZSH_DIR/prompt.zsh"
+ZUNDER_PROMPT_CHAR="%B>%b"
 
 # OH-MY-POSH -------------------------------------------------------------------
 # zinit as"program" from"gh-r" mv"posh* -> oh-my-posh" \
@@ -25,6 +23,8 @@ ZUNDER_PROMPT_CHAR="%B>%b"
 #   starship/starship
 
 # FZF INTEGRATION --------------------------------------------------------------
+FZF_CTRL_T_COMMAND="fd -H --exclude=node_modules --exclude=Trash"
+FZF_ALT_C_COMMAND="fd -H --exclude=node_modules --exclude=Trash --type=d "
 zinit has"fzf" light-mode for \
   https://raw.githubusercontent.com/junegunn/fzf/master/shell/key-bindings.zsh
 
