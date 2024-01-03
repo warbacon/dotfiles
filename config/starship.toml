@@ -1,6 +1,8 @@
 # Get editor completions based on the config schema
 "$schema" = 'https://starship.rs/config-schema.json'
 
+add_newline = false
+
 format = """
 $username\
 $directory\
@@ -15,12 +17,17 @@ $line_break\
 $jobs\
 $character"""
 
+[character]
+success_symbol = '[>](bold green)'
+error_symbol = '[>](bold red)'
+vimcmd_symbol = '[<](bold green)'
+vimcmd_replace_one_symbol = '[<](bold purple)'
+vimcmd_replace_symbol = '[<](bold purple)'
+vimcmd_visual_symbol = '[<](bold yellow)'
+
 [directory]
 read_only = ' 󰌾'
 truncation_length = 0
-
-[git_status]
-windows_starship = '/mnt/c/Program Files/starship/bin/starship.exe'
 
 [conda]
 symbol = ''
