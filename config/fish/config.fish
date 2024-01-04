@@ -39,6 +39,7 @@ if command -q trash
     test -f $__fish_config_dir/completions/rm.fish
     or touch $__fish_config_dir/completions/rm.fish
 else
+    echo "trash-cli is not installed."
     test -f $__fish_config_dir/completions/rm.fish
     and rm $__fish_config_dir/completions/rm.fish
 end
@@ -52,9 +53,8 @@ end
 
 fish_add_path -P "$HOME/.local/bin"
 
-command -q starship
-and starship init fish --print-full-init | source
-
 test -f "/opt/miniconda3/etc/fish/conf.d/conda.fish"
 and source "/opt/miniconda3/etc/fish/conf.d/conda.fish"
 
+command -q starship
+and starship init fish --print-full-init | source

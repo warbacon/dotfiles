@@ -1,4 +1,14 @@
 function go_dir
+    if not command -q eza
+        echo "eza is not installed."
+        return
+    end
+
+    if not command -q fzf
+        echo "fzf is not installed."
+        return
+    end
+
     test -z $argv[1]
     and return
 
