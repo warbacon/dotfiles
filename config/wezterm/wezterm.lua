@@ -10,13 +10,18 @@ if wezterm.config_builder then
 	config = wezterm.config_builder()
 end
 
+-- Rendering
+-- config.front_end = "WebGpu"
+
 -- Shell
-config.default_prog = { "pwsh", "-NoLogo" }
+-- config.default_prog = { "zsh" }
+-- config.default_prog = { "pwsh", "-NoLogo" }
 
 -- Font
-config.font = wezterm.font("Fira Code")
+config.font = wezterm.font_with_fallback({ "Fira Code", "Symbols Nerd Font" })
 config.font_size = 16
 config.unicode_version = 14
+config.warn_about_missing_glyphs = false
 
 -- UI
 config.window_padding = {
@@ -25,16 +30,15 @@ config.window_padding = {
 	top = 0,
 	bottom = 0,
 }
-config.initial_cols = 125
-config.initial_rows = 35
-config.use_fancy_tab_bar = false
+config.bold_brightens_ansi_colors = false
+config.animation_fps = 1
+config.default_cursor_style = "BlinkingBar"
+config.cursor_blink_ease_in = "Constant"
+config.cursor_blink_ease_out = "Constant"
+config.cursor_thickness = 3
 config.hide_tab_bar_if_only_one_tab = true
 config.tab_max_width = 32
-config.max_fps = 144
-config.default_cursor_style = 'BlinkingBar'
-config.animation_fps = 1
-config.cursor_blink_ease_in = 'Constant'
-config.cursor_blink_ease_out = 'Constant'
+config.use_fancy_tab_bar = false
 
 -- Keymaps
 config.keys = {
