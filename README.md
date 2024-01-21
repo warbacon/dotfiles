@@ -15,7 +15,7 @@ Arch linux is my current favorite GNU/Linux distribution because of its
 
 - **Colorscheme:** Kanagawa Wave
 
-- **Shell:** zsh ([zunder-zsh](https://github.com/Warbacon/zunder-zsh))
+- **Shell:** fish/zsh ([zunder-zsh](https://github.com/Warbacon/zunder-zsh))
 
 - **Code editor:** [Neovim](https://github.com/Warbacon/nvim-config)/VSCode
 
