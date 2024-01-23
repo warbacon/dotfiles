@@ -13,7 +13,7 @@ function go_dir
         return
     end
 
-    cd "$dir"
+    cd $dir 
 
     commandline -f repaint
 end

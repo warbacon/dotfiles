@@ -4,6 +4,8 @@ set -gx VISUAL nvim
 status is-interactive
 or return
 
+set -g fish_greeting
+
 command -q fastfetch
 and abbr -a ffetch fastfetch
 
