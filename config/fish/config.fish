@@ -6,10 +6,18 @@ if command -q nvim
 end
 # -----------------------------------------------------------------------------
 
-status is-interactive  # Do anything if isn't interactive
+status is-interactive  # Do nothing if isn't interactive
 or return
 
+# INTERACTIVE MODE START ======================================================
+
+# VARIABLES -------------------------------------------------------------------
 set -g fish_greeting  # Disable fish_greeting
+set -gx FZF_DEFAULT_OPTS "\
+--color=bg+:#313244,bg:#1e1e2e,spinner:#f5e0dc,hl:#f38ba8 \
+--color=fg:#cdd6f4,header:#f38ba8,info:#cba6f7,pointer:#f5e0dc \
+--color=marker:#f5e0dc,fg+:#cdd6f4,prompt:#cba6f7,hl+:#f38ba8"
+# -----------------------------------------------------------------------------
 
 # ABBREVIATIONS ---------------------------------------------------------------
 command -q fastfetch
@@ -31,16 +39,20 @@ if command -q eza
     abbr -a lla eza --icons --group-directories-first -la --git
     abbr -a lt eza --icons -T
 end
+# -----------------------------------------------------------------------------
 
 # KEYBINDINGS -----------------------------------------------------------------
 bind \eg "go_dir $HOME/Git"
 bind \ec "go_dir $HOME/.config"
+bind \es prepend_sudo
+# -----------------------------------------------------------------------------
 
 # MODIFY $PATH ----------------------------------------------------------------
 fish_add_path -P "$HOME/.local/bin"
 
 test -f "/opt/miniconda3/etc/fish/conf.d/conda.fish"
 and source "/opt/miniconda3/etc/fish/conf.d/conda.fish"
+# -----------------------------------------------------------------------------
 
 # PROMPT ----------------------------------------------------------------------
 function prompt_hook --on-event fish_prompt
@@ -53,3 +65,4 @@ end
 
 command -q starship
 and starship init fish --print-full-init | source
+# -----------------------------------------------------------------------------
