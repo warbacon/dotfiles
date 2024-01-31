@@ -2,4 +2,4 @@
 
 # Should be used after installing Fedora Workstation.
 
-sudo dnf rm @libreoffice *libreoffice* @guest-desktop-agents gnome-text-editor gnome-contacts gnome-connections gnome-weather cheese* simple-scan gnome-clocks gnome-maps mediawriter gnome-boxes gnome-photos totem gnome-tour gnome-system-monitor baobab yelp* eog rhythmbox gnome-calendar
+sudo dnf remove @guest-desktop-agents @libreoffice libreoffice* baobab cheese gnome-boxes gnome-calendar gnome-clocks gnome-connections gnome-contacts gnome-maps gnome-system-monitor gnome-text-editor gnome-tour gnome-user-docs gnome-weather gnome-weather mediawriter rhythmbox simple-scan totem yelp*
