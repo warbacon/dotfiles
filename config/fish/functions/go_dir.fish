@@ -1,8 +1,6 @@
 function go_dir
-    if not command -q fzf
-        echo "fzf is not installed."
-        return
-    end
+    not command -q fzf
+    and return
 
     test -z $argv[1]
     and return

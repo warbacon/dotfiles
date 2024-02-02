@@ -1,8 +1,8 @@
 # ENVIROMENT VARIABLES --------------------------------------------------------
 if command -q nvim
-    set -gx EDITOR nvim
-    set -gx VISUAL nvim
-    set -gx MANPAGER 'nvim +Man!'
+    set -x EDITOR nvim
+    set -x VISUAL nvim
+    set -x MANPAGER 'nvim +Man!'
 end
 # -----------------------------------------------------------------------------
 
@@ -13,7 +13,7 @@ or return
 
 # VARIABLES -------------------------------------------------------------------
 set -g fish_greeting  # Disable fish_greeting
-set -gx FZF_DEFAULT_OPTS "\
+set -x FZF_DEFAULT_OPTS "\
 --color=bg+:#313244,bg:#1e1e2e,spinner:#f5e0dc,hl:#f38ba8 \
 --color=fg:#cdd6f4,header:#f38ba8,info:#cba6f7,pointer:#f5e0dc \
 --color=marker:#f5e0dc,fg+:#cdd6f4,prompt:#cba6f7,hl+:#f38ba8"
@@ -42,25 +42,26 @@ end
 # -----------------------------------------------------------------------------
 
 # KEYBINDINGS -----------------------------------------------------------------
-bind \eg "go_dir $HOME/Git"
-bind \ec "go_dir $HOME/.config"
+if command -q fzf
+    bind \eg "go_dir $HOME/Git"
+    bind \ec "go_dir $HOME/.config"
+end
 bind \es prepend_sudo
 # -----------------------------------------------------------------------------
 
 # MODIFY $PATH ----------------------------------------------------------------
 fish_add_path -P "$HOME/.local/bin"
-
-test -f "/opt/miniconda3/etc/fish/conf.d/conda.fish"
-and source "/opt/miniconda3/etc/fish/conf.d/conda.fish"
 # -----------------------------------------------------------------------------
 
 # PROMPT ----------------------------------------------------------------------
 function prompt_hook --on-event fish_prompt
     test -z $add_newline; and set -g add_newline true; or printf "\n"
 
-    test $PWD = $HOME/Git
-    and abbr -a ll eza --icons --group-directories-first -l --git --git-repos
-    or abbr -a ll eza --icons --group-directories-first -l --git
+    if command -q eza
+    	test $PWD = $HOME/Git
+	and abbr -a ll eza --icons --group-directories-first -l --git --git-repos
+	or abbr -a ll eza --icons --group-directories-first -l --git
+    end
 end
 
 command -q starship
