@@ -74,31 +74,35 @@ button:hover {
 }
 
 #clock {
-    color: @mauve;
+    color: @blue;
+}
+
+#network {
+    color: @sky;
 }
 
 #battery {
-    color: @peach;
+    color: @green;
 }
 
 #battery.charging, #battery.plugged {
     color: @yellow;
 }
 
-@keyframes blink {
-    to {
-        background-color: #ffffff;
-        color: #000000;
-    }
-}
+/* @keyframes blink { */
+/*     to { */
+/*         background-color: #ffffff; */
+/*         color: #000000; */
+/*     } */
+/* } */
 
 #battery.critical:not(.charging) {
     color: @red;
-    animation-name: blink;
-    animation-duration: 0.5s;
-    animation-timing-function: linear;
-    animation-iteration-count: infinite;
-    animation-direction: alternate;
+    /* animation-name: blink; */
+    /* animation-duration: 0.5s; */
+    /* animation-timing-function: linear; */
+    /* animation-iteration-count: infinite; */
+    /* animation-direction: alternate; */
 }
 
 label:focus {
@@ -106,11 +110,7 @@ label:focus {
 }
 
 #backlight {
-    color: @teal;
-}
-
-#network {
-    color: @sapphire;
+    color: @peach;
 }
 
 #network.disconnected {
@@ -118,21 +118,21 @@ label:focus {
 }
 
 #pulseaudio {
-    color: @maroon;
+    color: @mauve;
 }
 
 #pulseaudio.muted {
     color: @overlay0;
 }
 
-#wireplumber {
-    background-color: #fff0f5;
-    color: #000000;
-}
+/* #wireplumber { */
+/*     background-color: #fff0f5; */
+/*     color: #000000; */
+/* } */
 
-#wireplumber.muted {
-    background-color: #f53c3c;
-}
+/* #wireplumber.muted { */
+/*     background-color: #f53c3c; */
+/* } */
 
 #tray {
     background-color: @surface0;
@@ -147,38 +147,13 @@ label:focus {
 
 #tray > .needs-attention {
     -gtk-icon-effect: highlight;
-    background-color: #eb4d4b;
+    background-color: @peach;
 }
 
-#idle_inhibitor {
-    background-color: #2d3436;
-}
+/* #scratchpad { */
+/*     background: rgba(0, 0, 0, 0.2); */
+/* } */
 
-#idle_inhibitor.activated {
-    background-color: #ecf0f1;
-    color: #2d3436;
-}
-
-#keyboard-state {
-    background: #97e1ad;
-    color: #000000;
-    padding: 0 0px;
-    margin: 0 5px;
-    min-width: 16px;
-}
-
-#keyboard-state > label {
-    padding: 0 5px;
-}
-
-#keyboard-state > label.locked {
-    background: rgba(0, 0, 0, 0.2);
-}
-
-#scratchpad {
-    background: rgba(0, 0, 0, 0.2);
-}
-
-#scratchpad.empty {
-	background-color: transparent;
-}
+/* #scratchpad.empty { */
+/* 	background-color: transparent; */
+/* } */
