@@ -16,7 +16,8 @@ set -g fish_greeting  # Disable fish_greeting
 set -x FZF_DEFAULT_OPTS "\
 --color=bg+:#313244,bg:#1e1e2e,spinner:#f5e0dc,hl:#f38ba8 \
 --color=fg:#cdd6f4,header:#f38ba8,info:#cba6f7,pointer:#f5e0dc \
---color=marker:#f5e0dc,fg+:#cdd6f4,prompt:#cba6f7,hl+:#f38ba8"
+--color=marker:#f5e0dc,fg+:#cdd6f4,prompt:#cba6f7,hl+:#f38ba8 \
+--pointer '->'"
 # -----------------------------------------------------------------------------
 
 # ABBREVIATIONS ---------------------------------------------------------------
@@ -32,6 +33,9 @@ or echo "WARNING: trash-cli is not installed."
 
 test $TERM = "xterm-kitty"
 and abbr -a icat kitten icat
+
+test -n $WEZTERM_EXECUTABLE
+and abbr -a icat wezterm imgcat
 
 if command -q eza
     abbr -a ls eza --icons --group-directories-first
@@ -59,8 +63,8 @@ function prompt_hook --on-event fish_prompt
 
     if command -q eza
     	test $PWD = $HOME/Git
-	and abbr -a ll eza --icons --group-directories-first -l --git --git-repos
-	or abbr -a ll eza --icons --group-directories-first -l --git
+	    and abbr -a ll eza --icons --group-directories-first -l --git --git-repos
+	    or abbr -a ll eza --icons --group-directories-first -l --git
     end
 end
 
