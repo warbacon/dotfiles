@@ -1,0 +1,7 @@
+import = [ "~/.config/alacritty/catppuccin-mocha.toml" ]
+
+shell = "fish"
+
+[font]
+normal = {family = "JetBrains Mono"}
+size = 14.5
