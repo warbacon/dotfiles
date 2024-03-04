@@ -1,6 +1,6 @@
 function prepend_sudo
     set -l buffer (commandline -o)
-    
+
     # Feillo pero funciona.
     if test "$buffer[1]" = "$EDITOR"
         commandline -r "sudo -e $buffer[2..]"
@@ -13,9 +13,9 @@ function prepend_sudo
         else if test "$nose[1..2]" = "sudo -e"
             commandline -r "$EDITOR $nose[3..]"
         else
-            fish_commandline_prepend "sudo"
+            fish_commandline_prepend sudo
         end
     else
-        fish_commandline_prepend "sudo"
+        fish_commandline_prepend sudo
     end
 end

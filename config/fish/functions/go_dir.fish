@@ -8,12 +8,12 @@ function go_dir
     set -l prompt (string replace "$HOME" '~' $argv[1])
 
     set dir "$argv[1]/"(find "$argv[1]/"* -maxdepth 0 -type d -printf "%f\n" | fzf --prompt "$prompt/")
-    
+
     if test -z "$dir"
         return
     end
 
-    cd $dir 
+    cd $dir
 
     commandline -f repaint
 end

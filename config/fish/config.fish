@@ -6,13 +6,13 @@ if command -q nvim
 end
 # -----------------------------------------------------------------------------
 
-status is-interactive  # Do nothing if isn't interactive
+status is-interactive # Do nothing if isn't interactive
 or return
 
 # INTERACTIVE MODE START ======================================================
 
 # VARIABLES -------------------------------------------------------------------
-set -g fish_greeting  # Disable fish_greeting
+set -g fish_greeting # Disable fish_greeting
 set -x FZF_DEFAULT_OPTS "\
 --color=bg+:#313244,bg:#1e1e2e,spinner:#f5e0dc,hl:#f38ba8 \
 --color=fg:#cdd6f4,header:#f38ba8,info:#cba6f7,pointer:#f5e0dc \
@@ -31,7 +31,7 @@ command -q trash
 and abbr -a rm trash
 or echo "WARNING: trash-cli is not installed."
 
-test $TERM = "xterm-kitty"
+test $TERM = xterm-kitty
 and abbr -a icat kitten icat
 
 test -n $WEZTERM_EXECUTABLE
@@ -62,9 +62,9 @@ function prompt_hook --on-event fish_prompt
     test -z $add_newline; and set -g add_newline true; or printf "\n"
 
     if command -q eza
-    	test $PWD = $HOME/Git
-	    and abbr -a ll eza --icons --group-directories-first -l --git --git-repos
-	    or abbr -a ll eza --icons --group-directories-first -l --git
+        test $PWD = $HOME/Git
+        and abbr -a ll eza --icons --group-directories-first -l --git --git-repos
+        or abbr -a ll eza --icons --group-directories-first -l --git
     end
 end
 
