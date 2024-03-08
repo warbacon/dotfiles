@@ -1,16 +1,23 @@
 #!/usr/bin/env bash
 
-options="Salir de Hyprland\nSuspender\nApagar\nReiniciar"
+options="Conmutar luz nocturna\nSuspender\nSalir de Hyprland\nApagar\nReiniciar"
 
-selected="$(echo -e "$options" | fuzzel --dmenu)"
+selected="$(echo -e "$options" | rofi -dmenu -i -l 5 -p Opciones -no-show-icons)"
 
 case "$selected" in
-    "Salir de Hyprland")
-        hyprctl dispatcher exit
+    "Conmutar luz nocturna")
+        if pgrep gammastep; then
+            killall gammastep
+        else
+            gammastep -O 3500
+        fi
         ;;
     "Suspender")
         swaylock &
         systemctl suspend
+        ;;
+    "Salir de Hyprland")
+        hyprctl dispatcher exit
         ;;
     "Apagar")
         systemctl poweroff
@@ -19,6 +26,6 @@ case "$selected" in
         systemctl reboot
         ;;
     *)
-        echo "Error."
+        exit 1
         ;;
 esac

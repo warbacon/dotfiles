@@ -1,6 +1,5 @@
 indicator-idle-visible
-font=Fira Code
-font-size=30
+font=Cantarell Bold
 indicator-radius=60
 
 color=1e1e2e

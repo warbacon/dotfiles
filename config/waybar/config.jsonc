@@ -1,0 +1,62 @@
+{
+	"layer": "top", // Waybar at top layer
+	"height": 32, // Waybar height (to be removed for auto height)
+	"spacing": 4, // Gaps between modules (4px)
+	"modules-left": ["hyprland/workspaces", "hyprland/window"],
+	"modules-center": [],
+	"modules-right": [
+		"pulseaudio",
+		"backlight",
+		"battery",
+		"network",
+		"clock",
+		"tray"
+	],
+	// Modules configuration
+	"hyprland/workspaces": {
+		// "format": "{name}",
+	},
+	"tray": {
+		"spacing": 10
+	},
+	"clock": {
+		"tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
+		"format": " {:%H:%M}",
+		"format-alt": " {:%d/%m/%Y}"
+	},
+	"battery": {
+		"states": {
+			// "good": 95,
+			"warning": 30,
+			"critical": 20
+		},
+		"tooltip-format": "Tiempo restante: {time}",
+		"format": "{icon} {capacity}%",
+		"format-charging": "{capacity}% ",
+		"format-alt": "{icon} {time}",
+		"format-icons": ["", "", "", "", ""]
+	},
+	"backlight": {
+		"tooltip-format": "Brillo: {percent}%",
+		"format": "{icon} {percent}%",
+		"format-icons": ["", "", "", "", "", "", "", "", ""]
+	},
+	"network": {
+		"format-wifi": "{icon} {signalStrength}%",
+		"tooltip-format": "{essid} en {gwaddr}",
+		"format-disconnected": " Desconectado",
+		"format-icons": ["󰤟", "󰤢", "󰤥", "󰤨"]
+	},
+	"pulseaudio": {
+		"format": "{icon} {volume}% {format_source}",
+		"format-muted": "󰝟 {format_source}",
+		"format-source": " {volume}%",
+		"format-source-muted": "",
+		"format-icons": {
+			"headphone": "",
+			"headset": "󰋎",
+			"default": ["", "", ""]
+		},
+		"on-click": "pavucontrol"
+	}
+}

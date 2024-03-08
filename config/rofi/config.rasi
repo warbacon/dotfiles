@@ -1,0 +1,8 @@
+configuration {
+    modes: "drun,run";
+	show-icons: true;
+	display-run: "Comandos";
+	display-drun: "Aplicaciones";
+}
+
+@theme "catppuccin-mocha"

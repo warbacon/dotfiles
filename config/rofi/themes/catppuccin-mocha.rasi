@@ -1,0 +1,68 @@
+* {
+    base: #1e1e2e;
+    text: #cdd6f4;
+    surface0: #313244;
+    surface1: #45475a;
+    maroon: #eba0ac;
+    color: var(text);
+    background-color: transparent;
+    font: "Cantarell 13";
+}
+
+window {
+    background-color: var(base);
+    padding: 5px 0;
+    border: 1px;
+    border-color: var(surface1);
+    border-radius: 10px;
+    width: 600px;
+}
+
+button {
+    cursor: pointer;
+}
+
+inputbar {
+    padding: 10px 12px;
+    children:   [ "prompt","textbox-prompt-colon","entry"];
+}
+
+prompt {
+    font: "Cantarell Bold 13";
+}
+
+textbox-prompt-colon {
+    color: var(maroon);
+    font: "Cantarell Bold 13";
+    margin:     0px 0.3000em 0.0000em 0.0000em ;
+    expand:     false;
+    str:        ":";
+}
+
+entry {
+    cursor: text;
+}
+
+element {
+    padding: 8px 12px;
+    cursor:  pointer;
+}
+
+element-text {
+    cursor: inherit;
+}
+
+element-icon {
+    padding: 0 12px 0 0;
+    cursor: inherit;
+}
+
+element selected {
+    background-color: var(surface0);
+}
+
+listview {
+    lines: 8;
+}
+
+

@@ -1,5 +1,7 @@
-font=Fira Code 11
+font=Cantarell 11
 border-radius=10
+
+# Colors
 
 # Colors
 
@@ -10,4 +12,3 @@ progress-color=over #313244
 
 [urgency=high]
 border-color=#fab387
-
