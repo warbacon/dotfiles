@@ -2,6 +2,7 @@
 "$schema" = 'https://starship.rs/config-schema.json'
 
 add_newline = false
+# $line_break\
 
 format = """
 $username\
@@ -10,25 +11,30 @@ $git_branch\
 $git_commit\
 $git_state\
 $git_status\
+$python\
 $cmd_duration\
 $jobs\
-$line_break\
 $status\
 $character"""
-
-[character]
-success_symbol = '❱'
-error_symbol = '[❱](bright-red)'
 
 [directory]
 read_only = ' 󰌾'
 truncation_length = 0
+style = 'bold blue'
 
 [git_commit]
 tag_disabled = false
 tag_symbol = '  '
 
+[python]
+symbol = ' '
+detect_extensions = []
+
 [status]
 disabled = false
 format = '[$status]($style) '
 style = 'bold bright-red'
+
+[character]
+success_symbol = '[>](bold)'
+error_symbol = '[>](bold bright-red)'
