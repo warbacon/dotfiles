@@ -34,7 +34,7 @@ or echo "WARNING: trash-cli is not installed."
 test $TERM = xterm-kitty
 and abbr -a icat kitten icat
 
-test -n $WEZTERM_EXECUTABLE
+set -q $WEZTERM_EXECUTABLE
 and abbr -a icat wezterm imgcat
 
 if command -q eza
