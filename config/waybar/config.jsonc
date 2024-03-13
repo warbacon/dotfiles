@@ -2,14 +2,12 @@
 	"layer": "top", // Waybar at top layer
 	"height": 32, // Waybar height (to be removed for auto height)
 	"spacing": 4, // Gaps between modules (4px)
-	"modules-left": ["hyprland/workspaces", "hyprland/window"],
-	"modules-center": [],
+	"modules-left": ["hyprland/workspaces"],
+	"modules-center": ["clock"],
 	"modules-right": [
 		"pulseaudio",
 		"backlight",
 		"battery",
-		"network",
-		"clock",
 		"tray"
 	],
 	// Modules configuration
@@ -21,8 +19,7 @@
 	},
 	"clock": {
 		"tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
-		"format": " {:%H:%M}",
-		"format-alt": " {:%d/%m/%Y}"
+		"format": "{:%e de %b  %H:%M}",
 	},
 	"battery": {
 		"states": {
@@ -48,15 +45,13 @@
 		"format-icons": ["󰤟", "󰤢", "󰤥", "󰤨"]
 	},
 	"pulseaudio": {
-		"format": "{icon} {volume}% {format_source}",
-		"format-muted": "󰝟 {format_source}",
-		"format-source": " {volume}%",
-		"format-source-muted": "",
+		"format": "{icon} {volume}%",
+		"format-muted": "󰝟",
 		"format-icons": {
 			"headphone": "",
 			"headset": "󰋎",
 			"default": ["", "", ""]
 		},
 		"on-click": "pavucontrol"
-	}
+	},
 }

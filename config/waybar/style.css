@@ -2,7 +2,7 @@
 
 * {
     font-family: Cantarell, "Symbols Nerd Font";
-    font-size: 13px;
+    font-size: 14px;
 }
 
 window#waybar {
@@ -48,10 +48,8 @@ button {
     color: @base;
 }
 
-#clock,
 #battery,
 #backlight,
-#network,
 #pulseaudio,
 #tray {
     padding: 0 10px;
@@ -72,9 +70,9 @@ button {
     margin-right: 0;
 }
 
-#clock {
-    color: @blue;
-}
+/* #clock { */
+/*     color: @blue; */
+/* } */
 
 #network {
     color: @sky;
