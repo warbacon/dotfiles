@@ -5,11 +5,7 @@ local wezterm = require("wezterm")
 local config = wezterm.config_builder()
 
 -- GENERAL
--- config.default_prog = { "fish" }
--- config.default_prog = { "pwsh", "-NoLogo" }
--- config.max_fps = 144
--- config.initial_cols = 110
--- config.initial_rows = 26
+config.default_prog = { "fish" }
 config.adjust_window_size_when_changing_font_size = false
 config.mouse_wheel_scrolls_tabs = false
 config.unicode_version = 14
@@ -35,14 +31,6 @@ config.launch_menu = {
 			"diiuca/poo",
 		},
 	},
-	{
-		label = "Windows Powershell",
-		args = { "powershell", "-NoLogo" },
-	},
-	{
-		label = "Símbolo del sistema",
-		args = { "cmd" },
-	},
 }
 
 -- UI
@@ -57,8 +45,7 @@ config.font = wezterm.font_with_fallback({
 	"Segoe UI Emoji",
 	"Noto Color Emoji",
 })
-config.font_size = 20
--- config.font_size = 17.5
+config.font_size = 17.5
 config.hide_tab_bar_if_only_one_tab = true
 config.tab_max_width = 999
 config.tab_bar_at_bottom = true
@@ -123,6 +110,23 @@ for i = 1, 9 do
 		key = tostring(i),
 		mods = "ALT",
 		action = wezterm.action.ActivateTab(i - 1),
+	})
+end
+--
+-- Window PC especific config
+if wezterm.hostname() == "windows-pc" then
+	config.default_prog = { "pwsh", "-NoLogo" }
+	config.max_fps = 144
+	config.initial_cols = 110
+	config.initial_rows = 26
+	config.font_size = 20
+	table.insert(config.launch_menu, {
+		label = "Windows Powershell",
+		args = { "powershell", "-NoLogo" },
+	})
+	table.insert(config.launch_menu, {
+		label = "Símbolo del sistema",
+		args = { "cmd" },
 	})
 end
 
