@@ -1,5 +1,5 @@
 indicator-idle-visible
-font=Cantarell Bold
+font=Inter Semibold
 indicator-radius=60
 
 color=1e1e2e

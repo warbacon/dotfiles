@@ -2,7 +2,6 @@
 "$schema" = 'https://starship.rs/config-schema.json'
 
 add_newline = false
-# $line_break\
 
 format = """
 $username\
@@ -14,6 +13,7 @@ $git_status\
 $python\
 $cmd_duration\
 $jobs\
+$line_break\
 $status\
 $character"""
 

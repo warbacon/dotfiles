@@ -6,7 +6,7 @@
     maroon: #eba0ac;
     color: var(text);
     background-color: transparent;
-    font: "Cantarell 13";
+    font: "Inter 13";
 }
 
 window {
@@ -28,12 +28,12 @@ inputbar {
 }
 
 prompt {
-    font: "Cantarell Bold 13";
+    font: "Inter Bold 13";
 }
 
 textbox-prompt-colon {
     color: var(maroon);
-    font: "Cantarell Bold 13";
+    font: "Inter Bold 13";
     margin:     0px 0.3000em 0.0000em 0.0000em ;
     expand:     false;
     str:        ":";
@@ -64,5 +64,4 @@ element selected {
 listview {
     lines: 8;
 }
-
 

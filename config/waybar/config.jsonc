@@ -29,7 +29,7 @@
 		},
 		"tooltip-format": "Tiempo restante: {time}",
 		"format": "{icon} {capacity}%",
-		"format-charging": "{capacity}% ",
+		"format-charging": "󰚥 {capacity}%",
 		"format-alt": "{icon} {time}",
 		"format-icons": ["", "", "", "", ""]
 	},

@@ -5,20 +5,32 @@ local wezterm = require("wezterm")
 local config = wezterm.config_builder()
 
 -- GENERAL
--- config.default_prog = { "fish" }
--- config.front_end = "WebGpu"
-config.term = "wezterm"
+config.default_prog = { "fish" }
+-- config.default_prog = { "pwsh", "-NoLogo" }
+-- config.max_fps = 144
 config.unicode_version = 14
 config.warn_about_missing_glyphs = false
+config.launch_menu = {
+	{
+		label = "zsh",
+		args = { "zsh" },
+	},
+	{
+		label = "bash",
+		args = { "bash" },
+	},
+}
 
 -- UI
 config.color_scheme = "Catppuccin Mocha"
+config.command_palette_fg_color = "#cdd6f4"
+config.command_palette_bg_color = "#45475a"
 config.font = wezterm.font_with_fallback({
-	"JetBrains Mono",
+	"Iosevka Term",
 	"Symbols Nerd Font",
 	"Noto Color Emoji",
 })
-config.font_size = 14.5
+config.font_size = 15.16
 config.hide_tab_bar_if_only_one_tab = true
 config.tab_max_width = 999
 config.tab_bar_at_bottom = true
@@ -45,7 +57,7 @@ wezterm.on("format-tab-title", function(tab)
 	end
 	return {
 		{ Attribute = { Intensity = "Bold" } },
-			{ Text = "  " .. index + 1 .. ":" .. title .. "  " },
+		{ Text = "  " .. index + 1 .. ":" .. title .. "  " },
 	}
 end)
 
@@ -56,9 +68,28 @@ config.keys = {
 		mods = "CTRL|SHIFT",
 		action = wezterm.action.CloseCurrentPane({ confirm = true }),
 	},
+	{
+		key = "UpArrow",
+		mods = "CTRL|SHIFT|ALT",
+		action = wezterm.action.AdjustPaneSize({ "Up", 2 }),
+	},
+	{
+		key = "DownArrow",
+		mods = "CTRL|SHIFT|ALT",
+		action = wezterm.action.AdjustPaneSize({ "Down", 2 }),
+	},
+	{
+		key = "RightArrow",
+		mods = "CTRL|SHIFT|ALT",
+		action = wezterm.action.AdjustPaneSize({ "Right", 5 }),
+	},
+	{
+		key = "LeftArrow",
+		mods = "CTRL|SHIFT|ALT",
+		action = wezterm.action.AdjustPaneSize({ "Left", 5 }),
+	},
 }
 
--- ALT + number to activate that tab
 for i = 1, 9 do
 	table.insert(config.keys, {
 		key = tostring(i),
