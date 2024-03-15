@@ -12,12 +12,24 @@ config.unicode_version = 14
 config.warn_about_missing_glyphs = false
 config.launch_menu = {
 	{
+		label = "bash",
+		args = { "bash" },
+	},
+	{
 		label = "zsh",
 		args = { "zsh" },
 	},
 	{
-		label = "bash",
-		args = { "bash" },
+		label = "POO",
+		args = {
+			"docker",
+			"run",
+			"-it",
+			"--rm",
+			"-v",
+			wezterm.home_dir .. "/Git/POO:/home/poo",
+			"diiuca/poo",
+		},
 	},
 }
 
@@ -30,7 +42,7 @@ config.font = wezterm.font_with_fallback({
 	"Symbols Nerd Font",
 	"Noto Color Emoji",
 })
-config.font_size = 15.16
+config.font_size = 17.5
 config.hide_tab_bar_if_only_one_tab = true
 config.tab_max_width = 999
 config.tab_bar_at_bottom = true
