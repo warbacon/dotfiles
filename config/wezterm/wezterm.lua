@@ -5,7 +5,7 @@ local wezterm = require("wezterm")
 local config = wezterm.config_builder()
 
 -- GENERAL
-config.default_prog = { "fish" }
+-- config.default_prog = { "fish" }
 config.adjust_window_size_when_changing_font_size = false
 config.mouse_wheel_scrolls_tabs = false
 config.unicode_version = 14
@@ -18,18 +18,6 @@ config.launch_menu = {
 	{
 		label = "zsh",
 		args = { "zsh" },
-	},
-	{
-		label = "POO",
-		args = {
-			"docker",
-			"run",
-			"-it",
-			"--rm",
-			"-v",
-			wezterm.home_dir .. "/Git/POO:/home/poo",
-			"diiuca/poo",
-		},
 	},
 }
 
