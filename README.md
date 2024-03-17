@@ -1,6 +1,6 @@
 # My dotfiles
 
-These are my dotfiles used on both Arch Linux and Windows. 
+These are my dotfiles used on both Arch Linux and Windows.
 
 My PowerShell and Neovim configurations are in these repositories:
 
