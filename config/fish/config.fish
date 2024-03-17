@@ -54,7 +54,9 @@ if command -q fzf
     bind \eg "go_dir $HOME/Git"
     bind \ec "go_dir $HOME/.config"
 end
+
 bind \es prepend_sudo
+bind \e\[3\;5~ kill-word
 # -----------------------------------------------------------------------------
 
 # PROMPT ----------------------------------------------------------------------
