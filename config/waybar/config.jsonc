@@ -12,7 +12,11 @@
 	],
 	// Modules configuration
 	"hyprland/workspaces": {
-		// "format": "{name}",
+		"show-special": true,
+		"format": "{icon}",
+		"format-icons": {
+			"special": "󰫢"
+		},
 	},
 	"tray": {
 		"spacing": 10
@@ -23,7 +27,6 @@
 	},
 	"battery": {
 		"states": {
-			// "good": 95,
 			"warning": 30,
 			"critical": 20
 		},
