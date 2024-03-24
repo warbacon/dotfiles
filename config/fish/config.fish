@@ -30,6 +30,9 @@ and abbr -a ffetch fastfetch
 command -q lazygit
 and abbr -a lg lazygit
 
+command -q nvim
+and abbr -a ng nvim +Neogit
+
 command -q trash
 and abbr -a rm trash
 or printf "%sWARNING:%s trash-cli is not installed.\n" \
@@ -65,7 +68,7 @@ function prompt_hook --on-event fish_prompt
 
     if command -q eza
         test $PWD = $HOME/Git
-        and abbr -a ll eza --icons --group-directories-first -l --git --git-repos
+        and abbr -a ll eza --icons --group-directories-first -l --git-repos
         or abbr -a ll eza --icons --group-directories-first -l --git
     end
 end
