@@ -24,64 +24,65 @@ button {
     /* Avoid rounded borders under each button name */
     border: none;
     border-radius: 0;
+    font-weight: inherit;
+}
+
+#workspaces {
+    background-color: @surface0;
+    margin: 6px 2px 6px 6px;
+    border-radius: 4px;
+    border: 1px solid @surface1;
 }
 
 #workspaces button {
-    padding: 0 5px;
-    font-weight: 600;
+    padding: 0px 8px;
+    margin: 2px;
+    border-radius: 2px;
+    color: inherit;
     background-color: transparent;
-    color: @text;
     transition-property: none;
 }
 
 #workspaces button:hover {
-    background: @base;
-    box-shadow: inset 0 -1px @surface0;
+    background: @surface1;
+}
+
+#workspaces button.special.active {
+    background: @peach;
 }
 
 #workspaces button.active {
-    background-color: @surface0;
-    font-weight: 700;
-    box-shadow: inset 0 -3px @maroon;
+    background-color: @sapphire;
+    color: @surface0;
 }
 
 #workspaces button.urgent {
     background-color: @red;
-    color: @base;
+    color: @surface0;
 }
 
 #battery,
 #backlight,
 #pulseaudio,
+#clock,
 #tray {
+    background-color: @surface0;
     padding: 0 10px;
+    margin: 6px 0;
+    border-radius: 4px;
+    border: 1px solid @surface1;
 }
 
-#window,
-#workspaces {
-    margin: 0 4px;
+#clock {
+    margin-right: 6px;
 }
-
-/* If workspaces is the leftmost module, omit left margin */
-.modules-left>widget:first-child>#workspaces {
-    margin-left: 0;
-}
-
-/* If workspaces is the rightmost module, omit right margin */
-.modules-right>widget:last-child>#workspaces {
-    margin-right: 0;
-}
-
-/* #clock { */
-/*     color: @blue; */
-/* } */
 
 #network {
     color: @sky;
 }
 
 #network.disconnected {
-    color: @overlay0;
+    color: @subtext0;
 }
 
 #battery {
@@ -106,13 +107,10 @@ button {
 }
 
 #pulseaudio.muted {
-    color: @overlay0;
+    color: @subtext0;
 }
 
 #tray {
-    background-color: @surface1;
-    margin: 4px 0;
-    border-radius: 999px;
     font-weight: normal;
 }
 
