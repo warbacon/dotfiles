@@ -38,9 +38,9 @@
             "critical": 20
         },
         "tooltip-format": "Tiempo restante: {time}",
-        "format": "{icon} {capacity}%",
-        "format-charging": "󰚥 {capacity}%",
-        "format-alt": "{icon} {time}",
+        "format": "{icon}  {capacity} %",
+        "format-charging": "  {capacity} %",
+        "format-alt": "{icon}  {time}",
         "format-icons": [
             "",
             "",
@@ -51,38 +51,20 @@
     },
     "backlight": {
         "tooltip-format": "Brillo: {percent}%",
-        "format": "{icon} {percent}%",
+        "format": "{icon}  {percent} %",
         "format-icons": [
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            ""
-        ]
-    },
-    "network": {
-        "format-wifi": "{icon} {signalStrength}%",
-        "tooltip-format": "{essid} en {gwaddr}",
-        "format-disconnected": " Desconectado",
-        "format-icons": [
-            "󰤟",
-            "󰤢",
-            "󰤥",
-            "󰤨"
+            "󰃞",
+            "󰃟",
+            "󰃠"
         ]
     },
     "pulseaudio": {
-        "format": "{icon} {volume}%",
+        "format": "{icon}  {volume} %",
         "format-muted": "󰝟",
         "format-icons": {
             "headphone": "",
             "headset": "󰋎",
             "default": [
-                "",
                 "",
                 ""
             ]

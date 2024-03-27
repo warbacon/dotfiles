@@ -28,10 +28,10 @@ button {
 }
 
 #workspaces {
-    background-color: @surface0;
+    background-color: @base;
     margin: 6px 2px 6px 6px;
     border-radius: 4px;
-    border: 1px solid @surface1;
+    border: 1px solid @surface0;
 }
 
 #workspaces button {
@@ -44,7 +44,7 @@ button {
 }
 
 #workspaces button:hover {
-    background: @surface1;
+    background: @surface0;
 }
 
 #workspaces button.special.active {
@@ -53,7 +53,7 @@ button {
 
 #workspaces button.active {
     background-color: @sapphire;
-    color: @surface0;
+    color: @base;
 }
 
 #workspaces button.urgent {
@@ -64,25 +64,15 @@ button {
 #battery,
 #backlight,
 #pulseaudio,
-#clock,
 #tray {
-    background-color: @surface0;
+    background-color: @base;
     padding: 0 10px;
     margin: 6px 0;
     border-radius: 4px;
-    border: 1px solid @surface1;
+    border: 1px solid @surface0;
 }
-
 #clock {
-    margin-right: 6px;
-}
-
-#network {
-    color: @sky;
-}
-
-#network.disconnected {
-    color: @subtext0;
+    margin: 0 10px 0 4px;
 }
 
 #battery {
@@ -107,7 +97,7 @@ button {
 }
 
 #pulseaudio.muted {
-    color: @subtext0;
+    color: @overlay2;
 }
 
 #tray {
