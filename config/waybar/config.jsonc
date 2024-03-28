@@ -30,7 +30,7 @@
     },
     "clock": {
         "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
-        "format": "{:%e de %b  %H:%M}"
+        "format": "󱑆  <span color='#cdd6f4'>{:%e de %b  %H:%M}</span>"
     },
     "battery": {
         "states": {
@@ -38,8 +38,8 @@
             "critical": 20
         },
         "tooltip-format": "Tiempo restante: {time}",
-        "format": "{icon}  {capacity} %",
-        "format-charging": "  {capacity} %",
+        "format": "{icon}  <span color='#cdd6f4'>{capacity} %</span>",
+        "format-charging": "  <span color='#cdd6f4'>{capacity} %</span>",
         "format-alt": "{icon}  {time}",
         "format-icons": [
             "",
@@ -51,7 +51,7 @@
     },
     "backlight": {
         "tooltip-format": "Brillo: {percent}%",
-        "format": "{icon}  {percent} %",
+        "format": "{icon}  <span color='#cdd6f4'>{percent} %</span>",
         "format-icons": [
             "󰃞",
             "󰃟",
@@ -59,7 +59,7 @@
         ]
     },
     "pulseaudio": {
-        "format": "{icon}  {volume} %",
+        "format": "{icon}   <span color='#cdd6f4'>{volume} %</span>",
         "format-muted": "󰝟",
         "format-icons": {
             "headphone": "",
