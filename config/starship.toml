@@ -10,7 +10,6 @@ $git_branch\
 $git_commit\
 $git_state\
 $git_status\
-$python\
 $cmd_duration\
 $jobs\
 $line_break\
@@ -26,10 +25,6 @@ style = 'bold blue'
 tag_disabled = false
 tag_symbol = '  '
 
-[python]
-symbol = ' '
-detect_extensions = []
-
 [status]
 disabled = false
 format = '[$status]($style) '
@@ -38,3 +33,5 @@ style = 'bold bright-red'
 [character]
 success_symbol = '[>](bold)'
 error_symbol = '[>](bold bright-red)'
+#success_symbol = '❯'
+#error_symbol = '[❯](bright-red)'
