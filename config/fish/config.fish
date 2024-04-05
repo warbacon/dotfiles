@@ -24,6 +24,8 @@ set -x FZF_DEFAULT_OPTS "\
 # -----------------------------------------------------------------------------
 
 # ABBREVIATIONS ---------------------------------------------------------------
+abbr --add dotdot --regex '^\.\.+$' --function multicd
+
 command -q fastfetch
 and abbr -a ffetch fastfetch
 

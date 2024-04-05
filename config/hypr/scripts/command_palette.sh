@@ -2,7 +2,7 @@
 
 options="Conmutar luz nocturna\nRecargar Hyprland\nSuspender\nSalir de Hyprland\nApagar\nReiniciar"
 
-selected="$(echo -e "$options" | rofi -dmenu -i -p Opciones -no-show-icons)"
+selected="$(echo -e "$options" | rofi -dmenu -i -l 6 -p Opciones -no-show-icons)"
 
 case "$selected" in
     "Conmutar luz nocturna")
@@ -16,7 +16,6 @@ case "$selected" in
         hyprctl reload
         ;;
     "Suspender")
-        hyprlock &
         systemctl suspend
         ;;
     "Salir de Hyprland")

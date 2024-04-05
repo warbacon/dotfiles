@@ -1,20 +1,27 @@
 {
     "layer": "top", // Waybar at top layer
-    "height": 40, // Waybar height (to be removed for auto height)
+    // "height": 26, // Waybar height (to be removed for auto height)
     "spacing": 10, // Gaps between modules (4px)
     "modules-left": [
         "hyprland/workspaces",
         "hyprland/window"
     ],
-    "modules-center": [],
+    // "modules-center": [],
     "modules-right": [
         "tray",
         "pulseaudio",
         "backlight",
         "battery",
-        "clock"
+        "network",
+        "clock",
+        "custom/command-palette"
     ],
     // Modules configuration
+    "custom/app-launcher": {
+        "format": "",
+        "tooltip": false,
+        "on-click": "rofi -show drun"
+    },
     "hyprland/workspaces": {
         "show-special": true,
         "format": "{icon}",
@@ -30,7 +37,23 @@
     },
     "clock": {
         "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
-        "format": "󱑆  <span color='#cdd6f4'>{:%e de %b  %H:%M}</span>"
+        "format": " <span color='#cdd6f4'>{:%H:%M}</span>",
+        "format-alt": " <span color='#cdd6f4'>{:%a, %e de %b}</span>"
+    },
+    "network": {
+        "format-wifi": "{icon} <span color='#cdd6f4'>{signalStrength} %</span>",
+        "format-disconnected": "{icon} sin conexión",
+        "tooltip-format": "{essid} en {ipaddr}",
+        "tooltip-format-disconnected": "Sin conexión",
+        "format-icons": {
+            "disconnected": "󰌙",
+            "wifi": [
+                "󰤟",
+                "󰤢",
+                "󰤥",
+                "󰤨"
+            ]
+        }
     },
     "battery": {
         "states": {
@@ -38,20 +61,22 @@
             "critical": 20
         },
         "tooltip-format": "Tiempo restante: {time}",
-        "format": "{icon}  <span color='#cdd6f4'>{capacity} %</span>",
-        "format-charging": "  <span color='#cdd6f4'>{capacity} %</span>",
-        "format-alt": "{icon}  {time}",
-        "format-icons": [
-            "",
-            "",
-            "",
-            "",
-            ""
-        ]
+        "format": "{icon} <span color='#cdd6f4'>{capacity} %</span>",
+        "format-alt": "{icon} <span color='#cdd6f4'>{time}</span>",
+        "format-icons": {
+            "charging": "",
+            "default": [
+                "",
+                "",
+                "",
+                "",
+                ""
+            ]
+        }
     },
     "backlight": {
         "tooltip-format": "Brillo: {percent}%",
-        "format": "{icon}  <span color='#cdd6f4'>{percent} %</span>",
+        "format": "{icon} <span color='#cdd6f4'>{percent} %</span>",
         "format-icons": [
             "󰃞",
             "󰃟",
@@ -59,7 +84,7 @@
         ]
     },
     "pulseaudio": {
-        "format": "{icon}   <span color='#cdd6f4'>{volume} %</span>",
+        "format": "{icon} <span color='#cdd6f4'>{volume} %</span>",
         "format-muted": "󰝟",
         "format-icons": {
             "headphone": "",
@@ -70,5 +95,10 @@
             ]
         },
         "on-click": "pavucontrol"
+    },
+    "custom/command-palette": {
+        "format": "󰘳",
+        "tooltip": false,
+        "on-click": "~/.config/hypr/scripts/command_palette.sh"
     }
 }

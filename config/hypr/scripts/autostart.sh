@@ -12,7 +12,5 @@ run() {
 reload hyprpaper
 reload waybar
 reload hypridle
-run nm-applet
-run blueman-applet
 run /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 run wl-clip-persist --clipboard regular

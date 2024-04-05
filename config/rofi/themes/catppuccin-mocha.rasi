@@ -9,7 +9,7 @@
     maroon: #eba0ac;
     color: var(text);
     background-color: transparent;
-    font: "Inter 12";
+    font: "Iosevka 13";
 }
 
 window {
@@ -31,12 +31,12 @@ inputbar {
 }
 
 prompt {
-    font: "Inter Bold 12";
+    font: "Iosevka Bold 13";
 }
 
 textbox-prompt-colon {
     color: var(peach);
-    font: "Inter Bold 12";
+    font: "Iosevka Bold 13";
     margin:     0px 0.3000em 0.0000em 0.0000em ;
     expand:     false;
     str:        ":";
