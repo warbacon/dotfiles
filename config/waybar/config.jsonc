@@ -13,15 +13,9 @@
         "backlight",
         "battery",
         "network",
-        "clock",
-        "custom/command-palette"
+        "clock"
     ],
     // Modules configuration
-    "custom/app-launcher": {
-        "format": "",
-        "tooltip": false,
-        "on-click": "rofi -show drun"
-    },
     "hyprland/workspaces": {
         "show-special": true,
         "format": "{icon}",
@@ -64,13 +58,18 @@
         "format": "{icon} <span color='#cdd6f4'>{capacity} %</span>",
         "format-alt": "{icon} <span color='#cdd6f4'>{time}</span>",
         "format-icons": {
-            "charging": "",
+            "charging": "󰂄",
             "default": [
-                "",
-                "",
-                "",
-                "",
-                ""
+                "󰁺",
+                "󰁻",
+                "󰁼",
+                "󰁽",
+                "󰁾",
+                "󰁿",
+                "󰂀",
+                "󰂁",
+                "󰂂",
+                "󰁹"
             ]
         }
     },
@@ -95,10 +94,5 @@
             ]
         },
         "on-click": "pavucontrol"
-    },
-    "custom/command-palette": {
-        "format": "󰘳",
-        "tooltip": false,
-        "on-click": "~/.config/hypr/scripts/command_palette.sh"
     }
 }

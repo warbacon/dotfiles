@@ -65,8 +65,6 @@ window#waybar.fullscreen #window{
     color: @sapphire;
 }
 
-#custom-app-launcher,
-#custom-command-palette,
 #battery,
 #backlight,
 #pulseaudio,
@@ -80,25 +78,9 @@ window#waybar.fullscreen #window{
     border: 1px solid @surface1;
 }
 
-#custom-command-palette {
-    color: @mauve;
-    margin-right: 6px;
-}
-
-#custom-reboot {
-    color: @peach;
-}
-
-#custom-sleep {
-    color: @sky;
-}
-
-#custom-quit {
-    color: @lavender;
-}
-
 #clock {
-    color: @lavender;
+    color: @blue;
+    margin-right: 6px;
 }
 
 #network {
