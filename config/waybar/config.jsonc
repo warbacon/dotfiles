@@ -2,6 +2,7 @@
     "layer": "top", // Waybar at top layer
     // "height": 26, // Waybar height (to be removed for auto height)
     "spacing": 10, // Gaps between modules (4px)
+    "position": "bottom",
     "modules-left": [
         "hyprland/workspaces",
         "hyprland/window"
@@ -93,6 +94,6 @@
                 ""
             ]
         },
-        "on-click": "pavucontrol"
+        "on-click": "kitty pulsemixer"
     }
 }

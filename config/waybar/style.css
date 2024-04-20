@@ -7,7 +7,7 @@
 
 window#waybar {
     background-color: @crust;
-    border-bottom: 1px solid @surface0;
+    border-top: 1px solid @surface0;
     color: @text;
     font-weight: 600;
     transition-property: background-color;
