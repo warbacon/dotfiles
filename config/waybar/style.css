@@ -1,131 +1,147 @@
-@import "./mocha.css";
+@import "mocha.css";
 
 * {
-    font-family: "Iosevka", "Symbols Nerd Font";
-    font-size: 15px;
+    border: none;
+    border-radius: 0;
+    min-height: 0;
 }
 
 window#waybar {
-    background-color: @crust;
-    border-top: 1px solid @surface0;
+    font-family: Iosevka, Symbols Nerd Font;
+    background: @mantle;
+    border-bottom: 1px solid @surface0;
     color: @text;
     font-weight: 600;
-    transition-property: background-color;
-    transition-duration: .5s;
+    font-size: 12pt;
 }
 
-window#waybar.hidden {
-    opacity: 0.2;
+tooltip {
+  background: @mantle;
+  border-radius: 5px;
+  border: 1px solid @surface0;
 }
 
-button {
-    /* Use box-shadow instead of border so the text isn't offset */
-    box-shadow: inset 0 -3px transparent;
-    /* Avoid rounded borders under each button name */
-    border: none;
-    border-radius: 0;
-    font-weight: inherit;
+tooltip label {
+    color: @text;
+    font-size: 12pt;
+    font-family: Iosevka, Symbols Nerd Font;
 }
 
 #workspaces {
+    margin-left: 6px;
     background-color: @surface0;
-    margin: 6px 2px 6px 6px;
-    border-radius: 4px;
     border: 1px solid @surface1;
+    margin: 5px;
+    border-radius: 3px;
 }
 
 #workspaces button {
-    padding: 0px 8px;
-    margin: 2px;
     border-radius: 2px;
+    margin: 2px;
+    padding: 0 8px;
     color: inherit;
-    background-color: transparent;
+    background: transparent;
     transition-property: none;
 }
 
 #workspaces button:hover {
-    background: @surface1;
-}
-
-#workspaces button.special.active {
-    background: @peach;
-}
-
-#workspaces button.active {
-    background-color: @sapphire;
-    color: @surface0;
+    background-color: @surface2;
 }
 
 #workspaces button.urgent {
     background-color: @red;
-    color: @surface0;
+    color: @base;
 }
 
-window#waybar.fullscreen #window{
-    color: @sapphire;
+#workspaces button.active {
+    background-color: @sapphire;
+    color: @base;
 }
 
-#battery,
-#backlight,
+#workspaces button.active:hover {
+    text-shadow: none;
+}
+
+#workspaces button.active.special {
+    background: @peach;
+    color: @base;
+}
+
+#tray,
 #pulseaudio,
-#clock,
+#backlight,
+#battery,
 #network,
-#tray {
+#clock,
+#power-profiles-daemon {
     background-color: @surface0;
-    padding: 0 10px;
-    margin: 6px 0;
-    border-radius: 4px;
     border: 1px solid @surface1;
+    padding: 0 10px;
+    margin: 5px 0;
+    border-radius: 3px;
 }
 
-#clock {
-    color: @blue;
-    margin-right: 6px;
+#pulseaudio:hover,
+#clock:hover,
+#power-profiles-daemon:hover {
+    background-color: @surface1;
+    border: 1px solid @surface2;
 }
 
-#network {
-    color: @teal;
+#network.disconnected,
+#pulseaudio.muted {
+    color: @overlay1;
 }
 
-#network.disconnected {
-    color: @overlay2;
+#tray menu {
+    background-color: @mantle;
+    border: 1px solid @surface0;
+    color: @text;
+    font-weight: 400;
+}
+
+#pulseaudio {
+    color: @mauve;
+}
+
+#backlight {
+    color: @maroon;
 }
 
 #battery {
     color: @green;
 }
 
-#battery.charging,
-#battery.plugged {
+#battery.charging {
     color: @yellow;
 }
 
-#battery.critical:not(.charging) {
-    color: @red;
+#battery.charging.warning {
+    color: @yellow;
 }
 
-#backlight {
+#battery.charging.critical {
+    color: @yellow;
+}
+
+#battery.warning {
     color: @peach;
 }
 
-#pulseaudio {
-    color: @pink;
+#battery.critical {
+    color: @red;
 }
 
-#pulseaudio.muted {
-    color: @overlay2;
+#network {
+    color: @sky;
 }
 
-#tray menu * {
-    font-weight: normal;
-    font-family: Inter;
+#clock {
+    color: @blue;
 }
 
-#tray>.passive {
-    -gtk-icon-effect: dim;
-}
-
-#tray>.needs-attention {
-    -gtk-icon-effect: highlight;
-    background-color: @red;
+#power-profiles-daemon {
+    color: @flamingo;
+    min-width: 25px;
+    margin-right: 6px;
 }

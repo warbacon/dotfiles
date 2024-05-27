@@ -4,9 +4,13 @@ or return
 
 # VARIABLES -------------------------------------------------------------------
 fish_add_path -P "$HOME/.local/bin"
+fish_add_path -P "$HOME/go/bin"
 
 # Disable fish_greeting
 set -g fish_greeting
+
+# Memes in errors
+# set ENABLE_MEMES true
 
 # Nvim as manpager
 if command -q nvim
@@ -16,21 +20,16 @@ if command -q nvim
 end
 
 # Catppuccin Mocha in fzf
-set -x FZF_DEFAULT_OPTS "\
---color=bg+:#313244,bg:#1e1e2e,spinner:#f5e0dc,hl:#f38ba8 \
---color=fg:#cdd6f4,header:#f38ba8,info:#cba6f7,pointer:#f5e0dc \
---color=marker:#f5e0dc,fg+:#cdd6f4,prompt:#cba6f7,hl+:#f38ba8 \
---pointer '->'"
+# set -x FZF_DEFAULT_OPTS "\
+# --color=bg+:#313244,bg:#1e1e2e,spinner:#f5e0dc,hl:#f38ba8 \
+# --color=fg:#cdd6f4,header:#f38ba8,info:#cba6f7,pointer:#f5e0dc \
+# --color=marker:#f5e0dc,fg+:#cdd6f4,prompt:#cba6f7,hl+:#f38ba8 \
+# --pointer '->'"
 # -----------------------------------------------------------------------------
 
 # ABBREVIATIONS ---------------------------------------------------------------
-abbr --add dotdot --regex '^\.\.+$' --function multicd
-
 command -q fastfetch
 and abbr -a ffetch fastfetch
-
-command -q lazygit
-and abbr -a lg lazygit
 
 command -q nvim
 and abbr -a ng nvim +Neogit
@@ -55,11 +54,6 @@ end
 # -----------------------------------------------------------------------------
 
 # KEYBINDINGS -----------------------------------------------------------------
-if command -q fzf
-    bind \eg "go_dir $HOME/Git"
-    bind \ec "go_dir $HOME/.config"
-end
-
 bind \es prepend_sudo
 bind \e\[3\;5~ kill-word
 # -----------------------------------------------------------------------------

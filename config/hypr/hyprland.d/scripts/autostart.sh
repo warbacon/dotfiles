@@ -9,8 +9,8 @@ run() {
     pgrep "$1" || "$@" &
 }
 
-reload hyprpaper
+run swww-daemon
 reload waybar
+run wl-clip-persist --clipboard regular
 reload hypridle
 run /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
-run wl-clip-persist --clipboard regular

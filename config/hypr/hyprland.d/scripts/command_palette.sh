@@ -2,7 +2,7 @@
 
 options="Conmutar luz nocturna\nRecargar Hyprland\nSuspender\nSalir de Hyprland\nApagar\nReiniciar"
 
-selected="$(echo -e "$options" | rofi -dmenu -i -p Opciones -no-show-icons)"
+selected="$(echo -e "$options" | rofi -dmenu -i -p Opciones)"
 
 case "$selected" in
     "Conmutar luz nocturna")

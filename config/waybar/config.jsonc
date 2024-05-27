@@ -1,63 +1,61 @@
 {
-    "layer": "top", // Waybar at top layer
-    // "height": 26, // Waybar height (to be removed for auto height)
-    "spacing": 10, // Gaps between modules (4px)
-    "position": "bottom",
+    "layer": "top",
+    "spacing": 6,
+    "height": 40,
     "modules-left": [
         "hyprland/workspaces",
         "hyprland/window"
     ],
-    // "modules-center": [],
     "modules-right": [
         "tray",
         "pulseaudio",
         "backlight",
         "battery",
         "network",
-        "clock"
+        "clock",
+        "power-profiles-daemon"
     ],
-    // Modules configuration
     "hyprland/workspaces": {
         "show-special": true,
         "format": "{icon}",
         "format-icons": {
-            "special": "󰫢"
+            "magic": "✦"
         }
-    },
-    "hyprland/window": {
-        "separate-outputs": true
     },
     "tray": {
-        "spacing": 10
+        "icon-size": 16,
+        "spacing": 5
     },
-    "clock": {
-        "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
-        "format": " <span color='#cdd6f4'>{:%H:%M}</span>",
-        "format-alt": " <span color='#cdd6f4'>{:%a, %e de %b}</span>"
-    },
-    "network": {
-        "format-wifi": "{icon} <span color='#cdd6f4'>{signalStrength} %</span>",
-        "format-disconnected": "{icon} sin conexión",
-        "tooltip-format": "{essid} en {ipaddr}",
-        "tooltip-format-disconnected": "Sin conexión",
+    "pulseaudio": {
+        "on-click": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle",
+        "on-click-right": "kitty pulsemixer",
+        "format": "{icon} <span color='#cdd6f4'>{volume} %</span>",
+        "format-muted": "󰝟",
         "format-icons": {
-            "disconnected": "󰌙",
-            "wifi": [
-                "󰤟",
-                "󰤢",
-                "󰤥",
-                "󰤨"
-            ]
+            "default": [
+                "󰖀",
+                "󰕾"
+            ],
+            "headphone": "󰋋",
+            "headset": "󰋎"
         }
     },
+    "backlight": {
+        "format": "{icon} <span color='#cdd6f4'>{percent} %</span>",
+        "tooltip": false,
+        "format-icons": [
+            "󰃞",
+            "󰃟",
+            "󰃠"
+        ]
+    },
     "battery": {
-        "states": {
-            "warning": 30,
-            "critical": 20
-        },
-        "tooltip-format": "Tiempo restante: {time}",
         "format": "{icon} <span color='#cdd6f4'>{capacity} %</span>",
-        "format-alt": "{icon} <span color='#cdd6f4'>{time}</span>",
+        "tooltip": false,
+        "states": {
+            "warning": 20,
+            "critical": 5
+        },
         "format-icons": {
             "charging": "󰂄",
             "default": [
@@ -74,26 +72,33 @@
             ]
         }
     },
-    "backlight": {
-        "tooltip-format": "Brillo: {percent}%",
-        "format": "{icon} <span color='#cdd6f4'>{percent} %</span>",
-        "format-icons": [
-            "󰃞",
-            "󰃟",
-            "󰃠"
-        ]
-    },
-    "pulseaudio": {
-        "format": "{icon} <span color='#cdd6f4'>{volume} %</span>",
-        "format-muted": "󰝟",
+    "network": {
+        "format-wifi": "{icon} <span color='#cdd6f4'>{signalStrength} %</span>",
+        "tooltip-format": "{essid}",
+        "format-disconnected": "{icon} sin conexión",
         "format-icons": {
-            "headphone": "",
-            "headset": "󰋎",
-            "default": [
-                "",
-                ""
+            "disconnected": "󰌙",
+            "wifi": [
+                "󰤟",
+                "󰤢",
+                "󰤥",
+                "󰤨"
             ]
-        },
-        "on-click": "kitty pulsemixer"
+        }
+    },
+    "clock": {
+        "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
+        "format": " <span color='#cdd6f4'>{:%H:%M}</span>",
+        "format-alt": " <span color='#cdd6f4'>{:%a, %d %b}</span>"
+    },
+    "power-profiles-daemon": {
+        "format": "{icon}",
+        "tooltip-format": "{profile}",
+        "tooltip": true,
+        "format-icons": {
+            "performance": "",
+            "balanced": "",
+            "power-saver": ""
+        }
     }
 }
