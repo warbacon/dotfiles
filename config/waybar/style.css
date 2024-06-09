@@ -1,4 +1,4 @@
-@import "mocha.css";
+@import "kanagawa.css";
 
 * {
     border: none;
@@ -8,29 +8,17 @@
 
 window#waybar {
     font-family: Iosevka, Symbols Nerd Font;
-    background: @mantle;
-    border-bottom: 1px solid @surface0;
-    color: @text;
+    background: @bg0;
+    border-bottom: 1px solid @border0;
+    color: @fg0;
     font-weight: 600;
     font-size: 12pt;
 }
 
-tooltip {
-  background: @mantle;
-  border-radius: 5px;
-  border: 1px solid @surface0;
-}
-
-tooltip label {
-    color: @text;
-    font-size: 12pt;
-    font-family: Iosevka, Symbols Nerd Font;
-}
-
 #workspaces {
     margin-left: 6px;
-    background-color: @surface0;
-    border: 1px solid @surface1;
+    background-color: @bg1;
+    border: 1px solid @border0;
     margin: 5px;
     border-radius: 3px;
 }
@@ -39,23 +27,24 @@ tooltip label {
     border-radius: 2px;
     margin: 2px;
     padding: 0 8px;
-    color: inherit;
+    color: @fg0;
     background: transparent;
     transition-property: none;
 }
 
 #workspaces button:hover {
-    background-color: @surface2;
+    background-color: @bg2;
+    text-shadow: none;
+    box-shadow: none;
 }
 
 #workspaces button.urgent {
     background-color: @red;
-    color: @base;
+    color: @bg0;
 }
 
 #workspaces button.active {
-    background-color: @sapphire;
-    color: @base;
+    background-color: @accent;
 }
 
 #workspaces button.active:hover {
@@ -63,10 +52,11 @@ tooltip label {
 }
 
 #workspaces button.active.special {
-    background: @peach;
-    color: @base;
+    background: @orange;
+    color: @bg1;
 }
 
+#privacy-item,
 #tray,
 #pulseaudio,
 #backlight,
@@ -74,8 +64,8 @@ tooltip label {
 #network,
 #clock,
 #power-profiles-daemon {
-    background-color: @surface0;
-    border: 1px solid @surface1;
+    background-color: @bg1;
+    border: 1px solid @border0;
     padding: 0 10px;
     margin: 5px 0;
     border-radius: 3px;
@@ -84,28 +74,29 @@ tooltip label {
 #pulseaudio:hover,
 #clock:hover,
 #power-profiles-daemon:hover {
-    background-color: @surface1;
-    border: 1px solid @surface2;
+    background-color: @bg2;
+    border: 1px solid @border1;
+}
+
+#privacy-item {
+    color: @red;
 }
 
 #network.disconnected,
 #pulseaudio.muted {
-    color: @overlay1;
+    color: @fg1;
 }
 
 #tray menu {
-    background-color: @mantle;
-    border: 1px solid @surface0;
-    color: @text;
     font-weight: 400;
 }
 
 #pulseaudio {
-    color: @mauve;
+    color: @fg-block3;
 }
 
 #backlight {
-    color: @maroon;
+    color: @fg-block2;
 }
 
 #battery {
@@ -125,7 +116,7 @@ tooltip label {
 }
 
 #battery.warning {
-    color: @peach;
+    color: @orange;
 }
 
 #battery.critical {
@@ -133,15 +124,10 @@ tooltip label {
 }
 
 #network {
-    color: @sky;
+    color: @fg-block1;
 }
 
 #clock {
-    color: @blue;
-}
-
-#power-profiles-daemon {
-    color: @flamingo;
-    min-width: 25px;
+    color: @fg-block0;
     margin-right: 6px;
 }

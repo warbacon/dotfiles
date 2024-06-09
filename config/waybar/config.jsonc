@@ -7,13 +7,13 @@
         "hyprland/window"
     ],
     "modules-right": [
+        "privacy",
         "tray",
         "pulseaudio",
         "backlight",
         "battery",
         "network",
-        "clock",
-        "power-profiles-daemon"
+        "clock"
     ],
     "hyprland/workspaces": {
         "show-special": true,
@@ -22,6 +22,12 @@
             "magic": "✦"
         }
     },
+    "hyprland/window": {
+        "separate-outputs": true
+    },
+    "privacy": {
+        "icon-size": 16
+    },
     "tray": {
         "icon-size": 16,
         "spacing": 5
@@ -29,7 +35,7 @@
     "pulseaudio": {
         "on-click": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle",
         "on-click-right": "kitty pulsemixer",
-        "format": "{icon} <span color='#cdd6f4'>{volume} %</span>",
+        "format": "{icon} <span color='#DCD7BA'>{volume} %</span>",
         "format-muted": "󰝟",
         "format-icons": {
             "default": [
@@ -41,7 +47,7 @@
         }
     },
     "backlight": {
-        "format": "{icon} <span color='#cdd6f4'>{percent} %</span>",
+        "format": "{icon} <span color='#DCD7BA'>{percent} %</span>",
         "tooltip": false,
         "format-icons": [
             "󰃞",
@@ -50,7 +56,7 @@
         ]
     },
     "battery": {
-        "format": "{icon} <span color='#cdd6f4'>{capacity} %</span>",
+        "format": "{icon} <span color='#DCD7BA'>{capacity} %</span>",
         "tooltip": false,
         "states": {
             "warning": 20,
@@ -73,7 +79,7 @@
         }
     },
     "network": {
-        "format-wifi": "{icon} <span color='#cdd6f4'>{signalStrength} %</span>",
+        "format-wifi": "{icon} <span color='#DCD7BA'>{signalStrength} %</span>",
         "tooltip-format": "{essid}",
         "format-disconnected": "{icon} sin conexión",
         "format-icons": {
@@ -87,18 +93,8 @@
         }
     },
     "clock": {
-        "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
-        "format": " <span color='#cdd6f4'>{:%H:%M}</span>",
-        "format-alt": " <span color='#cdd6f4'>{:%a, %d %b}</span>"
-    },
-    "power-profiles-daemon": {
-        "format": "{icon}",
-        "tooltip-format": "{profile}",
-        "tooltip": true,
-        "format-icons": {
-            "performance": "",
-            "balanced": "",
-            "power-saver": ""
-        }
+        "tooltip-format": "<big>{:L%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
+        "format": " <span color='#DCD7BA'>{:L%H:%M}</span>",
+        "format-alt": " <span color='#DCD7BA'>{:L%a, %d %b}</span>"
     }
 }

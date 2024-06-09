@@ -6,4 +6,4 @@ configuration {
 	display-window: "Ventanas";
 }
 
-@theme "catppuccin-mocha"
+@theme "kanagawa"
