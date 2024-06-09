@@ -18,21 +18,14 @@ if command -q nvim
     set -x VISUAL nvim
     set -x MANPAGER 'nvim +Man!'
 end
-
-# Catppuccin Mocha in fzf
-# set -x FZF_DEFAULT_OPTS "\
-# --color=bg+:#313244,bg:#1e1e2e,spinner:#f5e0dc,hl:#f38ba8 \
-# --color=fg:#cdd6f4,header:#f38ba8,info:#cba6f7,pointer:#f5e0dc \
-# --color=marker:#f5e0dc,fg+:#cdd6f4,prompt:#cba6f7,hl+:#f38ba8 \
-# --pointer '->'"
 # -----------------------------------------------------------------------------
 
 # ABBREVIATIONS ---------------------------------------------------------------
 command -q fastfetch
 and abbr -a ffetch fastfetch
 
-command -q nvim
-and abbr -a ng nvim +Neogit
+command -q lazygit
+and abbr -a lg lazygit
 
 command -q trash
 and abbr -a rm trash
