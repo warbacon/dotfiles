@@ -2,9 +2,15 @@
 status is-interactive
 or return
 
+# Start tmux
+if command -q tmux; and not set -q TMUX
+    tmux has
+    and exec tmux a
+    or exec tmux
+end
+
 # VARIABLES -------------------------------------------------------------------
 fish_add_path -P "$HOME/.local/bin"
-fish_add_path -P "$HOME/go/bin"
 
 # Disable fish_greeting
 set -g fish_greeting
