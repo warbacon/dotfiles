@@ -3,7 +3,7 @@ status is-interactive
 or return
 
 # Start tmux
-if command -q tmux; and not set -q TMUX
+if command -q tmux; and not set -q TMUX; and set -q TMUX_ENABLED
     tmux has
     and exec tmux a
     or exec tmux
@@ -14,9 +14,6 @@ fish_add_path -P "$HOME/.local/bin"
 
 # Disable fish_greeting
 set -g fish_greeting
-
-# Memes in errors
-# set ENABLE_MEMES true
 
 # Nvim as manpager
 if command -q nvim
