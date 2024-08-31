@@ -1,7 +1,6 @@
 {
     "layer": "top",
     "spacing": 6,
-    "height": 40,
     "modules-left": [
         "hyprland/workspaces",
         "hyprland/window"
@@ -34,8 +33,8 @@
     },
     "pulseaudio": {
         "on-click": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle",
-        "on-click-right": "kitty pulsemixer",
-        "format": "{icon} <span color='#DCD7BA'>{volume} %</span>",
+        "on-click-right": "kitty -e pulsemixer",
+        "format": "{icon} <span color='#c8d3f5'>{volume} %</span>",
         "format-muted": "󰝟",
         "format-icons": {
             "default": [
@@ -47,7 +46,7 @@
         }
     },
     "backlight": {
-        "format": "{icon} <span color='#DCD7BA'>{percent} %</span>",
+        "format": "{icon} <span color='#c8d3f5'>{percent} %</span>",
         "tooltip": false,
         "format-icons": [
             "󰃞",
@@ -56,7 +55,7 @@
         ]
     },
     "battery": {
-        "format": "{icon} <span color='#DCD7BA'>{capacity} %</span>",
+        "format": "{icon} <span color='#c8d3f5'>{capacity} %</span>",
         "tooltip": false,
         "states": {
             "warning": 20,
@@ -79,7 +78,8 @@
         }
     },
     "network": {
-        "format-wifi": "{icon} <span color='#DCD7BA'>{signalStrength} %</span>",
+        "format-wifi": "{icon} <span color='#c8d3f5'>{signalStrength} %</span>",
+        "on-click": "kitty -e nmtui",
         "tooltip-format": "{essid}",
         "format-disconnected": "{icon} sin conexión",
         "format-icons": {
@@ -94,7 +94,7 @@
     },
     "clock": {
         "tooltip-format": "<big>{:L%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
-        "format": " <span color='#DCD7BA'>{:L%H:%M}</span>",
-        "format-alt": " <span color='#DCD7BA'>{:L%a, %d %b}</span>"
+        "format": " <span color='#c8d3f5'>{:L%H:%M}</span>",
+        "format-alt": " <span color='#c8d3f5'>{:L%a, %d %b}</span>"
     }
 }

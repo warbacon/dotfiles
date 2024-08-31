@@ -1,16 +1,9 @@
-font=Iosevka 13
-border-radius=6
+font=Iosevka Extended 11
 
-width=350
-height=102
-anchor=top-center
-
-# Colors
-
-background-color=#2A2A37
-text-color=#DCD7BA
-border-color=#363646
-# progress-color=over #313244
+background-color=#222436
+text-color=#c8d3f5
+border-color=#828bb8
+progress-color=over #394b70
 
 [urgency=high]
-border-color=#E82424
+border-color=#ff757f

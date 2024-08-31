@@ -1,4 +1,4 @@
-@import "kanagawa.css";
+@import "tokyonight.css";
 
 * {
     border: none;
@@ -7,32 +7,30 @@
 }
 
 window#waybar {
-    font-family: Iosevka, Symbols Nerd Font;
+    font-family: Iosevka Extended, Symbols Nerd Font;
     background: @bg0;
     border-bottom: 1px solid @border0;
     color: @fg0;
-    font-weight: 600;
-    font-size: 12pt;
+    font-size: 11pt;
 }
 
-#workspaces {
+#workspaces,
+#tags {
     margin-left: 6px;
     background-color: @bg1;
     border: 1px solid @border0;
     margin: 5px;
-    border-radius: 3px;
 }
 
-#workspaces button {
-    border-radius: 2px;
-    margin: 2px;
-    padding: 0 8px;
+#workspaces button,
+#tags button {
     color: @fg0;
     background: transparent;
     transition-property: none;
 }
 
-#workspaces button:hover {
+#workspaces button:hover,
+#tags button:hover {
     background-color: @bg2;
     text-shadow: none;
     box-shadow: none;
@@ -43,17 +41,27 @@ window#waybar {
     color: @bg0;
 }
 
-#workspaces button.active {
+#workspaces button.active,
+#tags button.focused {
     background-color: @accent;
 }
 
-#workspaces button.active:hover {
+#workspaces button.active:hover,
+#tags button.focused:hover {
     text-shadow: none;
 }
 
 #workspaces button.active.special {
     background: @orange;
     color: @bg1;
+}
+
+#window {
+    font-weight: 600;
+}
+
+window#waybar.empty #window {
+    opacity: 0;
 }
 
 #privacy-item,
@@ -63,16 +71,17 @@ window#waybar {
 #battery,
 #network,
 #clock,
+#window,
 #power-profiles-daemon {
     background-color: @bg1;
     border: 1px solid @border0;
     padding: 0 10px;
     margin: 5px 0;
-    border-radius: 3px;
 }
 
 #pulseaudio:hover,
 #clock:hover,
+#network:hover,
 #power-profiles-daemon:hover {
     background-color: @bg2;
     border: 1px solid @border1;
@@ -85,10 +94,6 @@ window#waybar {
 #network.disconnected,
 #pulseaudio.muted {
     color: @fg1;
-}
-
-#tray menu {
-    font-weight: 400;
 }
 
 #pulseaudio {

@@ -1,3 +1,7 @@
-set font "Iosevka 14"
+set font "Iosevka Extended 13"
+set statusbar-home-tilde true
+set window-title-basename true
+set recolor-keephue true
 set selection-clipboard clipboard
-include catppuccin-mocha
+
+include tokyonight_moon.zathurarc

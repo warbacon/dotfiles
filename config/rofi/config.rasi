@@ -1,9 +1,7 @@
 configuration {
-    modes: "drun";
-	display-run: "Comandos";
-	display-drun: "Aplicaciones";
-	display-emoji: "Emojis";
-	display-window: "Ventanas";
+	modes: "drun";
+	hover-select: true;
+	display-drun: "Ejecutar";
 }
 
-@theme "kanagawa"
+@theme "tokyonight_moon"
