@@ -1,9 +1,0 @@
-font=Iosevka Extended 11
-
-background-color=#222436
-text-color=#c8d3f5
-border-color=#828bb8
-progress-color=over #394b70
-
-[urgency=high]
-border-color=#ff757f

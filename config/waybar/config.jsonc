@@ -56,7 +56,7 @@
     },
     "battery": {
         "format": "{icon} <span color='#c8d3f5'>{capacity} %</span>",
-        "tooltip": false,
+        "tooltip-format": "Tiempo restante: {time}",
         "states": {
             "warning": 20,
             "critical": 5

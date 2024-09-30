@@ -7,18 +7,20 @@
 
     color: var(fg);
     background-color: transparent;
-    font: "Iosevka 13";
+    font: "JetBrains Mono 12";
 }
 
 window {
-    height:   100%;
-    width: 20em;
-    location: east;
-    anchor:   east;
+    location: north;
+    margin: 50px 0 0 0;
+    width: 600px;
     background-color: var(bg);
-    padding: 5px 0;
-    border: 0 0 0 1.5px;
+    border: 1.5px;
     border-color: var(border-fg);
+}
+
+mainbox {
+    padding: 8px;
 }
 
 button {
@@ -26,31 +28,47 @@ button {
 }
 
 inputbar {
-    padding: 16px;
-    children:   [ "prompt","textbox-prompt-colon","entry"];
+    children: ["prompt","entry"];
+    padding: 14px 7px;
 }
 
 prompt {
-    font: "Iosevka Bold 13";
-}
-
-textbox-prompt-colon {
+    font: "JetBrains Mono Bold 12";
+    margin: 0 8px 0 0;
     color: var(orange);
-    font: "Iosevka Bold 13";
-    margin:     0px 0.3000em 0.0000em 0.0000em ;
-    expand:     false;
-    str:        ":";
 }
 
 entry {
     cursor: text;
 }
 
+message {
+    padding: 0 7px 14px 7px;
+}
+
+listview {
+    lines: 7;
+    scrollbar: true;
+    spacing: 8;
+}
+
+scrollbar {
+    handle-color: #394b70;
+    border-color: var(border-fg);
+    border: 1px;
+    background-color: var(bg-highlight);
+}
+
 element {
     padding: 14px;
-    margin: 2px 10px;
-    border-radius: 4px;
     cursor: pointer;
+    background-color: #222436;
+    border-color: #2f334d;
+    border: 1px;
+}
+
+element selected {
+    background-color: #394b70;
 }
 
 element-text {
@@ -62,14 +80,3 @@ element-icon {
     padding: 0 10px 0 0;
     cursor: inherit;
 }
-
-element selected {
-    background-color: var(bg-highlight);
-    border: 1px;
-    border-color: var(border-fg);
-}
-
-listview {
-    lines: 5;
-}
-

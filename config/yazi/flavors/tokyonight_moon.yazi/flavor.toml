@@ -2,11 +2,11 @@
 # NOTE: can combined with tmTheme (sublime colorshceme file) for preview code highlight
 # highlight = "path/to/tmTheme"
 
-cwd = { fg = "cyan", bold = true }
+cwd = { fg = "#86e1fc", bold = true }
 
 # Hovered
-hovered         = { bg = "#2d3f76", fg = "reset" }
-preview_hovered = { bg = "#2d3f76", fg = "reset" }
+hovered         = { fg = "#c8d3f5", bg = "#2d3f76", bold = true }
+preview_hovered = { fg = "#c8d3f5", bg = "#2d3f76", bold = true }
 
 # Find
 find_keyword  = { fg = "#1e2030", bg = "#ff966c", bold = true }
@@ -32,8 +32,8 @@ border_symbol = "│"
 border_style  = { fg = "#589ed7" }
 
 [status]
-separator_open  = ""
-separator_close = ""
+separator_open  = ""
+separator_close = ""
 separator_style = { fg = "#3b4261", bg = "#3b4261" }
 
 # Mode
