@@ -1,51 +1,15 @@
 local wezterm = require("wezterm")
+local utils = require("utils")
+
 local config = wezterm.config_builder()
 
----@type WeztermUtils
-local util = require("util")
-
--- LAUNCH MENU
-config.launch_menu = {}
-
-if util.command_exists("pwsh") then
-	table.insert(config.launch_menu, {
-		label = "PoweShell",
-		args = { "pwsh", "-NoLogo" },
-	})
-end
-
-if util.is_win then
-	for _, entry in ipairs({
-		{ label = "Windows PowerShell", args = { "powershell", "-NoLogo" } },
-		{ label = "Símbolo del sistema", args = { "cmd" } },
-	}) do
-		table.insert(config.launch_menu, entry)
-	end
-else
-	if util.command_exists("fish") then
-		table.insert(config.launch_menu, {
-			label = "Fish",
-			args = { "fish" },
-		})
-	end
-	if util.command_exists("bash") then
-		table.insert(config.launch_menu, {
-			label = "Bash",
-			args = { "bash" },
-		})
-	end
-	if util.command_exists("zsh") then
-		table.insert(config.launch_menu, {
-			label = "Zsh",
-			args = { "zsh" },
-		})
-	end
-end
+-- KEYBINDS
+config.keys = require("keybinds")
 
 -- BEHAVIOUR
-if util.is_win then
+if utils.is_win then
 	config.default_prog = { "pwsh", "-NoLogo" }
-elseif util.command_exists("fish") then
+elseif utils.command_exists("fish") then
 	config.default_prog = { "fish" }
 end
 
@@ -63,7 +27,7 @@ config.color_scheme = "tokyonight_moon"
 config.bold_brightens_ansi_colors = "No"
 
 config.font_size = 13.3
-config.font = util.is_win and wezterm.font_with_fallback({
+config.font = utils.is_win and wezterm.font_with_fallback({
 	"JetBrains Mono",
 	"Segoe UI Emoji",
 }) or nil
@@ -81,7 +45,7 @@ config.show_new_tab_button_in_tab_bar = false
 config.tab_max_width = 999
 
 -- PERFORMANCE
-if util.is_win then
+if utils.is_win then
 	for _, gpu in ipairs(wezterm.gui.enumerate_gpus()) do
 		if gpu.backend == "Dx12" then
 			config.webgpu_preferred_adapter = gpu
@@ -91,14 +55,49 @@ if util.is_win then
 	end
 end
 
--- KEYBINDS
-config.keys = require("keybinds")
+-- LAUNCH MENU
+config.launch_menu = {}
+
+if utils.command_exists("pwsh") then
+	table.insert(config.launch_menu, {
+		label = "PoweShell",
+		args = { "pwsh", "-NoLogo" },
+	})
+end
+
+if utils.is_win then
+	for _, entry in ipairs({
+		{ label = "Windows PowerShell", args = { "powershell", "-NoLogo" } },
+		{ label = "Símbolo del sistema", args = { "cmd" } },
+	}) do
+		table.insert(config.launch_menu, entry)
+	end
+else
+	if utils.command_exists("fish") then
+		table.insert(config.launch_menu, {
+			label = "Fish",
+			args = { "fish" },
+		})
+	end
+	if utils.command_exists("bash") then
+		table.insert(config.launch_menu, {
+			label = "Bash",
+			args = { "bash" },
+		})
+	end
+	if utils.command_exists("zsh") then
+		table.insert(config.launch_menu, {
+			label = "Zsh",
+			args = { "zsh" },
+		})
+	end
+end
 
 -- HOST SPECIFIC
-if util.hostname == "zenarch" then
+if utils.hostname == "zenarch" then
 	config.window_decorations = "NONE"
 end
-if util.hostname == "windows-pc" then
+if utils.hostname == "windows-pc" then
 	config.max_fps = 144
 	config.font_size = 16
 	config.initial_cols = 110

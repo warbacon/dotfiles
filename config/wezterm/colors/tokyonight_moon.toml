@@ -29,9 +29,8 @@ fg_color = "#828bb8"
 [colors.tab_bar.inactive_tab_hover]
 bg_color = "#2f334d"
 fg_color = "#828bb8"
-italic = true
+intensity = "Bold"
 
 [metadata]
-aliases = []
 author = "warbacon"
 name = "tokyonight_moon"
