@@ -1,68 +1,96 @@
--- Pull in the wezterm API
 local wezterm = require("wezterm")
-
--- This will hold the configuration.
 local config = wezterm.config_builder()
 
--- GENERAL
--- config.default_prog = { "fish" }
-config.adjust_window_size_when_changing_font_size = false
-config.mouse_wheel_scrolls_tabs = false
-config.unicode_version = 14
-config.warn_about_missing_glyphs = false
-config.launch_menu = {
-	{
-		label = "bash",
-		args = { "bash" },
-	},
-	{
-		label = "zsh",
-		args = { "zsh" },
-	},
-}
+local is_windows = wezterm.target_triple:find("windows")
+local hostname = wezterm.hostname()
 
--- UI
-config.color_scheme = "Catppuccin Mocha"
-config.command_palette_fg_color = "#cdd6f4"
-config.command_palette_bg_color = "#45475a"
-config.char_select_fg_color = "#cdd6f4"
-config.char_select_bg_color = "#45475a"
-config.font = wezterm.font_with_fallback({
-	"Iosevka Term",
-	"Symbols Nerd Font",
-	"Segoe UI Emoji",
-	"Noto Color Emoji",
-})
-config.font_size = 17.5
-config.hide_tab_bar_if_only_one_tab = true
-config.tab_max_width = 999
-config.tab_bar_at_bottom = true
-config.use_fancy_tab_bar = false
-config.window_padding = { left = 0, right = 0, top = 0, bottom = 0 }
-
-local function tab_title(tab_info)
-	local title = tab_info.tab_title
-	if title and #title > 0 then
-		return title
+---@param command string
+local function command_exists(command)
+	if is_windows then
+		return wezterm.run_child_process({ "where", command })
+	else
+		return wezterm.run_child_process({ "which", command })
 	end
-	return tab_info.active_pane.title
 end
 
-wezterm.on("format-tab-title", function(tab)
-	local title = tab_title(tab)
-	local index = tab.tab_index
-	if tab.is_active then
-		return {
-			{ Attribute = { Italic = true } },
-			{ Attribute = { Intensity = "Bold" } },
-			{ Text = "  " .. index + 1 .. ":" .. title .. "  " },
-		}
+-- LAUNCH MENU
+config.launch_menu = {}
+
+if command_exists("pwsh") then
+	table.insert(config.launch_menu, {
+		label = "PoweShell",
+		args = { "pwsh", "-NoLogo" },
+	})
+end
+
+if is_windows then
+	for _, entry in ipairs({
+		{ label = "Windows PowerShell", args = { "powershell", "-NoLogo" } },
+		{ label = "Símbolo del sistema", args = { "cmd" } },
+	}) do
+		table.insert(config.launch_menu, entry)
 	end
-	return {
-		{ Attribute = { Intensity = "Bold" } },
-		{ Text = "  " .. index + 1 .. ":" .. title .. "  " },
-	}
-end)
+else
+	if command_exists("fish") then
+		table.insert(config.launch_menu, {
+			label = "Fish",
+			args = { "fish" },
+		})
+	end
+	if command_exists("bash") then
+		table.insert(config.launch_menu, {
+			label = "Bash",
+			args = { "bash" },
+		})
+	end
+	if command_exists("zsh") then
+		table.insert(config.launch_menu, {
+			label = "Zsh",
+			args = { "zsh" },
+		})
+	end
+end
+
+-- BEHAVIOUR
+config.default_prog = is_windows and { "pwsh", "-NoLogo" } or command_exists("fish") and { "fish" }
+
+config.adjust_window_size_when_changing_font_size = false
+
+config.switch_to_last_active_tab_when_closing_tab = true
+config.mouse_wheel_scrolls_tabs = false
+
+config.warn_about_missing_glyphs = false
+
+config.enable_kitty_keyboard = true
+
+-- APPEARANCE
+config.color_scheme = "tokyonight_moon"
+config.bold_brightens_ansi_colors = false
+
+config.font_size = 13.3
+config.font = wezterm.font_with_fallback({
+	"JetBrains Mono",
+	"Symbols Nerd Font"
+})
+
+config.command_palette_fg_color = "#c8d3f5"
+config.command_palette_bg_color = "#2f334d"
+config.char_select_fg_color = config.command_palette_fg_color
+config.char_select_bg_color = config.command_palette_bg_color
+
+config.use_fancy_tab_bar = false
+config.hide_tab_bar_if_only_one_tab = true
+config.show_new_tab_button_in_tab_bar = false
+config.tab_max_width = 999
+
+config.window_padding = { left = 0, right = 0, top = 0, bottom = 0 }
+
+-- PERFORMANCE
+config.use_ime = false
+
+config.animation_fps = 1
+config.cursor_blink_ease_in = "Constant"
+config.cursor_blink_ease_out = "Constant"
 
 -- KEYBINDINGS
 config.keys = {
@@ -100,23 +128,19 @@ for i = 1, 9 do
 		action = wezterm.action.ActivateTab(i - 1),
 	})
 end
---
--- Window PC especific config
-if wezterm.hostname() == "windows-pc" then
-	config.default_prog = { "pwsh", "-NoLogo" }
-	config.max_fps = 144
-	config.initial_cols = 110
-	config.initial_rows = 26
-	config.font_size = 20
-	table.insert(config.launch_menu, {
-		label = "Windows Powershell",
-		args = { "powershell", "-NoLogo" },
-	})
-	table.insert(config.launch_menu, {
-		label = "Símbolo del sistema",
-		args = { "cmd" },
-	})
+
+-- ZENARCH
+if hostname == "zenarch" then
+	config.window_decorations = "NONE"
 end
 
--- and finally, return the configuration to wezterm
+-- WINDOWS-PC
+if hostname == "windows-pc" then
+	config.window_decorations = "INTEGRATED_BUTTONS|RESIZE"
+	config.max_fps = 144
+	config.font_size = 20
+	config.initial_cols = 100
+	config.initial_rows = 25
+end
+
 return config
