@@ -1,29 +1,20 @@
 local wezterm = require("wezterm")
 local config = wezterm.config_builder()
 
-local is_windows = wezterm.target_triple:find("windows")
-local hostname = wezterm.hostname()
-
----@param command string
-local function command_exists(command)
-	if is_windows then
-		return wezterm.run_child_process({ "where", command })
-	else
-		return wezterm.run_child_process({ "which", command })
-	end
-end
+---@type WeztermUtils
+local util = require("util")
 
 -- LAUNCH MENU
 config.launch_menu = {}
 
-if command_exists("pwsh") then
+if util.command_exists("pwsh") then
 	table.insert(config.launch_menu, {
 		label = "PoweShell",
 		args = { "pwsh", "-NoLogo" },
 	})
 end
 
-if is_windows then
+if util.is_win then
 	for _, entry in ipairs({
 		{ label = "Windows PowerShell", args = { "powershell", "-NoLogo" } },
 		{ label = "Símbolo del sistema", args = { "cmd" } },
@@ -31,19 +22,19 @@ if is_windows then
 		table.insert(config.launch_menu, entry)
 	end
 else
-	if command_exists("fish") then
+	if util.command_exists("fish") then
 		table.insert(config.launch_menu, {
 			label = "Fish",
 			args = { "fish" },
 		})
 	end
-	if command_exists("bash") then
+	if util.command_exists("bash") then
 		table.insert(config.launch_menu, {
 			label = "Bash",
 			args = { "bash" },
 		})
 	end
-	if command_exists("zsh") then
+	if util.command_exists("zsh") then
 		table.insert(config.launch_menu, {
 			label = "Zsh",
 			args = { "zsh" },
@@ -52,7 +43,11 @@ else
 end
 
 -- BEHAVIOUR
-config.default_prog = is_windows and { "pwsh", "-NoLogo" } or command_exists("fish") and { "fish" }
+if util.is_win then
+	config.default_prog = { "pwsh", "-NoLogo" }
+elseif util.command_exists("fish") then
+	config.default_prog = { "fish" }
+end
 
 config.adjust_window_size_when_changing_font_size = false
 
@@ -65,82 +60,49 @@ config.enable_kitty_keyboard = true
 
 -- APPEARANCE
 config.color_scheme = "tokyonight_moon"
-config.bold_brightens_ansi_colors = false
+config.bold_brightens_ansi_colors = "No"
 
 config.font_size = 13.3
-config.font = wezterm.font_with_fallback({
+config.font = util.is_win and wezterm.font_with_fallback({
 	"JetBrains Mono",
-	"Symbols Nerd Font"
-})
+	"Segoe UI Emoji",
+}) or nil
 
 config.command_palette_fg_color = "#c8d3f5"
 config.command_palette_bg_color = "#2f334d"
 config.char_select_fg_color = config.command_palette_fg_color
 config.char_select_bg_color = config.command_palette_bg_color
 
+config.window_padding = { left = 0, right = 0, top = 0, bottom = 0 }
+
 config.use_fancy_tab_bar = false
 config.hide_tab_bar_if_only_one_tab = true
 config.show_new_tab_button_in_tab_bar = false
 config.tab_max_width = 999
 
-config.window_padding = { left = 0, right = 0, top = 0, bottom = 0 }
-
 -- PERFORMANCE
-config.use_ime = false
-
-config.animation_fps = 1
-config.cursor_blink_ease_in = "Constant"
-config.cursor_blink_ease_out = "Constant"
-
--- KEYBINDINGS
-config.keys = {
-	{
-		key = "w",
-		mods = "CTRL|SHIFT",
-		action = wezterm.action.CloseCurrentPane({ confirm = true }),
-	},
-	{
-		key = "UpArrow",
-		mods = "CTRL|SHIFT|ALT",
-		action = wezterm.action.AdjustPaneSize({ "Up", 2 }),
-	},
-	{
-		key = "DownArrow",
-		mods = "CTRL|SHIFT|ALT",
-		action = wezterm.action.AdjustPaneSize({ "Down", 2 }),
-	},
-	{
-		key = "RightArrow",
-		mods = "CTRL|SHIFT|ALT",
-		action = wezterm.action.AdjustPaneSize({ "Right", 5 }),
-	},
-	{
-		key = "LeftArrow",
-		mods = "CTRL|SHIFT|ALT",
-		action = wezterm.action.AdjustPaneSize({ "Left", 5 }),
-	},
-}
-
-for i = 1, 9 do
-	table.insert(config.keys, {
-		key = tostring(i),
-		mods = "ALT",
-		action = wezterm.action.ActivateTab(i - 1),
-	})
+if util.is_win then
+	for _, gpu in ipairs(wezterm.gui.enumerate_gpus()) do
+		if gpu.backend == "Dx12" then
+			config.webgpu_preferred_adapter = gpu
+			config.front_end = "WebGpu"
+			break
+		end
+	end
 end
 
--- ZENARCH
-if hostname == "zenarch" then
+-- KEYBINDS
+config.keys = require("keybinds")
+
+-- HOST SPECIFIC
+if util.hostname == "zenarch" then
 	config.window_decorations = "NONE"
 end
-
--- WINDOWS-PC
-if hostname == "windows-pc" then
-	config.window_decorations = "INTEGRATED_BUTTONS|RESIZE"
+if util.hostname == "windows-pc" then
 	config.max_fps = 144
-	config.font_size = 20
-	config.initial_cols = 100
-	config.initial_rows = 25
+	config.font_size = 16
+	config.initial_cols = 110
+	config.initial_rows = 29
 end
 
 return config
