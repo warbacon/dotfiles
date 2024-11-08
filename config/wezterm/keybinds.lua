@@ -1,38 +1,53 @@
 local wezterm = require("wezterm")
+local action = require("wezterm").action
 
-local M = {
+local M = {}
+
+M.keys = {
 	{
 		key = "w",
 		mods = "CTRL|SHIFT",
-		action = wezterm.action.CloseCurrentPane({ confirm = true }),
+		action = action.CloseCurrentPane({ confirm = true }),
+	},
+	{
+		key = "t",
+		mods = "CTRL|SHIFT",
+		action = action.SpawnCommandInNewTab({
+			cwd = wezterm.home_dir,
+		}),
+	},
+	{
+		key = "d",
+		mods = "CTRL|SHIFT",
+		action = action.SpawnTab("CurrentPaneDomain")
 	},
 	{
 		key = "UpArrow",
 		mods = "CTRL|SHIFT|ALT",
-		action = wezterm.action.AdjustPaneSize({ "Up", 2 }),
+		action = action.AdjustPaneSize({ "Up", 2 }),
 	},
 	{
 		key = "DownArrow",
 		mods = "CTRL|SHIFT|ALT",
-		action = wezterm.action.AdjustPaneSize({ "Down", 2 }),
+		action = action.AdjustPaneSize({ "Down", 2 }),
 	},
 	{
 		key = "RightArrow",
 		mods = "CTRL|SHIFT|ALT",
-		action = wezterm.action.AdjustPaneSize({ "Right", 5 }),
+		action = action.AdjustPaneSize({ "Right", 5 }),
 	},
 	{
 		key = "LeftArrow",
 		mods = "CTRL|SHIFT|ALT",
-		action = wezterm.action.AdjustPaneSize({ "Left", 5 }),
+		action = action.AdjustPaneSize({ "Left", 5 }),
 	},
 }
 
 for i = 1, 9 do
-	table.insert(M, {
+	table.insert(M.keys, {
 		key = tostring(i),
 		mods = "ALT",
-		action = wezterm.action.ActivateTab(i - 1),
+		action = action.ActivateTab(i - 1),
 	})
 end
 

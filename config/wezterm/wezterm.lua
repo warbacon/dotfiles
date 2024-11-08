@@ -4,7 +4,7 @@ local utils = require("utils")
 local config = wezterm.config_builder()
 
 -- KEYBINDS
-config.keys = require("keybinds")
+utils.tableMerge(config, require("keybinds"))
 
 -- BEHAVIOUR
 if utils.is_win then
@@ -19,8 +19,6 @@ config.switch_to_last_active_tab_when_closing_tab = true
 config.mouse_wheel_scrolls_tabs = false
 
 config.warn_about_missing_glyphs = false
-
-config.enable_kitty_keyboard = true
 
 -- APPEARANCE
 config.color_scheme = "tokyonight_moon"
@@ -48,8 +46,8 @@ config.tab_max_width = 999
 if utils.is_win then
 	for _, gpu in ipairs(wezterm.gui.enumerate_gpus()) do
 		if gpu.backend == "Dx12" then
-			config.webgpu_preferred_adapter = gpu
 			config.front_end = "WebGpu"
+			config.webgpu_preferred_adapter = gpu
 			break
 		end
 	end
@@ -66,12 +64,10 @@ if utils.command_exists("pwsh") then
 end
 
 if utils.is_win then
-	for _, entry in ipairs({
+	utils.tableMerge(config.launch_menu, {
 		{ label = "Windows PowerShell", args = { "powershell", "-NoLogo" } },
 		{ label = "Símbolo del sistema", args = { "cmd" } },
-	}) do
-		table.insert(config.launch_menu, entry)
-	end
+	})
 else
 	if utils.command_exists("fish") then
 		table.insert(config.launch_menu, {
@@ -93,10 +89,7 @@ else
 	end
 end
 
--- HOST SPECIFIC
-if utils.hostname == "zenarch" then
-	config.window_decorations = "NONE"
-end
+-- WINDOWS-PC
 if utils.hostname == "windows-pc" then
 	config.max_fps = 144
 	config.font_size = 16
