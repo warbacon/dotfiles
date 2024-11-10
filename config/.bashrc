@@ -6,6 +6,7 @@
 command_exists() {
     command -v "$1" &>/dev/null
 }
+[[ -f "/proc/sys/fs/binfmt_misc/WSLInterop" ]] && IS_WSL=true
 # ------------------------------------------------------------------------------
 
 # ENV VARIABLES ----------------------------------------------------------------
@@ -28,7 +29,6 @@ export LS_COLORS='rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;
 # INPUTRC ----------------------------------------------------------------------
 bind -s "set completion-ignore-case on"
 bind -s "set colored-stats on"
-bind -s "set enable-bracketed-paste off"
 # ------------------------------------------------------------------------------
 
 # OPTIONS ----------------------------------------------------------------------
@@ -36,19 +36,20 @@ shopt -s autocd
 # ------------------------------------------------------------------------------
 
 # ALIASES ----------------------------------------------------------------------
-if command_exists eza; then
+if command_exists eza && [[ "$TERM" != "linux" ]]; then
     alias ls="eza --icons=auto --group-directories-first"
     alias ll="eza --icons=auto --group-directories-first --git -l"
     alias la="eza --icons=auto --group-directories-first -a"
     alias lla="eza --icons=auto --group-directories-first --git -la"
 else
-    alias ls="ls --color=auto"
-    alias ll="ll --color=auto -lh"
-    alias la="la --color=auto -A"
-    alias lla="lla --color=auto -lhA"
+    alias ls="ls --color=auto --group-directories-first"
+    alias ll="ll --color=auto --group-directories-first -lh"
+    alias la="la --color=auto --group-directories-first -A"
+    alias lla="lla --color=auto --group-directories-first -lhA"
 fi
 
 alias grep="grep --color=auto"
+
 alias rm="rm -v"
 alias mv="mv -iv"
 alias cp="cp -iv"
@@ -57,10 +58,29 @@ command_exists trash \
     && alias rt="trash" \
     || echo "WARNING: trash-cli is not installed."
 
-[[ "$TERM" = xterm-kitty ]] && alias icat="kitten icat"
+command_exists lazygit && alias lg="lazygit"
+[[ "$TERM" = "xterm-kitty" ]] && alias icat="kitten icat"
 # ------------------------------------------------------------------------------
 
 # PROMPT -----------------------------------------------------------------------
-_add_newline() { [ -z "$_add_newline" ] && _add_newline=true || echo; }
-PROMPT_COMMAND="_add_newline"
-PS1='\[\e[1m\]\[\e[36m\]\w\[\e[0m\] \$ '
+_prompt_command() {
+    if [[ -z "$_add_newline" ]]; then _add_newline=true; else echo; fi
+
+    if [[ $IS_WSL != true ]]; then
+        printf "\033]0;%s@%s:%s\007" "${USER}" "${HOSTNAME%%.*}" "${PWD/#$HOME/\~}"
+    else
+        printf "\033]0;%s:%s\007" "${WSL_DISTRO}" "${PWD/#$HOME/\~}"
+    fi
+}
+PROMPT_COMMAND="_prompt_command"
+
+PS1='\[\e[1m\]\[\e[36m\]\w\[\e[0m\]\$ '
+
+if command_exists starship && [[ "$TERM" != "linux" ]]; then
+    [[ -d "$HOME/.cache/starship" ]] \
+        || mkdir -p "$HOME/.cache/starship"
+    [[ -f "$HOME/.cache/starship/init.sh" ]] \
+        || starship init bash --print-full-init >"$HOME/.cache/starship/init.sh"
+    source "$HOME/.cache/starship/init.sh"
+fi
+# ------------------------------------------------------------------------------
