@@ -4,7 +4,6 @@
 add_newline = false
 
 format = """
-$shlvl\
 $shell\
 $username\
 $directory\
@@ -22,17 +21,14 @@ $status\
 $container\
 $character"""
 
-[shlvl]
-disabled = false
-format = '[$symbol$shlvl]($style) '
-symbol = '⮟ '
-
 [shell]
 disabled = false
 fish_indicator = '󰈺 fish'
 bash_indicator = ' bash'
-zsh_indicator = ' zsh'
+zsh_indicator = '󰏰 zsh'
 powershell_indicator = '󰨊 pwsh'
+nu_indicator = '󰞷 nu'
+
 [directory]
 format = '[ $path]($style)[$read_only]($read_only_style) '
 read_only = ' 󰌾'

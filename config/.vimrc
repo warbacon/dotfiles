@@ -1,3 +1,12 @@
+syntax enable
+filetype plugin indent on
+
+if exists("$DISPLAY")
+    set termguicolors
+    set background=dark
+    colorscheme retrobox
+endif
+
 let g:mapleader=" "
 let g:maplocalleader="\\"
 
@@ -23,27 +32,22 @@ set listchars=tab:\ \ ,trail:·,nbsp:+
 
 set shortmess+=I
 
+set undofile
+
 set nowrap
-
-set belloff=all
-
-set mouse=a
 
 set sidescrolloff=3
 set scrolloff=5
 
-let data_dir = '~/.vim'
-if empty(glob(data_dir . '/autoload/plug.vim'))
-    silent execute '!curl -fLo ' . data_dir . '/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
-    autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
-endif
+set wildmenu
+set wildoptions+=pum
+set pumheight=10
 
-call plug#begin()
-Plug 'tpope/vim-sensible'
-Plug 'tpope/vim-commentary'
-Plug 'tpope/vim-sleuth'
-call plug#end()
+set mouse=a
 
-set termguicolors
-set background=dark
-colorscheme retrobox
+set laststatus=2
+
+set belloff=all
+
+set hlsearch
+nnoremap <silent> <C-l> :noh<CR>

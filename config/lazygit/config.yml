@@ -1,10 +1,10 @@
 disableStartupPopups: true
 os:
-  editPreset: 'nvim'
+  editPreset: "nvim"
 gui:
   nerdFontsVersion: "3"
-  border: single
   showBottomLine: false
+  showRandomTip: false
   spinner:
     rate: 80
     frames:
@@ -20,15 +20,24 @@ gui:
     - "⠏"
   theme:
     activeBorderColor:
-    - "#ff966c"
-    - "bold"
+      - "#ff966c"
+      - "bold"
     inactiveBorderColor:
-    - "#589ed7"
+      - "#589ed7"
     searchingActiveBorderColor:
-    - "#ff966c"
-    - "bold"
+      - "#ff966c"
+      - "bold"
+    optionsTextColor:
+      - "#82aaff"
     selectedLineBgColor:
-    - "#2d3f76"
-git:
-  paging:
-    useConfig: true
+      - "#2d3f76"
+    cherryPickedCommitFgColor:
+      - "#82aaff"
+    cherryPickedCommitBgColor:
+      - "#c099ff"
+    markedBaseCommitFgColor:
+      - "#82aaff"
+    markedBaseCommitBgColor:
+      - "#ffc777"
+    unstagedChangesColor:
+      - "#c53b53"

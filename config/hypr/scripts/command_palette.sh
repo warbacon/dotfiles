@@ -1,4 +1,4 @@
-#!/bin/env bash
+#!/bin/bash
 
 options=(
     "Conmutar luz nocturna"

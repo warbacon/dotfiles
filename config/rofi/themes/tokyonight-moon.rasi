@@ -7,12 +7,12 @@
 
     color: var(fg);
     background-color: transparent;
-    font: "JetBrains Mono 12";
+    font: "Cascadia Mono 12";
 }
 
 window {
     location: north;
-    margin: 50px 0 0 0;
+    margin: 100px 0 0 0;
     width: 600px;
     background-color: var(bg);
     border: 1.5px;
@@ -33,7 +33,7 @@ inputbar {
 }
 
 prompt {
-    font: "JetBrains Mono Bold 12";
+    font: "Cascadia Mono Bold 12";
     margin: 0 8px 0 0;
     color: var(orange);
 }

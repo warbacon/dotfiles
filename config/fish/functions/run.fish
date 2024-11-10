@@ -5,6 +5,10 @@ function run
     set -l file $argv[1]
 
     switch (path extension $file)
+        case .java
+            javac $file
+            java (path change-extension "" $file)
+            rm *.class
         case .cpp .c
             set -l bin (path change-extension "" $file)
             if g++ $file -o $bin

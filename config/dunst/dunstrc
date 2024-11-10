@@ -1,22 +1,22 @@
 [global]
-    font="JetBrains Mono 11"
-    frame_width=2
-    gap_size=6
-    height=100
-    max_icon_size=64
-    offset=20x20
-    width=300
+font="Cascadia Mono 11"
+frame_width=2
+gap_size=6
+height=100
+max_icon_size=64
+offset=20x20
+width=300
 
-    dmenu="rofi -dmenu"
+dmenu="rofi -dmenu"
 
-    mouse_left_click="do_action, close_current"
-    mouse_middle_click="close_current"
-    mouse_right_click="context, close_current"
+mouse_left_click="do_action, close_current"
+mouse_middle_click="close_current"
+mouse_right_click="context, close_current"
 
-    foreground="#c8d3f5"
-    background="#1e2030"
-    highlight="#ff966c"
-    frame_color="#589ed7"
+background = "#1e2030"
+foreground = "#c8d3f5"
+frame_color = "#2f334d"
+highlight = "#ff966c"
 
 [urgency_critical]
-    frame_color="#c53b53"
+frame_color = "#c53b53"

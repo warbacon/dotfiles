@@ -7,19 +7,19 @@
 }
 
 window#waybar {
-    font-family: JetBrains Mono, Symbols Nerd Font;
+    font-family: Cascadia Mono, Symbols Nerd Font;
     background: @bg0;
     border-bottom: 1px solid @border0;
     color: @fg0;
-    font-size: 11pt;
+    font-size: 10pt;
 }
 
 #workspaces,
 #tags {
-    margin-left: 6px;
     background-color: @bg1;
     border: 1px solid @border0;
     margin: 5px;
+    margin-right: 0;
 }
 
 #workspaces button,
@@ -27,6 +27,15 @@ window#waybar {
     color: @fg0;
     background: transparent;
     transition-property: none;
+    padding: 0 8px;
+}
+
+#tags button {
+    color: @fg1;
+}
+
+#tags button.occupied {
+    color: @fg0;
 }
 
 #workspaces button:hover,
@@ -43,6 +52,7 @@ window#waybar {
 
 #workspaces button.active,
 #tags button.focused {
+    color: @fg0;
     background-color: @accent;
 }
 
@@ -54,10 +64,6 @@ window#waybar {
 #workspaces button.active.special {
     background: @orange;
     color: @bg1;
-}
-
-#window {
-    font-weight: 600;
 }
 
 window#waybar.empty #window {
@@ -73,10 +79,10 @@ window#waybar.empty #window {
 #clock,
 #window,
 #power-profiles-daemon {
+    margin: 5px 0;
     background-color: @bg1;
     border: 1px solid @border0;
     padding: 0 10px;
-    margin: 5px 0;
 }
 
 #pulseaudio:hover,
@@ -134,5 +140,5 @@ window#waybar.empty #window {
 
 #clock {
     color: @fg-block0;
-    margin-right: 6px;
+    margin-right: 5px;
 }

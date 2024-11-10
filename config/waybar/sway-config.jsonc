@@ -3,8 +3,8 @@
     "height": 38,
     "spacing": 6,
     "modules-left": [
-        "hyprland/workspaces",
-        "hyprland/window"
+        "sway/workspaces",
+        "sway/window"
     ],
     "modules-right": [
         "privacy",
@@ -15,16 +15,6 @@
         "network",
         "clock"
     ],
-    "hyprland/workspaces": {
-        "show-special": true,
-        "format": "{icon}",
-        "format-icons": {
-            "magic": "✦"
-        }
-    },
-    "hyprland/window": {
-        "separate-outputs": true
-    },
     "privacy": {
         "icon-size": 16,
         "icon-spacing": 5

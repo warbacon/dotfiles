@@ -1,4 +1,4 @@
-#!/bin/env bash
+#!/bin/bash
 
 ID=1000
 TIMEOUT=2000
@@ -11,16 +11,17 @@ main() {
     case "$1" in
         up)
             brightnessctl -e set +3%
-            notify-send "Aumentar brillo" "$(get-brightness)%" -h int:value:"$(get-brightness)" -r $ID -t $TIMEOUT
             ;;
         down)
             brightnessctl -e set 3%-
-            notify-send "Bajar brillo" "$(get-brightness)%" -h int:value:"$(get-brightness)" -r $ID -t $TIMEOUT
             ;;
         *)
-            notify-send "change_brightness.sh" "Argument \"$1\" is not valid." -u critical
+            dunstify "change_brightness.sh" "Argument \"$1\" is not valid." -u critical
+            exit 1
             ;;
     esac
+
+    dunstify "Brillo" -h int:value:"$(get-brightness)" -r $ID -t $TIMEOUT
 }
 
 main "$@"
