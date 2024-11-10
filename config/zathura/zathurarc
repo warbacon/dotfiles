@@ -1,0 +1,7 @@
+set font "Cascadia Mono 13"
+set statusbar-home-tilde true
+set window-title-basename true
+set recolor-keephue true
+set selection-clipboard clipboard
+
+include tokyonight_moon.zathurarc
