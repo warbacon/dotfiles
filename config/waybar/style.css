@@ -7,7 +7,7 @@
 }
 
 window#waybar {
-    font-family: Cascadia Mono, Symbols Nerd Font;
+    font-family: JetBrains Mono, Symbols Nerd Font;
     background: @bg0;
     border-bottom: 1px solid @border0;
     color: @fg0;
@@ -20,6 +20,7 @@ window#waybar {
     border: 1px solid @border0;
     margin: 5px;
     margin-right: 0;
+    border-radius: 6px;
 }
 
 #workspaces button,
@@ -28,6 +29,8 @@ window#waybar {
     background: transparent;
     transition-property: none;
     padding: 0 8px;
+    border-radius: 4px;
+    margin: 1px;
 }
 
 #tags button {
@@ -83,6 +86,7 @@ window#waybar.empty #window {
     background-color: @bg1;
     border: 1px solid @border0;
     padding: 0 10px;
+    border-radius: 6px;
 }
 
 #pulseaudio:hover,

@@ -1,14 +1,3 @@
-# ENV VARIABLES ---------------------------------------------------------------
-fish_add_path -P "$HOME/.local/bin"
-
-# Neovim as editor and manpager
-if command -q nvim
-    set -x EDITOR nvim
-    set -x VISUAL nvim
-    set -x MANPAGER 'nvim +Man!'
-end
-# -----------------------------------------------------------------------------
-
 # Do nothing if isn't interactive
 status is-interactive
 or return
@@ -43,7 +32,7 @@ and abbr -a lg lazygit
 test $TERM = xterm-kitty
 and abbr -a icat kitten icat
 
-test -n $WEZTERM_EXECUTABLE
+set -q WEZTERM_EXECUTABLE
 and abbr -a icat wezterm imgcat
 
 if command -q eza
@@ -66,11 +55,3 @@ end
 bind \es prepend_sudo
 bind \e\[3\;5~ kill-word
 # -----------------------------------------------------------------------------
-
-# PROMPT ----------------------------------------------------------------------
-function prompt_newline --on-event fish_prompt
-    test -z $add_newline; and set -g add_newline true; or printf "\n"
-end
-
-command -q starship
-and starship init fish --print-full-init | source

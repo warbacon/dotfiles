@@ -1,9 +1,10 @@
 * {
-    bg: #1a1b26;
-    fg: #c8d3f5;
-    orange: #ff966c;
-    bg-highlight: #24283b;
-    border-fg: #2f334d;
+    bg: #16161e;
+    fg: #c0caf5;
+    orange: #ff9e64;
+    bg-highlight: #1a1b26;
+    border-fg: #292e42;
+    accent: #283457;
 
     color: var(fg);
     background-color: transparent;
@@ -54,7 +55,7 @@ listview {
 }
 
 scrollbar {
-    handle-color: #394b70;
+    handle-color: var(accent);
     border-color: var(border-fg);
     border: 1px;
     background-color: var(bg-highlight);
@@ -64,14 +65,14 @@ scrollbar {
 element {
     padding: 14px;
     cursor: pointer;
-    background-color: #222436;
-    border-color: #2f334d;
+    background-color: var(bg-highlight);
+    border-color: var(border-fg);
     border: 1px;
     border-radius: 12px;
 }
 
 element selected {
-    background-color: #394b70;
+    background-color: var(accent);
 }
 
 element-text {

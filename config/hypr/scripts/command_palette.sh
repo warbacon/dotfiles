@@ -9,12 +9,12 @@ options=(
 )
 
 selected="$(printf "%s\n" "${options[@]}" | rofi \
-    -theme-str "listview { scrollbar: false; } window { width: 500px; }" \
+    -theme-str "listview { scrollbar: false; } window { width: 400px; }" \
     -dmenu -i -l 5 -p Opciones)"
 
 case "$selected" in
     "Conmutar luz nocturna")
-        pkill gammastep || gammastep -O 3500
+        pkill hyprsunset || hyprsunset -t 3500
         ;;
     "Suspender")
         systemctl suspend

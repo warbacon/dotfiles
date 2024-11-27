@@ -15,7 +15,6 @@ $hg_branch\
 $python\
 $nix_shell\
 $cmd_duration\
-$fill\
 $line_break\
 $jobs\
 $status\

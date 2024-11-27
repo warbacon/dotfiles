@@ -4,4 +4,4 @@ configuration {
 	display-drun: "Ejecutar";
 }
 
-@theme "tokyonight-moon"
+@theme "tokyonight"

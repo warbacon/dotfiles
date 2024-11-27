@@ -1,11 +1,14 @@
 [global]
-font="Cascadia Mono 11"
+font="JetBrains Mono 11"
 frame_width=2
 gap_size=6
 height=100
 max_icon_size=64
 offset=20x20
 width=300
+corner_radius=8
+icon_corner_radius=6
+progress_bar_corner_radius=3
 
 dmenu="rofi -dmenu"
 
@@ -13,10 +16,10 @@ mouse_left_click="do_action, close_current"
 mouse_middle_click="close_current"
 mouse_right_click="context, close_current"
 
-background = "#1e2030"
-foreground = "#c8d3f5"
-frame_color = "#2f334d"
-highlight = "#ff966c"
+background = "#16161e"
+foreground = "#c0caf5"
+frame_color = "#292e42"
+highlight = "#ff9e64"
 
 [urgency_critical]
-frame_color = "#c53b53"
+frame_color = "#db4b4b"
