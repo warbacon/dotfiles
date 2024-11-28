@@ -6,7 +6,6 @@
 command_exists() {
     command -v "$1" &>/dev/null
 }
-[[ -f "/proc/sys/fs/binfmt_misc/WSLInterop" ]] && IS_WSL=true
 # ------------------------------------------------------------------------------
 
 # ENV VARIABLES ----------------------------------------------------------------
@@ -60,27 +59,25 @@ command_exists trash \
 
 command_exists lazygit && alias lg="lazygit"
 [[ "$TERM" = "xterm-kitty" ]] && alias icat="kitten icat"
+[[ -n "$WEZTERM_EXECUTABLE" ]] && alias icat="wezterm imgcat"
 # ------------------------------------------------------------------------------
 
 # PROMPT -----------------------------------------------------------------------
-_prompt_command() {
-    if [[ -z "$_add_newline" ]]; then _add_newline=true; else echo; fi
-
-    if [[ $IS_WSL != true ]]; then
-        printf "\033]0;%s@%s:%s\007" "${USER}" "${HOSTNAME%%.*}" "${PWD/#$HOME/\~}"
-    else
-        printf "\033]0;%s:%s\007" "${WSL_DISTRO}" "${PWD/#$HOME/\~}"
-    fi
+_add_newline() {
+    [[ -z "$_should_add_newline" ]] && _should_add_newline=true || echo
 }
-PROMPT_COMMAND="_prompt_command"
+PROMPT_COMMAND="_add_newline; $PROMPT_COMMAND"
 
 PS1='\[\e[1m\]\[\e[36m\]\w\[\e[0m\]\$ '
 
-if command_exists starship && [[ "$TERM" != "linux" ]]; then
-    [[ -d "$HOME/.cache/starship" ]] \
-        || mkdir -p "$HOME/.cache/starship"
-    [[ -f "$HOME/.cache/starship/init.sh" ]] \
-        || starship init bash --print-full-init >"$HOME/.cache/starship/init.sh"
-    source "$HOME/.cache/starship/init.sh"
+if command_exists starship; then
+    [[ -d "$HOME/.cache/starship" ]] || mkdir -p "$HOME/.cache/starship"
+
+    if [[ ! -f "$HOME/.cache/starship/init.sh" ]]; then
+        starship init bash --print-full-init >"$HOME/.cache/starship/init.sh"
+        starship completions bash >>"$HOME/.cache/starship/init.sh"
+    fi
+
+    [[ "$TERM" != "linux" ]] && source "$HOME/.cache/starship/init.sh"
 fi
 # ------------------------------------------------------------------------------
