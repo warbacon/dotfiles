@@ -1,6 +1,6 @@
 [global]
 font="JetBrains Mono 11"
-frame_width=2
+frame_width=1
 gap_size=6
 height=100
 max_icon_size=64
@@ -16,10 +16,10 @@ mouse_left_click="do_action, close_current"
 mouse_middle_click="close_current"
 mouse_right_click="context, close_current"
 
-background = "#16161e"
-foreground = "#c0caf5"
-frame_color = "#292e42"
-highlight = "#ff9e64"
+background = "#152528"
+foreground = "#e6eaea"
+frame_color = "#2d4f56"
+highlight = "#fda47f"
 
 [urgency_critical]
-frame_color = "#db4b4b"
+frame_color = "#e85c51"

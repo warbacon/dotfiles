@@ -36,7 +36,7 @@
     "pulseaudio": {
         "on-click": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle",
         "on-click-right": "kitty -e pulsemixer",
-        "format": "{icon} <span color='#c8d3f5'>{volume} %</span>",
+        "format": "{icon} <span color='#e6eaea'>{volume} %</span>",
         "format-muted": "󰝟",
         "format-icons": {
             "default": [
@@ -48,7 +48,7 @@
         }
     },
     "backlight": {
-        "format": "{icon} <span color='#c8d3f5'>{percent} %</span>",
+        "format": "{icon} <span color='#e6eaea'>{percent} %</span>",
         "tooltip": false,
         "format-icons": [
             "󰃞",
@@ -57,7 +57,7 @@
         ]
     },
     "battery": {
-        "format": "{icon} <span color='#c8d3f5'>{capacity} %</span>",
+        "format": "{icon} <span color='#e6eaea'>{capacity} %</span>",
         "tooltip-format": "Tiempo restante: {time}",
         "states": {
             "warning": 20,
@@ -80,7 +80,7 @@
         }
     },
     "network": {
-        "format-wifi": "{icon} <span color='#c8d3f5'>{signalStrength} %</span>",
+        "format-wifi": "{icon} <span color='#e6eaea'>{signalStrength} %</span>",
         "on-click": "kitty -e nmtui",
         "tooltip-format": "{essid}",
         "format-disconnected": "{icon} sin conexión",
@@ -96,7 +96,7 @@
     },
     "clock": {
         "tooltip-format": "<big>{:L%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
-        "format": " <span color='#c8d3f5'>{:L%H:%M}</span>",
-        "format-alt": " <span color='#c8d3f5'>{:L%a, %d %b}</span>"
+        "format": " <span color='#e6eaea'>{:L%H:%M}</span>",
+        "format-alt": " <span color='#e6eaea'>{:L%a, %d %b}</span>"
     }
 }

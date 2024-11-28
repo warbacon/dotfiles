@@ -1,4 +1,4 @@
-@import "tokyonight.css";
+@import "terafox.css";
 
 * {
     border: none;
@@ -25,7 +25,7 @@ window#waybar {
 
 #workspaces button,
 #tags button {
-    color: @fg0;
+    color: @fg1;
     background: transparent;
     transition-property: none;
     padding: 0 8px;
@@ -55,7 +55,7 @@ window#waybar {
 
 #workspaces button.active,
 #tags button.focused {
-    color: @fg0;
+    color: @bg0;
     background-color: @accent;
 }
 
@@ -107,15 +107,15 @@ window#waybar.empty #window {
 }
 
 #pulseaudio {
-    color: @fg-block3;
+    color: @accent;
 }
 
 #backlight {
-    color: @fg-block2;
+    color: @accent;
 }
 
 #battery {
-    color: @green;
+    color: @accent;
 }
 
 #battery.charging {
@@ -139,10 +139,10 @@ window#waybar.empty #window {
 }
 
 #network {
-    color: @fg-block1;
+    color: @accent;
 }
 
 #clock {
-    color: @fg-block0;
+    color: @accent;
     margin-right: 5px;
 }

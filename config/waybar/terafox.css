@@ -1,0 +1,14 @@
+@define-color bg0     #0f1c1e;
+@define-color bg1     #152528;
+@define-color bg2     #293e40;
+
+@define-color fg0     #e6eaea;
+@define-color fg1     #587b7b;
+
+@define-color border0 #1d3337;
+@define-color border1 @fg1;
+
+@define-color accent    #5a93aa;
+@define-color red       #e85c51;
+@define-color orange    #ff8349;
+@define-color yellow    #fda47f;

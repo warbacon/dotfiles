@@ -55,3 +55,9 @@ end
 bind \es prepend_sudo
 bind \e\[3\;5~ kill-word
 # -----------------------------------------------------------------------------
+
+# COLORSCHEME -----------------------------------------------------------------
+test $TERM = "xterm-kitty"
+and test $hostname = "zenarch"
+and fish_config theme choose terafox
+# -----------------------------------------------------------------------------

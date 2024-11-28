@@ -28,6 +28,7 @@ bash_indicator = ' bash'
 zsh_indicator = '󰏰 zsh'
 powershell_indicator = '󰨊 pwsh'
 nu_indicator = '󰞷 nu'
+style = 'bold bright-yellow'
 
 [directory]
 format = '[ $path]($style)[$read_only]($read_only_style) '
