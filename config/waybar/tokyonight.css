@@ -1,20 +1,20 @@
-@define-color bg0     #16161e;
+@define-color bg0     #111118;
 @define-color bg1     #1a1b26;
 @define-color bg2     #292e42;
 
-@define-color fg0     #c0caf5;
-@define-color fg1     #a9b1d6;
+@define-color fg0     #a9b1d6;
+@define-color fg1     #c0caf5;
 
-@define-color border0 @bg2;
-@define-color border1 @fg1;
+@define-color border0 #232533;
+@define-color border1 #424b6b;
 
-@define-color accent    #283457;
-@define-color red       #f7768e;
-@define-color orange    #ff9e64;
-@define-color yellow    #e0af68;
-@define-color green     #9ece6a;
+@define-color accent         #449dab;
+@define-color battery-low    #f7768e;
+@define-color battery-warn   #ff9e64;
+@define-color battery-charge #e0af68;
 
-@define-color fg-block0 #2ac3de;
-@define-color fg-block1 #1abc9c;
-@define-color fg-block2 #db4b4b;
-@define-color fg-block3 #bb9af7;
+@define-color workspace-active-bg @accent;
+@define-color workspace-active-fg @bg1;
+
+@define-color special-workspace-bg @battery-warn;
+@define-color special-workspace-fg @bg1;

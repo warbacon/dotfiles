@@ -1,4 +1,4 @@
-@import "terafox.css";
+@import "tokyonight.css";
 
 * {
     border: none;
@@ -10,7 +10,7 @@ window#waybar {
     font-family: JetBrains Mono, Symbols Nerd Font;
     background: @bg0;
     border-bottom: 1px solid @border0;
-    color: @fg0;
+    color: @fg1;
     font-size: 10pt;
 }
 
@@ -25,7 +25,7 @@ window#waybar {
 
 #workspaces button,
 #tags button {
-    color: @fg1;
+    color: @fg0;
     background: transparent;
     transition-property: none;
     padding: 0 8px;
@@ -33,12 +33,8 @@ window#waybar {
     margin: 1px;
 }
 
-#tags button {
-    color: @fg1;
-}
-
 #tags button.occupied {
-    color: @fg0;
+    color: @fg1;
 }
 
 #workspaces button:hover,
@@ -55,8 +51,8 @@ window#waybar {
 
 #workspaces button.active,
 #tags button.focused {
-    color: @bg0;
-    background-color: @accent;
+    color: @workspace-active-fg;
+    background-color: @workspace-active-bg;
 }
 
 #workspaces button.active:hover,
@@ -65,8 +61,8 @@ window#waybar {
 }
 
 #workspaces button.active.special {
-    background: @orange;
-    color: @bg1;
+    background: @special-workspace-bg;
+    color: @special-workspace-fg;
 }
 
 window#waybar.empty #window {
@@ -80,13 +76,20 @@ window#waybar.empty #window {
 #battery,
 #network,
 #clock,
-#window,
-#power-profiles-daemon {
+#window {
     margin: 5px 0;
     background-color: @bg1;
     border: 1px solid @border0;
     padding: 0 10px;
     border-radius: 6px;
+}
+
+#pulseaudio,
+#backlight,
+#battery,
+#network,
+#clock {
+    color: @accent;
 }
 
 #pulseaudio:hover,
@@ -103,46 +106,29 @@ window#waybar.empty #window {
 
 #network.disconnected,
 #pulseaudio.muted {
-    color: @fg1;
-}
-
-#pulseaudio {
-    color: @accent;
-}
-
-#backlight {
-    color: @accent;
-}
-
-#battery {
-    color: @accent;
+    color: @fg0;
 }
 
 #battery.charging {
-    color: @yellow;
+    color: @battery-charge;
 }
 
 #battery.charging.warning {
-    color: @yellow;
+    color: @battery-charge;
 }
 
 #battery.charging.critical {
-    color: @yellow;
+    color: @battery-charge;
 }
 
 #battery.warning {
-    color: @orange;
+    color: @battery-warn;
 }
 
 #battery.critical {
-    color: @red;
-}
-
-#network {
-    color: @accent;
+    color: @battery-low;
 }
 
 #clock {
-    color: @accent;
     margin-right: 5px;
 }

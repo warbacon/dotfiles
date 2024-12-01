@@ -1,10 +1,12 @@
 * {
-    bg: #16161e;
+    window-bg: #111118;
+    highlight: #1a1b26;
     fg: #c0caf5;
-    orange: #ff9e64;
-    bg-highlight: #1a1b26;
-    border-fg: #292e42;
-    accent: #283457;
+    selected-bg: #283457;
+    selected-fg: var(fg);
+    border: #232533;
+    accent: #ff9e64;
+    match-fg: #0db9d7;
 
     color: var(fg);
     background-color: transparent;
@@ -15,9 +17,9 @@ window {
     location: north;
     margin: 25px 0 0 0;
     width: 550px;
-    background-color: var(bg);
+    background-color: var(window-bg);
     border: 1.5px;
-    border-color: var(border-fg);
+    border-color: var(border);
     border-radius: 16px;
 }
 
@@ -37,7 +39,7 @@ inputbar {
 prompt {
     font: "JetBrains Mono Bold 12";
     margin: 0 8px 0 0;
-    color: var(orange);
+    color: var(accent);
 }
 
 entry {
@@ -55,28 +57,34 @@ listview {
 }
 
 scrollbar {
-    handle-color: var(accent);
-    border-color: var(border-fg);
+    handle-color: var(selected-bg);
+    border-color: var(border);
     border: 1px;
-    background-color: var(bg-highlight);
+    background-color: var(highlight);
     border-radius: 3.5px;
 }
 
 element {
     padding: 14px;
     cursor: pointer;
-    background-color: var(bg-highlight);
-    border-color: var(border-fg);
+    background-color: var(highlight);
+    border-color: var(border);
     border: 1px;
     border-radius: 12px;
 }
 
 element selected {
-    background-color: var(accent);
+    background-color: var(selected-bg);
 }
 
 element-text {
     cursor: inherit;
+    highlight: var(match-fg);
+    // highlight: underline;
+}
+
+element-text selected {
+    color: var(selected-fg);
 }
 
 element-icon {

@@ -16,10 +16,10 @@ mouse_left_click="do_action, close_current"
 mouse_middle_click="close_current"
 mouse_right_click="context, close_current"
 
-background = "#152528"
-foreground = "#e6eaea"
-frame_color = "#2d4f56"
-highlight = "#fda47f"
+background = "#111118"
+foreground = "#c0caf5"
+frame_color = "#292e42"
+highlight = "#ff9e64"
 
 [urgency_critical]
-frame_color = "#e85c51"
+frame_color = "#f7768e"

@@ -4,4 +4,4 @@ configuration {
 	display-drun: "Ejecutar";
 }
 
-@theme "terafox"
+@theme "tokyonight"
