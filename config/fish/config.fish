@@ -56,6 +56,19 @@ bind \es prepend_sudo
 bind \e\[3\;5~ kill-word
 # -----------------------------------------------------------------------------
 
-# COLORSCHEME -----------------------------------------------------------------
+# APPAREANCE ------------------------------------------------------------------
 fish_config theme choose thunder
+
+if command -q starship
+    test -d ~/.cache/starship
+    or mkdit ~/.cache/starship
+
+    test -f ~/.cache/starship/init.fish
+    or starship init fish --print-full-init >~/.cache/starship/init.fish
+
+    source ~/.cache/starship/init.fish
+    and function prompt_newline --on-event fish_prompt
+        test -z $_add_newline; and set -g _add_newline true; or echo
+    end
+end
 # -----------------------------------------------------------------------------
