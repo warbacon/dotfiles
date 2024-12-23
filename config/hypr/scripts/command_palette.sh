@@ -9,8 +9,7 @@ options=(
 )
 
 selected="$(printf "%s\n" "${options[@]}" | rofi \
-    -theme-str "listview { scrollbar: false; } window { width: 400px; }" \
-    -dmenu -i -l 5 -p Opciones)"
+    -dmenu -i -p Opciones)"
 
 case "$selected" in
     "Conmutar luz nocturna")

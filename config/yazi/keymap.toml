@@ -1,4 +1,5 @@
 [manager]
 prepend_keymap = [
-	{ on = [ "g", "d" ], run = 'cd ~/Descargas', desc = "Go to the downloads directory" },
+	{ on = [ "g", "d" ], run = 'cd ~/Descargas', desc = "Goto ~/Descargas" },
+	{ on = [ "g", "x" ], run = 'plugin extract', desc = "Extract file" },
 ]

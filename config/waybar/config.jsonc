@@ -23,7 +23,9 @@
         }
     },
     "hyprland/window": {
-        "separate-outputs": true
+        "separate-outputs": true,
+        "icon": true,
+        "icon-size": 16
     },
     "privacy": {
         "icon-size": 16,
@@ -35,7 +37,7 @@
     },
     "pulseaudio": {
         "on-click": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle",
-        "on-click-right": "kitty -e pulsemixer",
+        "on-click-right": "kitty -1 -e pulsemixer",
         "format": "{icon} <span color='#c0caf5'>{volume} %</span>",
         "format-muted": "󰝟",
         "format-icons": {
@@ -81,7 +83,7 @@
     },
     "network": {
         "format-wifi": "{icon} <span color='#c0caf5'>{signalStrength} %</span>",
-        "on-click": "kitty -e nmtui",
+        "on-click": "kitty -1 -e nmtui",
         "tooltip-format": "{essid}",
         "format-disconnected": "{icon} sin conexión",
         "format-icons": {

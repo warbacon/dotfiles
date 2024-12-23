@@ -1,21 +1,35 @@
 function prepend_sudo
+    # Get current command line buffer
     set -l buffer (commandline -o)
 
-    # Feillo pero funciona.
-    if test "$buffer[1]" = "$EDITOR"
-        commandline -r "sudo -e $buffer[2..]"
-    else if test "$buffer[1..2]" = "sudo -e"
-        commandline -r "$EDITOR $buffer[3..]"
-    else if test -z "$buffer"
-        set -l nose (string split ' ' $history[1])
-        if test "$nose[1]" = "$EDITOR"
-            commandline -r "sudo -e $nose[2..]"
-        else if test "$nose[1..2]" = "sudo -e"
-            commandline -r "$EDITOR $nose[3..]"
+    # Helper function to handle editor commands
+    function toggle_editor_sudo
+        set -l cmd $argv
+        if test "$cmd[1]" = "$EDITOR"
+            echo "sudo -e $cmd[2..]"
+        else if test "$cmd[1..2]" = "sudo -e"
+            echo "$EDITOR $cmd[3..]"
         else
-            fish_commandline_prepend sudo
+            return 1
         end
+    end
+
+    # If buffer is empty, try with last command from history
+    if test -z "$buffer"
+        set buffer (string split ' ' $history[1])
+    end
+
+    # Try to toggle editor command
+    set -l result (toggle_editor_sudo $buffer)
+    if test $status -eq 0
+        commandline -r $result
+        return
+    end
+
+    # If not an editor command, toggle regular sudo
+    if test "$buffer[1]" = sudo
+        commandline -r "$buffer[2..]"
     else
-        fish_commandline_prepend sudo
+        commandline -r "sudo $buffer"
     end
 end

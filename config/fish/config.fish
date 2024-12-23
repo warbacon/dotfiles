@@ -3,10 +3,8 @@ status is-interactive
 or return
 
 # FISH SETTINGS ---------------------------------------------------------------
-# Disable fish_greeting
-set -g fish_greeting
-
-set GIT_DIR "$HOME/Git"
+set -g fish_greeting # Disable fish_greeting
+set GIT_DIR "$HOME/Git" # Used to show repo status in ll
 # -----------------------------------------------------------------------------
 
 # ABBREVIATIONS ---------------------------------------------------------------
@@ -52,11 +50,10 @@ end
 # -----------------------------------------------------------------------------
 
 # KEYBINDINGS -----------------------------------------------------------------
-bind \es prepend_sudo
-bind \e\[3\;5~ kill-word
+bind alt-s prepend_sudo
 # -----------------------------------------------------------------------------
 
-# APPAREANCE ------------------------------------------------------------------
+# APPEARANCE ------------------------------------------------------------------
 fish_config theme choose thunder
 
 if command -q starship

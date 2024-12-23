@@ -33,6 +33,11 @@ window#waybar {
     margin: 1px;
 }
 
+#workspaces button:not(:last-child),
+#tags button:not(:last-child) {
+    margin-right: 3px;
+}
+
 #tags button.occupied {
     color: @fg1;
 }

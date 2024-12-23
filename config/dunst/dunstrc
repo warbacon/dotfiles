@@ -2,7 +2,7 @@
 font="JetBrains Mono 11"
 frame_width=1
 gap_size=6
-height=100
+height=(0, 100)
 max_icon_size=64
 offset=20x20
 width=300
