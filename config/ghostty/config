@@ -6,10 +6,9 @@ font-size = 14
 mouse-hide-while-typing = true
 resize-overlay = never
 
-theme = tokyonight
+theme = tokyonight_night
 
 gtk-wide-tabs = false
-adw-toolbar-style = flat
 
 adjust-cursor-thickness = 2
 adjust-cell-height = 10
