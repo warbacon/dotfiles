@@ -1,0 +1,32 @@
+from mystart.util import gsettings_set, install_packages
+
+pkgs = [
+    "bibata-cursor-theme-bin",
+    "brightnessctl",
+    "dunst",
+    "grim",
+    "hypridle",
+    "hyprland",
+    "hyprlock",
+    "hyprpaper",
+    "hyprpolkitagent",
+    "hyprsunset",
+    "kitty",
+    "libcanberra",
+    "libnotify",
+    "pulsemixer",
+    "rofi-wayland",
+    "rofimoji",
+    "slurp",
+    "uwsm",
+    "waybar",
+    "wl-clip-persist",
+    "wtype",
+    "xdg-desktop-portal-gtk",
+    "xdg-desktop-portal-hyprland",
+    "xdg-user-dirs",
+    "yazi",
+]
+
+install_packages(pkgs)
+gsettings_set("org.gnome.desktop.wm.preferences", "button-layout", "appmenu:none")
