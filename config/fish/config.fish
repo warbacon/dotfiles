@@ -27,8 +27,9 @@ and abbr -a ffetch fastfetch
 command -q lazygit
 and abbr -a lg lazygit
 
-test $TERM = xterm-kitty
-and abbr -a icat kitten icat
+if test "$TERM" = "xterm-kitty"; or test "$TERM" = "xterm-ghostty" -a (command -q kitten)
+    abbr -a icat kitten icat
+end
 
 set -q WEZTERM_EXECUTABLE
 and abbr -a icat wezterm imgcat

@@ -1,24 +1,29 @@
-# command = ~/.local/bin/fish
-
-font-family = JetBrains Mono
+font-family = "JetBrains Mono"
+font-feature = -calt
 font-size = 14
 
-mouse-hide-while-typing = true
-resize-overlay = never
+adjust-cell-height = 30%
+adjust-cursor-height = 30%
+adjust-cursor-thickness = 3
 
 theme = tokyonight_night
 
-gtk-wide-tabs = false
-
-adjust-cursor-thickness = 2
-adjust-cell-height = 10
-
-window-decoration = false
-window-padding-x = 0
-window-padding-y = 0
-window-theme = ghostty
+cursor-click-to-move = false
+mouse-hide-while-typing = true
+command = ~/.local/bin/fish
 
 keybind = ctrl+shift+semicolon=reload_config
-keybind = ctrl+equal=increase_font_size:2
 keybind = ctrl+plus=increase_font_size:2
 keybind = ctrl+minus=decrease_font_size:2
+keybind = ctrl+shift+s=paste_from_selection
+
+window-padding-x = 0
+window-padding-y = 0
+window-padding-balance = true
+
+window-inherit-working-directory = false
+window-theme = ghostty
+resize-overlay = never
+
+gtk-titlebar = false
+gtk-wide-tabs = false

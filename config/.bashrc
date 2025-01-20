@@ -42,9 +42,9 @@ if command_exists eza && [[ "$TERM" != "linux" ]]; then
     alias lla="eza --icons=auto --group-directories-first --git -la"
 else
     alias ls="ls --color=auto --group-directories-first"
-    alias ll="ls --color=auto --group-directories-first -lh"
-    alias la="ls --color=auto --group-directories-first -A"
-    alias lla="ls --color=auto --group-directories-first -lhA"
+    alias ll="ll --color=auto --group-directories-first -lh"
+    alias la="la --color=auto --group-directories-first -A"
+    alias lla="lla --color=auto --group-directories-first -lhA"
 fi
 
 alias grep="grep --color=auto"
