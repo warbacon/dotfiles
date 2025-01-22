@@ -1,3 +1,4 @@
+import subprocess
 from mystart.util import gsettings_set, install_packages
 
 pkgs = [
@@ -29,4 +30,5 @@ pkgs = [
 ]
 
 install_packages(pkgs)
+_ = subprocess.run(["xdg-user-dirs-update"])
 gsettings_set("org.gnome.desktop.wm.preferences", "button-layout", "appmenu:none")

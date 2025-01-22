@@ -9,9 +9,10 @@ pkgs = [
     "fastfetch",
     "fd",
     "fish",
+    "fzf",
     "git",
+    "github-cli",
     "hyperfine",
-    "jq",
     "lazygit",
     "less",
     "man-db",
@@ -22,6 +23,7 @@ pkgs = [
     "starship",
     "tealdeer",
     "trash-cli",
+    "udisks2",
     "wget",
 ]
 

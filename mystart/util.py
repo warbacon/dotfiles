@@ -1,4 +1,5 @@
 import os
+from urllib.request import urlretrieve
 from pathlib import Path
 import shutil
 import subprocess
@@ -33,7 +34,10 @@ def command_exists(cmd: str) -> bool:
 
 def package_exists(pkg: str) -> bool:
     return (
-        subprocess.run(["pacman", "-Q", pkg], stdout=subprocess.DEVNULL).returncode != 1
+        subprocess.run(
+            ["pacman", "-Q", pkg], stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL
+        ).returncode
+        == 0
     )
 
 
@@ -78,7 +82,7 @@ def gsettings_set(path: str, key: str, value: str):
         install_packages("glib2")
 
     command = ["gsettings", "set", path, key, value]
-    info(f"Executing {" ".join(command)}")
+    info(f"Executing {' '.join(command)}")
 
     _ = subprocess.run(command)
 
@@ -89,3 +93,17 @@ def create_directory(path: str):
         os.mkdir(path)
     except FileExistsError:
         warn(f"Directory '{path}' already exists.")
+
+
+def download_file(url: str, path: str = "") -> str:
+    filename: str = os.path.basename(url)
+    if path == "":
+        path = f"/tmp/{filename}"
+    info(f"Downloading {filename} in {path}")
+    try:
+        _ = urlretrieve(url, path)
+        info(f"Successfully downloaded {filename}")
+    except Exception as e:
+        error(f"Failed to download file: {e}")
+
+    return path
