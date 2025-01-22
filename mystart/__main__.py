@@ -1,6 +1,6 @@
 from pathlib import Path
 from runpy import run_path
-from .util import error, info
+from .util import Logger
 
 
 def list_modules(directory: Path) -> list[str]:
@@ -23,7 +23,7 @@ def get_user_selections(max_selection: int) -> list[int]:
 
 def run_selected_modules(modules: list[str], modules_directory: Path):
     for module in modules:
-        info(f"Running {modules_directory}/{module}")
+        Logger.info(f"Running {modules_directory}/{module}")
         _ = run_path(f"{modules_directory}/{module}")
 
 
@@ -48,7 +48,7 @@ def main():
 
         if input_str == "":
             selections = [x for x in range(len(modules))]
-            info("Running all modules")
+            Logger.info("Running all modules")
         else:
             selections = [
                 int(x.strip())
@@ -61,7 +61,7 @@ def main():
 
     modules_to_run = [modules[i - 1] for i in selections]
     for module in modules_to_run:
-        info(f"Running {modules_directory}/{module}")
+        Logger.info(f"Running {modules_directory}/{module}")
         _ = run_path(f"{modules_directory}/{module}")
 
 
@@ -70,4 +70,4 @@ if __name__ == "__main__":
         main()
     except KeyboardInterrupt:
         print()
-        error("Mystart was cancelled by the user")
+        Logger.error("Mystart was cancelled by the user")
