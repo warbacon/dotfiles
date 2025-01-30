@@ -77,7 +77,7 @@ def install_packages(pkgs: str | list[str], asdeps: bool = False):
 
     if not command_exists("paru"):
         git_clone("https://aur.archlinux.org/paru-bin.git", "/tmp/paru-bin")
-        _ = subprocess.run(["makepkg", "-si"], cwd="/tmp/paru-bin")
+        _ = subprocess.run(["makepkg", "-si", "--noconfirm"], cwd="/tmp/paru-bin")
 
     command = ["paru", "-Sq", "--needed", "--noconfirm"]
 

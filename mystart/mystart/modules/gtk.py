@@ -1,7 +1,7 @@
 from mystart.util import (
     create_directory,
     gsettings_set,
-    info,
+    Logger,
     install_packages,
     home_dir,
 )
@@ -20,7 +20,7 @@ gtk3_config = f"{gtk3_dir}/settings.ini"
 create_directory(gtk3_dir)
 
 with open(gtk3_config, "w") as f:
-    info(f"Creating {gtk3_config}")
+    Logger.info(f"Creating {gtk3_config}")
     # fmt: off
     _ = f.write(
 """[Settings]
