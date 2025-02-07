@@ -6,6 +6,8 @@
     monospace,
     Symbols Nerd Font;
   font-size: 10pt;
+  transition: background-color 250ms;
+  transition: border-color 250ms;
 }
 
 window#waybar {
@@ -27,7 +29,7 @@ window#waybar {
 #tags button {
   color: @fg0;
   background: transparent;
-  transition-property: none;
+  transition: background-color 250ms;
   padding: 0 8px;
   border-radius: 4px;
   margin: 1px;

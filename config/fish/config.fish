@@ -27,7 +27,7 @@ and abbr -a ffetch fastfetch
 command -q lazygit
 and abbr -a lg lazygit
 
-if test "$TERM" = "xterm-kitty"; or test "$TERM" = "xterm-ghostty" -a (command -q kitten)
+if test "$TERM" = xterm-kitty; or test "$TERM" = xterm-ghostty -a (command -q kitten)
     abbr -a icat kitten icat
 end
 
@@ -59,7 +59,7 @@ fish_config theme choose thunder
 
 if command -q starship
     test -d ~/.cache/starship
-    or mkdit ~/.cache/starship
+    or mkdir ~/.cache/starship
 
     test -f ~/.cache/starship/init.fish
     or starship init fish --print-full-init >~/.cache/starship/init.fish

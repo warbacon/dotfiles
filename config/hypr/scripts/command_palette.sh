@@ -8,8 +8,7 @@ options=(
     "Cerrar sesión"
 )
 
-selected="$(printf "%s\n" "${options[@]}" | rofi \
-    -dmenu -i -p Opciones)"
+selected="$(printf "%s\n" "${options[@]}" | walker -d -p Opciones -k)"
 
 case "$selected" in
     "Conmutar luz nocturna")
