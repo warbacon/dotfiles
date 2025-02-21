@@ -21,7 +21,7 @@ config.mouse_wheel_scrolls_tabs = false
 config.warn_about_missing_glyphs = false
 
 -- APPEARANCE
-config.color_scheme = "tokyonight_moon"
+config.color_scheme = "tokyonight_night"
 config.bold_brightens_ansi_colors = "No"
 
 config.font_size = 13.3
@@ -41,17 +41,6 @@ config.use_fancy_tab_bar = false
 config.hide_tab_bar_if_only_one_tab = true
 config.show_new_tab_button_in_tab_bar = false
 config.tab_max_width = 999
-
--- PERFORMANCE
-if utils.is_win then
-	for _, gpu in ipairs(wezterm.gui.enumerate_gpus()) do
-		if gpu.backend == "Dx12" then
-			config.front_end = "WebGpu"
-			config.webgpu_preferred_adapter = gpu
-			break
-		end
-	end
-end
 
 -- LAUNCH MENU
 config.launch_menu = {}
@@ -92,9 +81,17 @@ end
 -- WINDOWS-PC
 if utils.hostname == "windows-pc" then
 	config.max_fps = 144
-	config.font_size = 16
-	config.initial_cols = 110
-	config.initial_rows = 29
+	config.font_size = 17
+	config.initial_cols = 100
+	config.initial_rows = 27
+
+	local wsl_domains = wezterm.default_wsl_domains()
+	for _, dom in ipairs(wsl_domains) do
+		if dom.name == "WSL:Arch" then
+			dom.default_prog = { "/home/warbacon/.local/bin/fish" }
+		end
+	end
+	config.wsl_domains = wsl_domains
 end
 
 return config
