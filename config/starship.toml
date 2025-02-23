@@ -11,14 +11,11 @@ $git_branch\
 $git_commit\
 $git_state\
 $git_status\
-$hg_branch\
 $python\
-$nix_shell\
 $cmd_duration\
 $line_break\
 $jobs\
 $status\
-$container\
 $character"""
 
 [shell]
@@ -44,13 +41,6 @@ format = '[\($virtualenv\)]($style) '
 style = 'bold bright-green'
 detect_extensions = []
 detect_files = []
-
-[nix_shell]
-symbol='❄ '
-
-[fill]
-symbol = '─'
-style = 'bright-black'
 
 [status]
 disabled = false
