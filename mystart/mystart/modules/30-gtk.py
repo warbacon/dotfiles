@@ -6,10 +6,9 @@ from mystart.util import (
     home_dir,
 )
 
-pkgs = ["adw-gtk-theme", "inter-font"]
+pkgs = ["inter-font"]
 install_packages(pkgs)
 
-gsettings_set("org.gnome.desktop.interface", "gtk-theme", "adw-gtk3-dark")
 gsettings_set("org.gnome.desktop.interface", "color-scheme", "prefer-dark")
 gsettings_set("org.gnome.desktop.interface", "font-name", "'Inter Variable 10'")
 

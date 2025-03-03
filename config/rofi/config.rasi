@@ -1,7 +1,8 @@
 configuration {
-	modes: "drun";
-	hover-select: true;
-	display-drun: "Ejecutar";
+    drun-display-format: "{name}";
+    cycle: false;
+    hover-selected: true;
+    display-drun: "Aplicaciones";
 }
 
 @theme "tokyonight"

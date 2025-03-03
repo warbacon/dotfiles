@@ -1,78 +1,82 @@
 * {
-    window-bg: #111118;
-    highlight: #1a1b26;
-    fg: #c0caf5;
-    selected-bg: #283457;
-    selected-fg: var(fg);
-    border: #232533;
-    accent: #ff9e64;
-    match-fg: #0db9d7;
-
-    color: var(fg);
+    background: #16161e;
+    lightbg: #1a1b26;
+    foreground: #c0caf5;
+    dimmed-foreground: #565f89;
+    selected-background: #283457;
+    prompt-background: #ff9e64;
+    match-foreground: #2ac3de;
+    border-color: #232533;
     background-color: transparent;
-    font: "JetBrains Mono 12";
+    color: var(foreground);
 }
 
 window {
-    location: west;
-    width: 475px;
-    height: 100%;
-    background-color: var(window-bg);
-    border: 0 1.5px 0 0;
-    border-color: var(border);
-}
-
-mainbox {
-    padding: 8px;
+    location: north;
+    margin: 125 0 0 0;
+    padding: 16;
+    background-color: var(background);
+    width: 600px;
+    border: 1;
+    border-radius: 10;
 }
 
 inputbar {
-    children: ["prompt", "entry"];
-    padding: 14px 7px;
+    padding: 14 0;
+    children: [ "prompt", "entry" ];
 }
 
 prompt {
-    font: "JetBrains Mono Bold 12";
-    margin: 0 8px 0 0;
-    color: var(accent);
+    background-color: var(prompt-background);
+    color: var(background);
+    padding: 8 12;
+    border-radius: 5;
 }
 
 entry {
+    padding: 8 12;
+    margin: 0 0 0 4;
+    border-radius: 5;
+    background-color: var(lightbg);
+    border: 1;
+    placeholder: "Escribe para filtrar...";
+    placeholder-color: var(dimmed-foreground);
     cursor: text;
 }
 
 message {
-    padding: 0 7px 14px;
+    padding: 0 8px 14px 8px;
 }
 
 listview {
-    spacing: 8px;
+    lines: 8;
+    spacing: 3;
+    scrollbar: true;
+}
+
+scrollbar {
+    margin: 0 0 0 4;
+    handle-width: 4px ;
+    handle-color: var(selected-background);
 }
 
 element {
-    padding: 14px;
+    padding: 10;
     cursor: pointer;
-    background-color: var(highlight);
-    border-color: var(border);
-    border: 1px;
-    border-radius: 12px;
+    border-radius: 5;
 }
 
 element selected {
-    background-color: var(selected-bg);
+    background-color: var(selected-background);
 }
 
 element-text {
     cursor: inherit;
-    highlight: var(match-fg);
-}
-
-element-text selected {
-    color: var(selected-fg);
+    highlight: var(match-foreground);
 }
 
 element-icon {
-    size: 1.2em;
-    padding: 0 10px 0 0;
     cursor: inherit;
+    padding: 0 10 0 0;
+    size: 1.2em;
 }

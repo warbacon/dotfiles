@@ -1,18 +1,13 @@
 @import "tokyonight.css";
 
 * {
-  font-family:
-    JetBrains Mono,
-    monospace,
-    Symbols Nerd Font;
-  font-size: 10pt;
-  transition: background-color 250ms;
-  transition: border-color 250ms;
+  all: unset;
+  font-family: "CommitMono", "monospace", "Symbols Nerd Font";
 }
 
 window#waybar {
   background: @bg0;
-  border-bottom: 1px solid @border0;
+  border-top: 1px solid @border0;
   color: @fg1;
 }
 
@@ -28,9 +23,9 @@ window#waybar {
 #workspaces button,
 #tags button {
   color: @fg0;
+  min-width: 18px;
   background: transparent;
-  transition: background-color 250ms;
-  padding: 0 8px;
+  padding: 0 6px;
   border-radius: 4px;
   margin: 1px;
 }
@@ -47,8 +42,6 @@ window#waybar {
 #workspaces button:hover,
 #tags button:hover {
   background-color: @bg2;
-  text-shadow: none;
-  box-shadow: none;
 }
 
 #workspaces button.urgent {
@@ -59,12 +52,8 @@ window#waybar {
 #workspaces button.active,
 #tags button.focused {
   color: @workspace-active-fg;
+  font-weight: 700;
   background-color: @workspace-active-bg;
-}
-
-#workspaces button.active:hover,
-#tags button.focused:hover {
-  text-shadow: none;
 }
 
 #workspaces button.active.special {
@@ -83,6 +72,7 @@ window#waybar.empty #window {
 #battery,
 #network,
 #clock,
+#submap,
 #window {
   margin: 5px 0;
   background-color: @bg1;
@@ -101,10 +91,15 @@ window#waybar.empty #window {
 
 #pulseaudio:hover,
 #clock:hover,
-#network:hover,
-#power-profiles-daemon:hover {
+#network:hover {
   background-color: @bg2;
   border: 1px solid @border1;
+}
+
+#submap {
+  background-color: @battery-warn;
+  border: none;
+  color: @bg0;
 }
 
 #privacy-item {
@@ -116,14 +111,8 @@ window#waybar.empty #window {
   color: @fg0;
 }
 
-#battery.charging {
-  color: @battery-charge;
-}
-
-#battery.charging.warning {
-  color: @battery-charge;
-}
-
+#battery.charging,
+#battery.charging.warning,
 #battery.charging.critical {
   color: @battery-charge;
 }
@@ -138,4 +127,32 @@ window#waybar.empty #window {
 
 #clock {
   margin-right: 5px;
+}
+
+#tray menu {
+  padding: 10px;
+  border: 1px solid @border0;
+  background-color: @bg0;
+  border-radius: 5px;
+}
+
+#tray menu menuitem {
+  padding: 3px 6px;
+  border-radius: 3px;
+}
+
+#tray menu menuitem:not(last-child) {
+  margin-bottom: 2px;
+}
+
+#tray menu menuitem:hover {
+  background-color: @bg2;
+}
+
+tooltip {
+  background-color: @bg0;
+  color: @fg1;
+  padding: 10px;
+  border: 1px solid @border0;
+  border-radius: 5px;
 }

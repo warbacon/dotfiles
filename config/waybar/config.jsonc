@@ -1,10 +1,14 @@
 {
     "layer": "top",
-    "height": 40,
+    "height": 38,
     "spacing": 6,
+    "position": "bottom",
     "modules-left": [
         "hyprland/workspaces",
         "hyprland/window"
+    ],
+    "modules-center": [
+        "hyprland/submap"
     ],
     "modules-right": [
         "privacy",
@@ -37,7 +41,7 @@
     },
     "pulseaudio": {
         "on-click": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle",
-        "on-click-right": "kitty -1 -e pulsemixer",
+        "on-click-right": "kitty -1 --class floatterm -e pulsemixer",
         "format": "{icon} <span color='#c0caf5'>{volume} %</span>",
         "format-muted": "󰝟",
         "format-icons": {
@@ -82,8 +86,8 @@
         }
     },
     "network": {
-        "format-wifi": "{icon} <span color='#c0caf5'>{signalStrength} %</span>",
-        "on-click": "kitty -1 -e nmtui",
+        "format-wifi": "{icon} <span color='#c0caf5'>{essid}</span>",
+        "on-click": "kitty -1 --class floatterm -e nmtui",
         "tooltip-format": "{essid}",
         "format-disconnected": "{icon} sin conexión",
         "format-icons": {

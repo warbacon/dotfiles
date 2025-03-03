@@ -3,14 +3,15 @@ from mystart.util import gsettings_set, install_packages
 
 pkgs = [
     "bibata-cursor-theme-bin",
+    "bluetui",
     "brightnessctl",
+    "cliphist",
     "dunst",
     "grim",
     "hypridle",
     "hyprland",
     "hyprlock",
     "hyprpaper",
-    "hyprpolkitagent",
     "hyprsunset",
     "kitty",
     "libcanberra",

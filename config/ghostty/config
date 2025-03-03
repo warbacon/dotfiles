@@ -1,5 +1,4 @@
-font-family = "JetBrains Mono"
-font-feature = -calt
+# font-family = CommitMono
 font-size = 14
 
 adjust-cell-height = 30%
@@ -10,7 +9,7 @@ theme = tokyonight_night
 
 cursor-click-to-move = false
 mouse-hide-while-typing = true
-command = ~/.local/bin/fish
+command = fish
 
 keybind = ctrl+shift+semicolon=reload_config
 keybind = ctrl+plus=increase_font_size:2

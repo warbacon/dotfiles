@@ -8,14 +8,9 @@ set GIT_DIR "$HOME/Git" # Used to show repo status in ll
 # -----------------------------------------------------------------------------
 
 # ABBREVIATIONS ---------------------------------------------------------------
-abbr rm rm -v
-abbr mv mv -iv
-abbr cp cp -iv
-
-function last_history_item
-    echo $history[1]
-end
-abbr -a !! --position anywhere --function last_history_item
+abbr -a rm rm -v
+abbr -a mv mv -iv
+abbr -a cp cp -iv
 
 command -q trash
 and abbr -a rt trash

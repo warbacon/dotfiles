@@ -10,7 +10,7 @@ My Neovim configuration is in this repository:
 
 - **Window manager**: Hyprland
 - **Top bar**: waybar
-- **Application launcher**: walker
+- **Application launcher**: rofi
 - **Terminal**: kitty
 - **Shell**: fish
 - **Text editor**: neovim
