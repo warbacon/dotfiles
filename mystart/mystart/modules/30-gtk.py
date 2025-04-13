@@ -2,15 +2,11 @@ from mystart.util import (
     create_directory,
     gsettings_set,
     Logger,
-    install_packages,
     home_dir,
 )
 
-pkgs = ["inter-font"]
-install_packages(pkgs)
-
 gsettings_set("org.gnome.desktop.interface", "color-scheme", "prefer-dark")
-gsettings_set("org.gnome.desktop.interface", "font-name", "'Inter Variable 10'")
+gsettings_set("org.gnome.desktop.interface", "font-name", "'Adwaita Sans 10'")
 
 gtk3_dir = f"{home_dir}/.config/gtk-3.0"
 gtk3_config = f"{gtk3_dir}/settings.ini"
