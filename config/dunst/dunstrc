@@ -1,11 +1,12 @@
 [global]
-font="JetBrains Mono 11"
+font="monospace 11"
 frame_width=1
 gap_size=6
 height=(0, 100)
 max_icon_size=64
 offset=20x20
 width=300
+origin=top-right
 corner_radius=8
 icon_corner_radius=6
 progress_bar_corner_radius=3

@@ -2,12 +2,12 @@
 
 * {
   all: unset;
-  font-family: "CommitMono", "monospace", "Symbols Nerd Font";
+  font-family: "monospace", "Symbols Nerd Font";
 }
 
 window#waybar {
   background: @bg0;
-  border-top: 1px solid @border0;
+  border-bottom: 1px solid @border0;
   color: @fg1;
 }
 
@@ -133,16 +133,16 @@ window#waybar.empty #window {
   padding: 10px;
   border: 1px solid @border0;
   background-color: @bg0;
-  border-radius: 5px;
+  border-radius: 6px;
 }
 
 #tray menu menuitem {
-  padding: 3px 6px;
-  border-radius: 3px;
+  padding: 4px 8px;
+  border-radius: 4px;
 }
 
 #tray menu menuitem:not(last-child) {
-  margin-bottom: 2px;
+  margin-bottom: 1px;
 }
 
 #tray menu menuitem:hover {
@@ -152,7 +152,10 @@ window#waybar.empty #window {
 tooltip {
   background-color: @bg0;
   color: @fg1;
-  padding: 10px;
   border: 1px solid @border0;
-  border-radius: 5px;
+  border-radius: 6px;
+}
+
+tooltip label {
+  padding: 5px;
 }

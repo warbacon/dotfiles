@@ -2,6 +2,7 @@
 
 declare -a OPTIONS=(
     "Luz nocturna"
+    "Recargar waybar"
     "Suspender"
     "Apagar"
     "Reiniciar"
@@ -14,6 +15,9 @@ selected="$(printf "%s\n" "${OPTIONS[@]}" | rofi -dmenu -i -p Comandos -l 5 -the
 case "$selected" in
     "Luz nocturna")
         pkill hyprsunset || hyprsunset -t 3500
+        ;;
+    "Recargar waybar")
+        killall -SIGUSR2 waybar
         ;;
     "Suspender")
         systemctl suspend

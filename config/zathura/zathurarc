@@ -1,7 +1,7 @@
-set font "JetBrains Mono 13"
+set font "monospace 13"
 set statusbar-home-tilde true
 set window-title-basename true
 set recolor-keephue true
 set selection-clipboard clipboard
 
-include tokyonight_moon.zathurarc
+include tokyonight.zathurarc

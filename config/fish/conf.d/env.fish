@@ -1,4 +1,5 @@
 fish_add_path -mP "$HOME/.local/bin"
+fish_add_path -mP "$HOME/.config/composer/vendor/bin"
 
 # Neovim as editor and manpager
 if command -q nvim

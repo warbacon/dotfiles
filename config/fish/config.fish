@@ -22,6 +22,9 @@ and abbr -a ffetch fastfetch
 command -q lazygit
 and abbr -a lg lazygit
 
+test "$TERM" = "xterm-kitty"; and command -q ssh
+and abbr -a ssh kitten ssh
+
 if test "$TERM" = xterm-kitty; or test "$TERM" = xterm-ghostty -a (command -q kitten)
     abbr -a icat kitten icat
 end

@@ -1,8 +1,8 @@
 # font-family = CommitMono
 font-size = 14
 
-adjust-cell-height = 30%
-adjust-cursor-height = 30%
+adjust-cell-height = 20%
+adjust-cursor-height = 20%
 adjust-cursor-thickness = 3
 
 theme = tokyonight_night

@@ -14,6 +14,10 @@ normal_alt  = { fg = "blue", bg = "darkgray" }
 select_main = { fg = "#1a1b26", bg = "magenta", bold = true }
 select_alt  = { fg = "magenta", bg = "darkgray" }
 
+[status]
+sep_left  = { open = "", close = "" }
+sep_right = { open = "", close = "" }
+
 [icon]
 conds = [
 	# Special files
