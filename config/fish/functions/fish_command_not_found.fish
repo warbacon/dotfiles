@@ -1,5 +1,5 @@
 function fish_command_not_found
-    printf "%sERROR:%s command %s%s%s not found.\n" \
+    printf "%sERROR:%s command %s%s%s%s not found.\n" \
         (set_color brred --bold) \
         (set_color normal) \
         (set_color --underline) \
