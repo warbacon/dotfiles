@@ -1,6 +1,0 @@
-# vim:ft=sh
-
-export XCURSOR_SIZE=24
-export XCURSOR_THEME=Bibata-Modern-Classic
-export GDK_SCALE=2
-# export QT_QPA_PLATFORMTHEME=qt5ct

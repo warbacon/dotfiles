@@ -1,7 +1,0 @@
----
-- hosts: localhost
-
-  tasks:
-    - name: Install paru-bin
-      kewlfft.aur.aur:
-        name: paru-bin

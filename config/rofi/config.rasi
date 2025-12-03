@@ -1,8 +1,0 @@
-configuration {
-    drun-display-format: "{name}";
-    cycle: false;
-    hover-selected: true;
-    display-drun: "Aplicaciones";
-}
-
-@theme "tokyonight"

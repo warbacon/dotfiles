@@ -1,0 +1,163 @@
+@import "./tokyonight.css";
+
+* {
+  all: unset;
+  font-size: 10pt;
+  font-family: "monospace", "Symbols Nerd Font";
+}
+
+window#waybar {
+  background: @bg0;
+  border-bottom: 1px solid @border0;
+  color: @fg1;
+}
+
+.horizontal > * {
+  padding: 0px 3px;
+}
+
+#workspaces {
+  margin: 5px 0;
+  background-color: @bg1;
+  border: 1px solid @border0;
+  border-radius: 6px;
+}
+
+#workspaces button {
+  color: @fg0;
+  background: transparent;
+  padding: 0 8px;
+  border-radius: 4px;
+}
+
+#workspaces button:not(:last-child) {
+  margin-right: 3px;
+}
+
+#workspaces button:hover {
+  background-color: @bg2;
+}
+
+#workspaces button.urgent {
+  background-color: @red;
+  color: @bg0;
+}
+
+#workspaces button.active {
+  color: @workspace-active-fg;
+  font-weight: 700;
+  background-color: @workspace-active-bg;
+}
+
+#workspaces button.active.special {
+  background: @special-workspace-bg;
+  color: @special-workspace-fg;
+}
+
+window#waybar.empty #window {
+  opacity: 0;
+}
+
+#window * {
+  all: unset;
+}
+
+#privacy-item,
+#tray,
+#pulseaudio,
+#backlight,
+#battery,
+#network,
+#clock,
+#submap,
+#window,
+#power-profiles-daemon {
+  margin: 5px 0;
+  background-color: @bg1;
+  border: 1px solid @border0;
+  padding: 3px 8px;
+  border-radius: 6px;
+}
+
+#pulseaudio,
+#backlight,
+#battery,
+#network,
+#clock {
+  color: @accent;
+}
+
+#pulseaudio:hover,
+#clock:hover,
+#power-profiles-daemon:hover,
+#network:hover {
+  background-color: @bg2;
+  border: 1px solid @border1;
+}
+
+#submap {
+  background-color: @battery-warn;
+  border: none;
+  color: @bg0;
+}
+
+#privacy-item {
+  color: @red;
+}
+
+#network.disconnected,
+#pulseaudio.muted {
+  color: @fg0;
+}
+
+#battery.charging,
+#battery.charging.warning,
+#battery.charging.critical {
+  color: @battery-charge;
+}
+
+#battery.warning {
+  color: @battery-warn;
+}
+
+#battery.critical {
+  color: @battery-low;
+}
+
+#power-profiles-daemon {
+  color: @accent;
+}
+
+#power-profiles-daemon.performance {
+  color: @battery-low;
+}
+
+#power-profiles-daemon.power-saver {
+  color: @green;
+}
+
+#tray menu {
+  padding: 10px;
+  border: 1px solid @border0;
+  background-color: @bg0;
+  border-radius: 10px;
+}
+
+#tray menu menuitem {
+  padding: 5px 10px;
+  border-radius: 6px;
+}
+
+#tray menu menuitem:not(last-child) {
+  margin-bottom: 2px;
+}
+
+#tray menu menuitem:hover {
+  background-color: @select;
+}
+
+tooltip {
+  background-color: @bg0;
+  color: @fg1;
+  border: 1px solid @border0;
+}
