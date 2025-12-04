@@ -4,27 +4,32 @@
 
 packages=(
     7zip
+    brightnessctl
+    btop
     chafa
     fastfetch
     fd
     fzf
     gcc
     github-cli
+    gnome-keyring
     hyperfine
+    jq
     lazygit
     less
     man-db
     man-pages-es
+    nodejs-lts-krypton
+    npm
     ripgrep
     tlrc-bin
     tmux
+    tokei
     trash-cli
     unzip
     wget
-    xdg-user-dirs
-    xdg-utils
 )
 
 install "${packages[@]}"
-xdg-user-dirs-update --set TEMPLATES "$HOME" --set PUBLICSHARE "$HOME" --set MUSIC "$HOME"
-sudo sed s/#Color/Color/g /etc/pacman.conf -i
+sudo sed -i 's/#Color/Color/g' /etc/pacman.conf
+sudo sed -i '/^OPTIONS=/s/debug //' /etc/makepkg.conf

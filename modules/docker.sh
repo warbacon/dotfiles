@@ -2,6 +2,8 @@
 
 [[ -z $utils_loaded ]] && source ../lib/utils.sh
 
+is_installed docker && return
+
 packages=(
     docker
     docker-compose
