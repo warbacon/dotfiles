@@ -14,6 +14,7 @@ packages=(
     nautilus
     niri
     papers
+    pulsemixer
     rofi
     swww
     uwsm

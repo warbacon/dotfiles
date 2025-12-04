@@ -75,7 +75,7 @@
   },
   "network": {
     "format-wifi": "{icon} <span color='#c0caf5'>{essid}</span>",
-    "format-ethernet": "{icon} <span color='#c0caf5'>{cidr}</span>",
+    "format-ethernet": "{icon} <span color='#c0caf5'>{ipaddr}</span>",
     "on-click-right": "niri-app-toggle nmtui",
     "tooltip-format": "{ifname}: {ipaddr}",
     "format-disconnected": "{icon} sin conexión",
