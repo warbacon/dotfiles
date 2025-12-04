@@ -4,12 +4,17 @@
 
 packages=(
     app2unit
+    brightnessctl
+    foot
     hunspell-es_es
+    hypridle
     libnotify
     loupe
+    mako
     nautilus
     niri
     papers
+    rofi
     swww
     uwsm
     waybar
@@ -18,7 +23,6 @@ packages=(
     xdg-desktop-portal-gtk
     xdg-terminal-exec
     xdg-user-dirs
-    xdg-utils
     zen-browser-bin
 )
 

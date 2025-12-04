@@ -11,3 +11,4 @@ packages=(
 )
 
 install "${packages[@]}"
+[[ ! -d "$HOME/.config/nvim" ]] && git clone https://github.com/warbacon/nvim-config "$HOME/.config/nvim"

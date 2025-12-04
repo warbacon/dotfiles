@@ -2,6 +2,11 @@
 
 source ./lib/utils.sh
 
+[[ ! -d "$HOME/.config" ]] && mkdir -pv "$HOME/.config"
+
+[[ ! -d "$HOME/.local/bin" ]] && mkdir -pv "$HOME/.local/bin"
+export PATH="$HOME/.local/bin:$PATH"
+
 source ./modules/system.sh
 source ./modules/fonts.sh
 source ./modules/gpu.sh
@@ -11,14 +16,13 @@ source ./modules/neovim.sh
 source ./modules/fish.sh
 source ./modules/desktop.sh
 
-install stow
-
 sudo mandb -q
-stow warbacon/ -v
 
-readonly SCRIPT_PATH="$(realpath  "$0")"
-readonly SCRIPT_DIR="$(dirname "$SCRIPT_PATH")"
+install stow
+stow warbacon -v
 
-[[ ! -d "$HOME/.local/bin" ]] && mkdir -pv "$HOME/.local/bin"
+SCRIPT_PATH="$(realpath  "$0")"
+SCRIPT_DIR="$(dirname "$SCRIPT_PATH")"
+
 chmod +x "$SCRIPT_DIR"/bin/*
 ln -sf "$SCRIPT_DIR"/bin/* "$HOME/.local/bin/"

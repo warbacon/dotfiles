@@ -4,7 +4,6 @@
 
 packages=(
     7zip
-    brightnessctl
     btop
     chafa
     fastfetch
@@ -17,6 +16,7 @@ packages=(
     jq
     lazygit
     less
+    libqalculate
     man-db
     man-pages-es
     nodejs-lts-krypton
@@ -28,6 +28,7 @@ packages=(
     trash-cli
     unzip
     wget
+    xdg-utils
 )
 
 install "${packages[@]}"

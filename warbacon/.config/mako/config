@@ -1,0 +1,19 @@
+on-button-middle=dismiss
+
+outer-margin=16
+margin=0,0,10,0
+
+background-color=#16161e
+text-color=#c0caf5
+progress-color=#232533
+
+border-radius=8
+border-color=#232533
+
+default-timeout=4000
+
+[urgency=critical]
+border-color=#f7768e
+layer=overlay
+
+# vim:ft=ini
