@@ -1,6 +1,6 @@
 [user]
 	email = joaquinguerratocino@gmail.com
-	name = warbacon
+	name = Joaquín Guerra
 [credential "https://github.com"]
 	helper = 
 	helper = !/usr/bin/gh auth git-credential
