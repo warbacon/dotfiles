@@ -1,6 +1,7 @@
 [[ -f ~/.bashrc ]] && . ~/.bashrc
 
 export MANPAGER="nvim +Man!"
+export ELECTRON_OZONE_PLATFORM_HINT="auto"
 export EDITOR="nvim"
 export FZF_DEFAULT_OPTS="--ansi \
       --highlight-line \

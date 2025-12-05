@@ -6,12 +6,12 @@ packages=(
     7zip
     btop
     chafa
+    dust
     fastfetch
     fd
     fzf
     gcc
     github-cli
-    gnome-keyring
     hyperfine
     jq
     lazygit

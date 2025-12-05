@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+sudo -v
+
 source ./lib/utils.sh
 
 [[ ! -d "$HOME/.config" ]] && mkdir -pv "$HOME/.config"
@@ -7,22 +9,19 @@ source ./lib/utils.sh
 [[ ! -d "$HOME/.local/bin" ]] && mkdir -pv "$HOME/.local/bin"
 export PATH="$HOME/.local/bin:$PATH"
 
-source ./modules/system.sh
-source ./modules/fonts.sh
-source ./modules/gpu.sh
-source ./modules/docker.sh
-source ./modules/bun.sh
-source ./modules/neovim.sh
-source ./modules/fish.sh
-source ./modules/desktop.sh
+run_logged ./modules/system.sh
+run_logged ./modules/fonts.sh
+run_logged ./modules/gpu.sh
+run_logged ./modules/docker.sh
+run_logged ./modules/bun.sh
+run_logged ./modules/neovim.sh
+run_logged ./modules/fish.sh
+run_logged ./modules/desktop.sh
+run_logged ./modules/laptop.sh
 
+info "Building mandb..."
 sudo mandb -q
 
+info "Doing stow things..."
 install stow
 stow warbacon -v
-
-SCRIPT_PATH="$(realpath  "$0")"
-SCRIPT_DIR="$(dirname "$SCRIPT_PATH")"
-
-chmod +x "$SCRIPT_DIR"/bin/*
-ln -sf "$SCRIPT_DIR"/bin/* "$HOME/.local/bin/"
