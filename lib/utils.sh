@@ -33,3 +33,12 @@ install() {
         paru -S "${packages_to_install[@]}" --noconfirm --needed
     fi
 }
+
+info() {
+    echo -e "\033[1;34mINFO:\033[0m $@"
+}
+
+run_logged() {
+    info "Running $1..."
+    source "$1"
+}
