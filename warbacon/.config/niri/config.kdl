@@ -1,7 +1,4 @@
-spawn-at-startup "waybar"
 spawn-at-startup "swww-daemon"
-spawn-at-startup "foot" "--server"
-spawn-at-startup "vicinae" "server"
 // spawn-at-startup "hypridle"
 
 input {
@@ -176,6 +173,7 @@ binds {
     Mod+Q hotkey-overlay-title="Open a Terminal" { spawn "footclient"; }
     Mod+D hotkey-overlay-title="Show the launcher: vicinae" repeat=false { spawn "vicinae" "toggle"; }
     Mod+Period hotkey-overlay-title="Show emoji picker" { spawn "vicinae" "vicinae://extensions/vicinae/vicinae/search-emojis"; }
+    Mod+P hotkey-overlay-title="Show emoji picker" { spawn "vicinae" "vicinae://extensions/vicinae/clipboard/history"; }
     Mod+E hotkey-overlay-title="Open the file explorer: nautilus" { spawn "nautilus"; }
     Mod+B hotkey-overlay-title="Open the Bluetooth manager: bluetui" { spawn "niri-app-toggle" "bluetui"; }
     Mod+Shift+C hotkey-overlay-title="Open the color picker" { spawn-sh "hyprpicker | wl-copy"; }

@@ -44,6 +44,10 @@ gsettings set org.gnome.desktop.interface font-name "Inter 10"
 gsettings set org.gnome.desktop.wm.preferences button-layout appmenu:none
 gsettings set com.github.stunkymonkey.nautilus-open-any-terminal terminal "$(xdg-terminal-exec --print-cmd)"
 
+systemctl enable --user --now vicinae.service
+systemctl enable --user --now waybar.service
+systemctl enable --user --now foot-server.socket
+
 github_clone yusukebe/gh-markdown-preview "$HOME/.local/share/gh/extensions/gh-markdown-preview"
 
 sudo systemctl set-default graphical.target
