@@ -54,3 +54,11 @@ run_logged() {
     info "Running $1..."
     source "$1"
 }
+
+ensure_dir() {
+    [[ ! -d "$1" ]] && mkdir -pv "$1"
+}
+
+github_clone() {
+    [[ ! -d "$2" ]] && git clone https://github.com/"$1" "$2"
+}
