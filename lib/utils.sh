@@ -16,13 +16,25 @@ ensure_paru() {
     fi
 }
 
+ensure_yay() {
+    if ! command -v yay &>/dev/null; then
+        sudo pacman -S base-devel --needed --noconfirm
+        git clone https://aur.archlinux.org/yay-bin.git /tmp/yay-bin
+        pushd /tmp/yay-bin && {
+            makepkg -si --noconfirm --needed
+            popd || exit 1
+            rm -rfv /tmp/yay-bin
+        }
+    fi
+}
+
 is_installed() {
-    ensure_paru
-    paru -Qq "$1" &>/dev/null || command -v "$1" &>/dev/null
+    ensure_yay
+    yay -Qq "$1" &>/dev/null || command -v "$1" &>/dev/null
 }
 
 install() {
-    ensure_paru
+    ensure_yay
 
     local packages_to_install=()
     for package in "$@"; do
@@ -30,7 +42,7 @@ install() {
     done
 
     if ((${#packages_to_install[@]} > 0)); then
-        paru -S "${packages_to_install[@]}" --noconfirm --needed
+        yay -S "${packages_to_install[@]}" --noconfirm --needed
     fi
 }
 
