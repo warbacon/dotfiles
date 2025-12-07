@@ -147,6 +147,15 @@ window-rule {
 }
 
 layer-rule {
+    match namespace="rofi"
+    shadow {
+        on
+        spread 2
+        color "#0004"
+    }
+    geometry-corner-radius 12
+}
+layer-rule {
     match namespace="vicinae"
     shadow {
         on
