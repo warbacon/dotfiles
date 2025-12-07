@@ -18,6 +18,7 @@ packages=(
     papers
     pulsemixer
     rofi
+    sunsetr-bin
     swww
     uwsm
     vicinae-bin
