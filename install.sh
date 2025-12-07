@@ -4,9 +4,8 @@ sudo -v
 
 source ./lib/utils.sh
 
-[[ ! -d "$HOME/.config" ]] && mkdir -pv "$HOME/.config"
-
-[[ ! -d "$HOME/.local/bin" ]] && mkdir -pv "$HOME/.local/bin"
+ensure_dir "$HOME/.config"
+ensure_dir "$HOME/.local/bin"
 export PATH="$HOME/.local/bin:$PATH"
 
 run_logged ./modules/system.sh
