@@ -17,7 +17,6 @@ packages=(
     niri
     papers
     pulsemixer
-    rofi
     sunsetr-bin
     swww
     uwsm
