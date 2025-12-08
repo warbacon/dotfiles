@@ -21,7 +21,7 @@ if ! is_available wslinfo; then
     run_logged ./modules/fonts.sh
     run_logged ./modules/desktop.sh
 fi
-if grep -q Battery /sys/class/power_supply/*/type; then
+if grep Battery /sys/class/power_supply/*/type &>/dev/null; then
     run_logged ./modules/laptop.sh
 fi
 
