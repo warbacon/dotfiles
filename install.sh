@@ -13,14 +13,17 @@ install stow
 stow warbacon -v || exit 1
 
 run_logged ./modules/system.sh
-run_logged ./modules/fonts.sh
-run_logged ./modules/gpu.sh
 run_logged ./modules/docker.sh
 run_logged ./modules/bun.sh
 run_logged ./modules/neovim.sh
-run_logged ./modules/fish.sh
-run_logged ./modules/desktop.sh
-run_logged ./modules/laptop.sh
+if ! is_available wslinfo; then
+    run_logged ./modules/gpu.sh
+    run_logged ./modules/fonts.sh
+    run_logged ./modules/desktop.sh
+fi
+if grep -q Battery /sys/class/power_supply/*/type; then
+    run_logged ./modules/laptop.sh
+fi
 
 info "Building mandb..."
 sudo mandb -q
