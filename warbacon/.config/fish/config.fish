@@ -1,6 +1,6 @@
 # UTILITIES -------------------------------------------------------------------
 # Detect if running in a real Linux TTY
-set -g IS_LINUX_TTY (if test "$TERM" = "linux"; echo true; else; echo false; end)
+set -g IS_LINUX_TTY (if test "$XDG_SESSION_TYPE" = "tty"; echo true; else; echo false; end)
 
 # For __eza_pwd_hook
 if not set -q GIT_REPOS_DIR

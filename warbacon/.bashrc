@@ -8,6 +8,10 @@ export PATH="$HOME/.cache/.bun/bin:$HOME/.local/bin:$PATH"
 command_exists() {
     command -v "$1" &>/dev/null
 }
+
+is_tty() {
+    [[ "$XDG_SESSION_TYPE" = "tty" ]]
+}
 # ------------------------------------------------------------------------------
 
 # OPTIONS ----------------------------------------------------------------------
@@ -19,16 +23,16 @@ export HISTCONTROL=ignoreboth:erasedups
 # ------------------------------------------------------------------------------
 
 # ALIASES ----------------------------------------------------------------------
-if command_exists eza && [[ "$TERM" != "linux" ]]; then
+if command_exists eza && ! is_tty; then
     alias ls="eza --icons=auto --group-directories-first"
     alias ll="eza --icons=auto --group-directories-first --git -l"
     alias la="eza --icons=auto --group-directories-first -a"
     alias lla="eza --icons=auto --group-directories-first --git -la"
 else
     alias ls="ls --color=auto --group-directories-first"
-    alias ll="ll --color=auto --group-directories-first -lh"
-    alias la="la --color=auto --group-directories-first -A"
-    alias lla="lla --color=auto --group-directories-first -lhA"
+    alias ll="ls --color=auto --group-directories-first -lh"
+    alias la="ls --color=auto --group-directories-first -A"
+    alias lla="ls --color=auto --group-directories-first -lhA"
 fi
 
 alias cp="cp -iv"
@@ -56,7 +60,7 @@ if command_exists starship; then
         starship completions bash >>"$HOME/.cache/starship/init.sh"
     fi
 
-    [[ "$TERM" != "linux" ]] && source "$HOME/.cache/starship/init.sh"
+    source "$HOME/.cache/starship/init.sh"
 fi
 # ------------------------------------------------------------------------------
 
