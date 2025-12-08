@@ -45,6 +45,7 @@ gsettings set org.gnome.desktop.interface font-name "Inter 10"
 gsettings set org.gnome.desktop.wm.preferences button-layout appmenu:none
 gsettings set com.github.stunkymonkey.nautilus-open-any-terminal terminal "$(xdg-terminal-exec --print-cmd)"
 
+systemctl enable --user --now gnome-keyring-daemon.service
 systemctl enable --user --now vicinae.service
 systemctl enable --user --now waybar.service
 systemctl enable --user --now foot-server.socket
