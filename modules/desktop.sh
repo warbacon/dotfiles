@@ -12,6 +12,7 @@ packages=(
     localsend-bin
     loupe
     mako
+    mpv
     nautilus
     nautilus-open-any-terminal
     niri

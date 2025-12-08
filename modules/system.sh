@@ -7,12 +7,16 @@ packages=(
     btop
     chafa
     dust
+    eza
     fastfetch
     fd
+    ffmpeg
+    fish
     fzf
     gcc
     github-cli
     hyperfine
+    imagemagick
     jq
     lazygit
     less
@@ -22,6 +26,7 @@ packages=(
     nodejs-lts-krypton
     npm
     ripgrep
+    starship
     tlrc-bin
     tmux
     tokei
@@ -29,6 +34,7 @@ packages=(
     unzip
     wget
     xdg-utils
+    yt-dlp
 )
 
 install "${packages[@]}"
