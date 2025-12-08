@@ -39,4 +39,4 @@ packages=(
 
 install "${packages[@]}"
 sudo sed -i 's/#Color/Color/g' /etc/pacman.conf
-sudo sed -i '/^OPTIONS=/s/debug //' /etc/makepkg.conf
+sudo sed -i '/^OPTIONS=/ { /!debug/! s/\bdebug\b/!debug/ }' /etc/makepkg.conf
