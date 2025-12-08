@@ -10,7 +10,7 @@ export PATH="$HOME/.local/bin:$PATH"
 
 info "Doing stow things..."
 install stow
-stow warbacon -v
+stow warbacon -v || exit 1
 
 run_logged ./modules/system.sh
 run_logged ./modules/fonts.sh
