@@ -4,10 +4,11 @@
 
 packages=(
     adobe-source-han-sans-jp-fonts
-    gnu-free-fonts
     inter-font
     noto-fonts-emoji
+    ttf-dejavu
     ttf-google-sans-code-vf
+    ttf-liberation
     ttf-nerd-fonts-symbols
 )
 
