@@ -7,6 +7,7 @@ packages=(
     file-roller
     foot
     gnome-keyring
+    gnome-polkit
     hunspell-es_es
     hypridle
     libnotify
