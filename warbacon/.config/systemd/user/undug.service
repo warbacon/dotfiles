@@ -1,11 +1,11 @@
 [Unit]
-Description=swww-daemon service
+Description=undug service
 PartOf=graphical-session.target
 After=graphical-session.target
 Requisite=graphical-session.target
 
 [Service]
-ExecStart=/usr/bin/swww-daemon
+ExecStart=/home/warbacon/.local/bin/undug
 ExecReload=kill -HUP $MAINPID
 Restart=on-failure
 
