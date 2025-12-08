@@ -6,7 +6,7 @@ export PATH="$HOME/.cache/.bun/bin:$HOME/.local/bin:$PATH"
 
 # UTILITIES --------------------------------------------------------------------
 command_exists() {
-    command -v "$1" >/dev/null
+    command -v "$1" &>/dev/null
 }
 # ------------------------------------------------------------------------------
 
