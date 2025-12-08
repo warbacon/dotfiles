@@ -35,6 +35,9 @@ alias cp="cp -iv"
 alias mv="mv -iv"
 alias rm="rm -v"
 alias open="xdg-open"
+
+command_exists lazygit && alias lg="lazygit"
+command_exists fastfetch && alias ff="fastfetch"
 # ------------------------------------------------------------------------------
 
 # PROMPT -----------------------------------------------------------------------
