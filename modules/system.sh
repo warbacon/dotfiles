@@ -4,6 +4,7 @@
 
 packages=(
     7zip
+    bash-completion
     btop
     chafa
     dust
