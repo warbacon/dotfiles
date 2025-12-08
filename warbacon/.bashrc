@@ -35,13 +35,14 @@ else
     alias lla="ls --color=auto --group-directories-first -lhA"
 fi
 
+command_exists xdg-open && alias open="xdg-open"
+command_exists trash && alias rt="trash"
+command_exists lazygit && alias lg="lazygit"
+command_exists fastfetch && alias ff="fastfetch"
+
 alias cp="cp -iv"
 alias mv="mv -iv"
 alias rm="rm -v"
-alias open="xdg-open"
-
-command_exists lazygit && alias lg="lazygit"
-command_exists fastfetch && alias ff="fastfetch"
 # ------------------------------------------------------------------------------
 
 # PROMPT -----------------------------------------------------------------------
