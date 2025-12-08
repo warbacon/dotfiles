@@ -4,6 +4,7 @@
 
 packages=(
     ffmpegthumbnailer
+    file-roller
     foot
     gnome-keyring
     hunspell-es_es
