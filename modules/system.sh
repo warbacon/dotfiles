@@ -32,10 +32,12 @@ packages=(
     tmux
     tokei
     trash-cli
+    unrar
     unzip
     wget
     xdg-utils
     yt-dlp
+    zip
 )
 
 install "${packages[@]}"
