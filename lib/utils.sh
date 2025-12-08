@@ -9,12 +9,12 @@ info() {
 ensure_yay() {
     if ! command -v yay &>/dev/null; then
         info "Installing yay..."
-        sudo pacman -S base-devel --needed --noconfirm
+        sudo pacman -S base-devel --needed --noconfirm --quiet
         git clone https://aur.archlinux.org/yay-bin.git /tmp/yay-bin
         pushd /tmp/yay-bin && {
             makepkg -si --noconfirm --needed
             popd || exit 1
-            rm -rfv /tmp/yay-bin
+            rm -rf /tmp/yay-bin
         }
     fi
 }
