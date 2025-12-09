@@ -15,6 +15,7 @@ packages=(
     fish
     fzf
     gcc
+    github-cli
     hyperfine
     imagemagick
     jq
