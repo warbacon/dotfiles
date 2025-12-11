@@ -15,10 +15,13 @@ packages=(
 
 tools=(
     bash-language-server
+    jdtls
     lua-language-server
     shellcheck
     shfmt
     stylua
+    vscode-json-languageserver
+    yaml-language-server
 )
 
 install "${packages[@]}" "${tools[@]}"
