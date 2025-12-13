@@ -8,7 +8,7 @@ ensure_dir "$HOME/.config"
 ensure_dir "$HOME/.local/bin"
 export PATH="$HOME/.local/bin:$PATH"
 
-info "Doing stow things..."
+info "Stowing..."
 install stow
 stow warbacon -v || exit 1
 
@@ -25,5 +25,5 @@ if grep Battery /sys/class/power_supply/*/type &>/dev/null; then
     run_logged ./modules/laptop.sh
 fi
 
-info "Building mandb..."
+info "Building man database..."
 sudo mandb -q
