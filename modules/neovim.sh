@@ -14,7 +14,9 @@ packages=(
 )
 
 tools=(
+    basedpyright-bin
     bash-language-server
+    clang
     jdtls
     lua-language-server
     shellcheck
