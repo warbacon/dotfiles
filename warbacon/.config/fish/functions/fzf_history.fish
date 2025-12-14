@@ -1,4 +1,4 @@
-function fzf-history
+function fzf_history
     builtin history merge
 
     set -l cmd (
