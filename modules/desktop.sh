@@ -9,6 +9,7 @@ packages=(
     gnome-keyring
     hunspell-es_es
     hypridle
+    hyprpicker
     libnotify
     localsend-bin
     loupe
