@@ -30,7 +30,7 @@
   "pulseaudio": {
     "on-click": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle",
     "on-click-right": "niri-app-toggle pulsemixer",
-    "format": "{icon} <span color='#c0caf5'>{volume} %</span>",
+    "format": "{icon}  <span color='#c0caf5'>{volume} %</span>",
     "format-muted": "󰝟",
     "format-icons": {
       "default": [
@@ -42,7 +42,7 @@
     }
   },
   "backlight": {
-    "format": "{icon} <span color='#c0caf5'>{percent} %</span>",
+    "format": "{icon}  <span color='#c0caf5'>{percent} %</span>",
     "tooltip": false,
     "format-icons": [
       "󰃞",
@@ -51,7 +51,7 @@
     ]
   },
   "battery": {
-    "format": "{icon} <span color='#c0caf5'>{capacity} %</span>",
+    "format": "{icon}  <span color='#c0caf5'>{capacity} %</span>",
     "tooltip-format": "Tiempo restante: {time}",
     "states": {
       "warning": 20,
@@ -74,11 +74,11 @@
     }
   },
   "network": {
-    "format-wifi": "{icon} <span color='#c0caf5'>{essid}</span>",
-    "format-ethernet": "{icon} <span color='#c0caf5'>{ipaddr}</span>",
+    "format-wifi": "{icon}  <span color='#c0caf5'>{essid}</span>",
+    "format-ethernet": "{icon}  <span color='#c0caf5'>{ipaddr}</span>",
     "on-click-right": "niri-app-toggle nmtui",
     "tooltip-format": "{ifname}: {ipaddr}",
-    "format-disconnected": "{icon} sin conexión",
+    "format-disconnected": "{icon}  sin conexión",
     "format-icons": {
       "disconnected": "󰌙",
       "ethernet": "󰌗",
@@ -92,8 +92,8 @@
   },
   "clock": {
     "tooltip-format": "<tt><small>{calendar}</small></tt>",
-    "format": " <span color='#c0caf5'>{:L%H:%M}</span>",
-    "format-alt": " <span color='#c0caf5'>{:L%a, %d %b}</span>",
+    "format": "  <span color='#c0caf5'>{:L%H:%M}</span>",
+    "format-alt": "  <span color='#c0caf5'>{:L%a, %d %b}</span>",
     "calendar": {
       "mode-mon-col": 3,
       "format": {
