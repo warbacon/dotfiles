@@ -3,7 +3,7 @@
 [[ -z $utils_loaded ]] && source ../lib/utils.sh
 
 packages=(
-    bluetui
+    adw-bluetooth
     brightnessctl
     tlp
 )
