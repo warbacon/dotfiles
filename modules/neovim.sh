@@ -14,14 +14,15 @@ packages=(
 )
 
 tools=(
-    basedpyright-bin
     bash-language-server
     clang
     jdtls
     lua-language-server
+    ruff
     shellcheck
     shfmt
     stylua
+    ty
     vscode-json-languageserver
     yaml-language-server
 )
