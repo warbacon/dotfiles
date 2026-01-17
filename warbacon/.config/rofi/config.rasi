@@ -1,6 +1,0 @@
-configuration {
-  modes: [ drun ];
-  combi-modes: [ window, drun  ];
-}
-
-@theme "tokyonight"

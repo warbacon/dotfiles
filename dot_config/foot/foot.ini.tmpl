@@ -1,0 +1,23 @@
+include=~/.config/foot/themes/pino.ini
+
+{{ if eq .chezmoi.hostname "zenarch" }}
+font=monospace:size=13
+line-height=26px
+{{ else }}
+font=monospace:size=18
+line-height=31px
+{{ end }}
+font-size-adjustment=2
+resize-delay-ms=0
+pad=2x0
+
+[key-bindings]
+primary-paste=Control+Shift+s
+spawn-terminal=Control+Shift+d
+
+[mouse-bindings]
+select-begin-block=Alt+BTN_LEFT
+
+[tweak]
+box-drawing-base-thickness=0.02
+font-monospace-warn=no
