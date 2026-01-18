@@ -1,8 +1,14 @@
 export EDITOR='nvim'
 export MANPAGER='nvim +Man!'
 
-[[ -f ~/.bashrc ]] && . ~/.bashrc
+command_exists() {
+    command -v "$1" >/dev/null
+}
 
-if uwsm check may-start; then
+if [[ -f ~/.bashrc ]]; then
+    source ~/.bashrc
+fi
+
+if uwsm check may-start && command_exists niri; then
     exec uwsm start niri.desktop
 fi
