@@ -19,6 +19,10 @@ input {
         accel-profile "flat"
     }
 
+    trackball {
+        accel-profile "flat"
+    }
+
     focus-follows-mouse max-scroll-amount="10%"
 }
 
