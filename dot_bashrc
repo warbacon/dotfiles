@@ -14,7 +14,7 @@ alias_if_exists() {
 }
 
 init_cached() {
-    local cache_file="$XDG_CACHE_HOME/$1"
+    local cache_file="${XDG_CACHE_HOME-:$HOME/.cache}/$1"
     local cache_dir="${cache_file%/*}"
     shift 1
     [[ -d "$cache_dir" ]] || mkdir -p "$cache_dir"
