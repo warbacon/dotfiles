@@ -5,7 +5,7 @@ input {
         xkb {
             layout "es"
         }
-        repeat-rate 31
+        repeat-rate 35
     }
 
     touchpad {
@@ -65,9 +65,17 @@ layout {
         proportion 0.66667
     }
 
+    tab-indicator {
+        width 8
+        gap 8
+        gaps-between-tabs 8
+        corner-radius 99
+        active-color "#F6C177"
+        length total-proportion=1.0
+        place-within-column
+    }
+
     default-column-width { proportion 0.5; }
-    // If you leave the brackets empty, the windows themselves will decide their initial width.
-    // default-column-width {}
 
     focus-ring {
         off
@@ -112,9 +120,13 @@ layout {
     }
 }
 
-hotkey-overlay {
-    skip-at-startup
+recent-windows {
+    highlight {
+        corner-radius 8
+    }
 }
+
+hotkey-overlay { skip-at-startup }
 
 prefer-no-csd
 
@@ -140,7 +152,7 @@ animations {
 
 // Open the Zen picture-in-picture player as floating by default.
 window-rule {
-    match app-id=r#"zen-beta$"# title="^Picture-in-Picture$"
+    match app-id="zen" title="Picture-in-Picture"
     open-floating true
 }
 
@@ -328,8 +340,8 @@ binds {
     // The following binds move the focused window in and out of a column.
     // If the window is alone, they will consume it into the nearby column to the side.
     // If the window is already in a column, they will expel it out.
-    Mod+BracketLeft  { consume-or-expel-window-left; }
-    Mod+BracketRight { consume-or-expel-window-right; }
+    Mod+apostrophe  { consume-or-expel-window-left; }
+    Mod+exclamdown  { consume-or-expel-window-right; }
 
     // Consume one window from the right to the bottom of the focused column.
     // Mod+Comma  { consume-window-into-column; }
