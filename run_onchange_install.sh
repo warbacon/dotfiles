@@ -12,6 +12,7 @@ packages=(
     dust
     fastfetch
     fd
+    fzf
     github-cli
     hyperfine
     lazygit
@@ -19,10 +20,17 @@ packages=(
     starship
     tmux
     trash-cli
+    tree
     unzip
     wget
 
+    bash-language-server
+    clang
+    lua-language-server
     neovim-nightly-bin
+    shellcheck
+    shfmt
+    stylua
     tree-sitter-cli
 
     niri
@@ -32,6 +40,7 @@ packages=(
     foot
     quickshell
     mako
+    hyprpicker
 
     fuse2
     libnotify
@@ -56,6 +65,7 @@ packages=(
     speech-dispatcher
     zen-browser-bin
 
+    adobe-source-han-sans-otc-fonts
     adwaita-fonts
     noto-fonts-emoji
     ttf-dejavu
@@ -69,7 +79,7 @@ sudo sed -i '/^OPTIONS=/ { /!debug/! s/\bdebug\b/!debug/ }' /etc/makepkg.conf
 
 yay -S --needed --noconfirm "${packages[@]}"
 
-if [[ "$(systemd-detect-virt)" = "vmware" ]] then
+if [[ "$(systemd-detect-virt)" = "vmware" ]]; then
     yay -S --needed --noconfirm open-vm-tools
     sudo systemctl enable --now vmtoolsd.service
 else
