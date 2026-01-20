@@ -55,3 +55,11 @@ if [[ "$TERM" != "linux" ]]; then
 fi
 
 init_cached "dircolors" dircolors -b
+
+# FZF --------------------------------------------------------------------------
+if command_exists fzf; then
+    export FZF_DEFAULT_OPTS='--layout=reverse'
+    export FZF_CTRL_T_COMMAND='fd -H --color=never --exclude=".cache"'
+    export FZF_ALT_C_COMMAND='fd -H --color=never --type=directory --exclude=".cache"'
+    init_cached "fzf.sh" fzf --bash
+fi
