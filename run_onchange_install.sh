@@ -35,7 +35,6 @@ packages=(
 
     niri
     xdg-desktop-portal-gnome
-    uwsm
     xwayland-satellite
     foot
     quickshell

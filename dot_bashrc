@@ -1,5 +1,7 @@
 # BASIC ------------------------------------------------------------------------
-export PATH="$HOME/.local/bin:$PATH"
+export PATH="$HOME/.local/share/bob/nvim-bin:$HOME/.local/bin:$PATH"
+export EDITOR="$HOME/.local/share/bob/nvim-bin/nvim";
+export MANPAGER='nvim +Man!'
 
 command_exists() {
     command -v "$1" >/dev/null
