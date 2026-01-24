@@ -46,17 +46,25 @@ shopt -s histappend
 export HISTCONTROL=ignoreboth:erasedups
 
 # APPEARANCE -------------------------------------------------------------------
-PS1='\[\e[1;36m\]\w\[\e[m\]\$ '
+init_cached "dircolors" dircolors -b
 
 if [[ "$TERM" != "linux" ]]; then
-    _add_newline() {
+    __add_newline() {
         [[ -z "$_should_add_newline" ]] && _should_add_newline=true || echo
     }
-    PROMPT_COMMAND="_add_newline; $PROMPT_COMMAND"
     init_cached "starship/init.sh" starship init --print-full-init bash
+    PROMPT_COMMAND="$PROMPT_COMMAND; __add_newline"
+else
+    __prompt() {
+        local EXIT="$?"
+        local COLOR='\[\e[0m\]'
+        if [ $EXIT -ne 0 ]; then
+            COLOR='\[\e[1;31m\]'
+        fi
+        PS1='\[\e[1;36m\]\w\[\e[m\]'"${COLOR}"'\$\[\e[m\] '
+    }
+    PROMPT_COMMAND="__prompt; $PROMPT_COMMAND"
 fi
-
-init_cached "dircolors" dircolors -b
 
 # FZF --------------------------------------------------------------------------
 if command_exists fzf; then
