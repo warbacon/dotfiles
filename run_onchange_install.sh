@@ -24,14 +24,19 @@ packages=(
     unzip
     wget
 
+    bob
+    tree-sitter-cli
     bash-language-server
-    clang
-    lua-language-server
-    neovim-nightly-bin
     shellcheck
     shfmt
+    lua-language-server
     stylua
-    tree-sitter-cli
+    vscode-css-languageserver
+    vscode-html-languageserver
+    vscode-json-languageserver
+    yaml-language-server
+    clang
+    taplo-cli
 
     niri
     xdg-desktop-portal-gnome
@@ -90,6 +95,8 @@ if [[ "$HOSTNAME" = "zenarch" ]]; then
     sudo systemctl enable --now bluetooth.service
     sudo systemctl enable --now tlp.service
 fi
+
+bob use nightly
 
 gsettings set com.github.stunkymonkey.nautilus-open-any-terminal terminal "$(xdg-terminal-exec --print-cmd)"
 gsettings set org.gnome.desktop.interface color-scheme prefer-dark
