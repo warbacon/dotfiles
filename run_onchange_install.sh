@@ -107,3 +107,6 @@ xdg-mime default "$(xdg-terminal-exec --print-id)" x-scheme-handler/terminal
 
 systemctl enable --user --now foot-server.socket
 systemctl enable --user --now vicinae.service
+
+echo "Rebuilding man database..."
+sudo mandb -q
