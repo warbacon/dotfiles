@@ -51,19 +51,27 @@ input {
 // ====================================================================
 
 layout {
-    gaps 8
+    gaps 4
+    struts {
+        left 8
+        bottom 8
+        top 8
+        right 8
+    }
+
     center-focused-column "never"
+    always-center-single-column
+
     default-column-width { proportion 0.5; }
-
-    focus-ring { off; }
-
     preset-column-widths {
         proportion 0.33333
         proportion 0.5
         proportion 0.66667
     }
 
+    default-column-display "tabbed"
     tab-indicator {
+        hide-when-single-tab
         width 8
         gaps-between-tabs 8
         gap 8
@@ -72,6 +80,8 @@ layout {
         length total-proportion=1.0
         place-within-column
     }
+
+    focus-ring { off; }
 
     border {
         width 2
@@ -126,26 +136,27 @@ binds {
     Mod+B hotkey-overlay-title="Open the Bluetooth manager: bluetui" { spawn "xdg-terminal-exec" "bluetui"; }
 
     // Utilities
-    Mod+Period hotkey-overlay-title="Show emoji picker" { spawn "vicinae" "vicinae://extensions/vicinae/core/search-emojis"; }
-    Mod+P hotkey-overlay-title="Show clipboard history" { spawn "vicinae" "vicinae://extensions/vicinae/clipboard/history"; }
-    Mod+Shift+C hotkey-overlay-title="Open the color picker" { spawn-sh "hyprpicker --autocopy"; }
+    Ctrl+Alt+P  hotkey-overlay-title="Open the file search" { spawn "vicinae" "vicinae://extensions/vicinae/files/search"; }
+    Mod+P       hotkey-overlay-title="Show clipboard history" { spawn "vicinae" "vicinae://extensions/vicinae/clipboard/history"; }
+    Mod+Period  hotkey-overlay-title="Show emoji picker" { spawn "vicinae" "vicinae://extensions/vicinae/core/search-emojis"; }
+    Mod+Shift+C hotkey-overlay-title="Open the color picker" { spawn "hyprpicker" "--autocopy"; }
 
     // Audio
     XF86AudioRaiseVolume allow-when-locked=true { spawn-sh "wpctl set-volume -l 1 @DEFAULT_AUDIO_SINK@ 5%+"; }
     XF86AudioLowerVolume allow-when-locked=true { spawn-sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-"; }
-    XF86AudioMute allow-when-locked=true { spawn-sh "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"; }
-    XF86AudioMicMute allow-when-locked=true { spawn-sh "wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"; }
+    XF86AudioMute        allow-when-locked=true { spawn-sh "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"; }
+    XF86AudioMicMute     allow-when-locked=true { spawn-sh "wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"; }
 
     // Brightness
-    XF86MonBrightnessUp allow-when-locked=true { spawn "brightnessctl" "-e4" "-n2" "set" "5%+"; }
+    XF86MonBrightnessUp   allow-when-locked=true { spawn "brightnessctl" "-e4" "-n2" "set" "5%+"; }
     XF86MonBrightnessDown allow-when-locked=true { spawn "brightnessctl" "-e4" "-n2" "set" "5%-"; }
 
     // Window Management
-    Mod+Tab repeat=false { toggle-overview; }
-    Mod+W   repeat=false { toggle-column-tabbed-display; }
-    Mod+V   repeat=false { toggle-window-floating; }
-    Mod+Shift+V          { switch-focus-between-floating-and-tiling; }
-    Mod+C                { close-window; }
+    Mod+Tab      repeat=false { toggle-overview; }
+    Mod+W        repeat=false { toggle-column-tabbed-display; }
+    Mod+V        repeat=false { toggle-window-floating; }
+    Mod+Shift+V               { switch-focus-between-floating-and-tiling; }
+    Mod+C                     { close-window; }
 
     // Focus Navigation
     Mod+Left  { focus-column-left; }
@@ -231,14 +242,14 @@ binds {
     Mod+WheelScrollUp        cooldown-ms=150 { focus-workspace-up; }
     Mod+Ctrl+WheelScrollDown cooldown-ms=150 { move-column-to-workspace-down; }
     Mod+Ctrl+WheelScrollUp   cooldown-ms=150 { move-column-to-workspace-up; }
-    Mod+WheelScrollRight           { focus-column-right; }
-    Mod+WheelScrollLeft            { focus-column-left; }
-    Mod+Ctrl+WheelScrollRight      { move-column-right; }
-    Mod+Ctrl+WheelScrollLeft       { move-column-left; }
-    Mod+Shift+WheelScrollDown      { focus-column-right; }
-    Mod+Shift+WheelScrollUp        { focus-column-left; }
-    Mod+Ctrl+Shift+WheelScrollDown { move-column-right; }
-    Mod+Ctrl+Shift+WheelScrollUp   { move-column-left; }
+    Mod+WheelScrollRight                     { focus-column-right; }
+    Mod+WheelScrollLeft                      { focus-column-left; }
+    Mod+Ctrl+WheelScrollRight                { move-column-right; }
+    Mod+Ctrl+WheelScrollLeft                 { move-column-left; }
+    Mod+Shift+WheelScrollDown                { focus-column-right; }
+    Mod+Shift+WheelScrollUp                  { focus-column-left; }
+    Mod+Ctrl+Shift+WheelScrollDown           { move-column-right; }
+    Mod+Ctrl+Shift+WheelScrollUp             { move-column-left; }
 
     // Window Sizing
     Mod+apostrophe  { consume-or-expel-window-left; }
@@ -262,7 +273,7 @@ binds {
 
     // System
     Mod+Escape allow-inhibiting=false { toggle-keyboard-shortcuts-inhibit; }
-    Mod+Shift+E { quit; }
+    Mod+Shift+E                       { quit; }
 }
 
 // ====================================================================
@@ -274,4 +285,4 @@ prefer-no-csd
 screenshot-path "~/Imágenes/Capturas de pantalla/Captura desde %Y-%m-%d %H-%M-%S.png"
 
 hotkey-overlay { skip-at-startup; }
-debug { honor-xdg-activation-with-invalid-serial; }
+debug          { honor-xdg-activation-with-invalid-serial; }
