@@ -1,5 +1,9 @@
 #!/usr/bin/env bash
 
+pkg_install() {
+    paru -S --needed --noconfirm "$@"
+}
+
 packages=(
     base-devel
     bash-completion
@@ -12,11 +16,14 @@ packages=(
     dust
     fastfetch
     fd
+    fish
     fzf
     github-cli
     hyperfine
     lazygit
+    opencode
     ripgrep
+    skim
     starship
     tmux
     trash-cli
@@ -42,12 +49,13 @@ packages=(
     xdg-desktop-portal-gnome
     xwayland-satellite
     foot
-    quickshell
-    mako
     hyprpicker
+    mako
+    quickshell
 
     fuse2
     libnotify
+    ly
     pulsemixer
     wl-clipboard
     xdg-terminal-exec
@@ -78,35 +86,48 @@ packages=(
     ttf-nerd-fonts-symbols
 )
 
+# PACMAN CONFIG
 sudo sed -i 's/#Color/Color/g' /etc/pacman.conf
 sudo sed -i '/^OPTIONS=/ { /!debug/! s/\bdebug\b/!debug/ }' /etc/makepkg.conf
 
-yay -S --needed --noconfirm "${packages[@]}"
+# X11 KEYMAP (FOR XWAYLAND)
+localectl set-x11-keymap es
 
+# INSTALL PACKAGES
+pkg_install "${packages[@]}"
+
+# vmware
 if [[ "$(systemd-detect-virt)" = "vmware" ]]; then
-    yay -S --needed --noconfirm open-vm-tools
+    pkg_install open-vm-tools
     sudo systemctl enable --now vmtoolsd.service
 else
-    yay -S --needed --noconfirm rocm-smi-lib vulkan-radeon
+    pkg_install rocm-smi-lib vulkan-radeon
 fi
 
+# Laptop
 if [[ "$HOSTNAME" = "zenarch" ]]; then
-    yay -S --needed --noconfirm bluez tlp bluetui brightnessctl
+    pkg_install bluez tlp bluetui brightnessctl
     sudo systemctl enable --now bluetooth.service
     sudo systemctl enable --now tlp.service
 fi
 
+# BOB
 bob use nightly
 
-gsettings set com.github.stunkymonkey.nautilus-open-any-terminal terminal "$(xdg-terminal-exec --print-cmd)"
+# GNOME SETTINGS
 gsettings set org.gnome.desktop.interface color-scheme prefer-dark
 gsettings set org.gnome.desktop.interface font-name "sans-serif 10"
 gsettings set org.gnome.desktop.wm.preferences button-layout appmenu:none
 
+# TERMINAL
+gsettings set com.github.stunkymonkey.nautilus-open-any-terminal terminal "$(xdg-terminal-exec --print-cmd)"
 xdg-mime default "$(xdg-terminal-exec --print-id)" x-scheme-handler/terminal
 
+# SERVICES
+sudo systemctl enable ly@tty1.service
 systemctl enable --user --now foot-server.socket
 systemctl enable --user --now vicinae.service
 
+# MANDB
 echo "Rebuilding man database..."
 sudo mandb -q
