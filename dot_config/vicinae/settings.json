@@ -49,6 +49,12 @@
             "bvnc": {
                "enabled": false
             },
+            "jconsole-java-openjdk": {
+               "enabled": false
+            },
+            "jshell-java-openjdk": {
+               "enabled": false
+            },
             "nvim": {
                "enabled": false
             },
@@ -66,9 +72,18 @@
             }
          }
       },
+      "browser-extension": {
+         "enabled": false
+      },
       "core": {
          "entrypoints": {
+            "about": {
+               "enabled": false
+            },
             "keybind-settings": {
+               "enabled": false
+            },
+            "manage-fallback": {
                "enabled": false
             },
             "oauth-token-store": {
@@ -78,6 +93,9 @@
                "enabled": false
             },
             "open-default-config": {
+               "enabled": false
+            },
+            "reload-scripts": {
                "enabled": false
             },
             "report-bug": {
