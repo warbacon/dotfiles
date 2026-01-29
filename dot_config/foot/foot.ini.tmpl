@@ -1,6 +1,7 @@
 include=~/.config/foot/themes/pino.ini
 
-{{ if eq .chezmoi.hostname "zenarch" }}
+shell=fish
+{{- if eq .chezmoi.hostname "zenarch" }}
 font=monospace:size=13
 line-height=26px
 {{ else }}
