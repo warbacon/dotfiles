@@ -1,7 +1,7 @@
 # BASIC ------------------------------------------------------------------------
 export PATH="$HOME/.local/share/bob/nvim-bin:$HOME/.local/bin:$PATH"
-export EDITOR="$HOME/.local/share/bob/nvim-bin/nvim";
-export MANPAGER='nvim +Man!'
+export EDITOR="$HOME/.local/share/bob/nvim-bin/nvim"
+export MANPAGER="nvim +Man!"
 
 command_exists() {
     command -v "$1" >/dev/null
@@ -25,11 +25,10 @@ init_cached() {
 }
 
 # ALIASES ----------------------------------------------------------------------
-alias ls='ls -v --color=auto --group-directories-first'
-alias ll='ls -lh'
-alias la='ls -A'
-alias lla='ll -lhA'
-alias grep='grep --color=auto'
+alias ls="ls -vF --color=auto --group-directories-first"
+alias ll="ls -lh"
+alias la="ls -lAh"
+alias grep="grep --color=auto"
 alias cp="cp -iv"
 alias mv="mv -iv"
 alias rm="rm -v"
@@ -57,19 +56,20 @@ if [[ "$TERM" != "linux" ]]; then
 else
     __prompt() {
         local EXIT="$?"
-        local COLOR='\[\e[0m\]'
+        local COLOR="\[\e[0m\]"
         if [ $EXIT -ne 0 ]; then
-            COLOR='\[\e[1;31m\]'
+            COLOR="\[\e[1;31m\]"
         fi
-        PS1='\[\e[1;36m\]\w\[\e[m\]'"${COLOR}"'\$\[\e[m\] '
+        PS1="\[\e[1;36m\]\w\[\e[m\]${COLOR}\$\[\e[m\] "
     }
     PROMPT_COMMAND="__prompt; $PROMPT_COMMAND"
 fi
 
-# FZF --------------------------------------------------------------------------
-if command_exists fzf; then
-    export FZF_DEFAULT_OPTS='--layout=reverse'
-    export FZF_CTRL_T_COMMAND='fd -H --color=never --exclude=".cache"'
-    export FZF_ALT_C_COMMAND='fd -H --color=never --type=directory --exclude=".cache"'
-    init_cached "fzf.sh" fzf --bash
+# SKIM -------------------------------------------------------------------------
+if command_exists sk; then
+    export SKIM_DEFAULT_OPTIONS="--layout=reverse --algo=frizbee"
+    export SKIM_CTRL_T_COMMAND="fd -H --color=never"
+    export SKIM_ALT_C_COMMAND="fd -H --color=never --type d"
+    export SKIM_ALT_C_OPTS='--preview="tree -C -L 3 {}"'
+    init_cached "sk.sh" sk --shell bash --shell-bindings
 fi
