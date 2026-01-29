@@ -136,7 +136,6 @@ binds {
     Mod+B hotkey-overlay-title="Open the Bluetooth manager: bluetui" { spawn "xdg-terminal-exec" "bluetui"; }
 
     // Utilities
-    Ctrl+Alt+P  hotkey-overlay-title="Open the file search" { spawn "vicinae" "vicinae://extensions/vicinae/files/search"; }
     Mod+P       hotkey-overlay-title="Show clipboard history" { spawn "vicinae" "vicinae://extensions/vicinae/clipboard/history"; }
     Mod+Period  hotkey-overlay-title="Show emoji picker" { spawn "vicinae" "vicinae://extensions/vicinae/core/search-emojis"; }
     Mod+Shift+C hotkey-overlay-title="Open the color picker" { spawn "hyprpicker" "--autocopy"; }
