@@ -28,7 +28,6 @@ PanelWindow {
 
         RowLayout {
             RowLayout {
-                Menu {}
                 WindowTitle {}
             }
             RowLayout {
