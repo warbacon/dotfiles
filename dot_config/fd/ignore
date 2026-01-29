@@ -1,0 +1,15 @@
+.bun
+.cache
+.cargo
+.firefox
+.git
+.gnupg
+.java
+.m2
+.pki
+.vaadin
+.vscode
+.zen
+go
+node_modules
+vendor
