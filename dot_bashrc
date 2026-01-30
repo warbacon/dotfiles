@@ -1,16 +1,10 @@
-# BASIC ------------------------------------------------------------------------
-export PATH="$HOME/.local/share/bob/nvim-bin:$HOME/.local/bin:$PATH"
-export EDITOR="$HOME/.local/share/bob/nvim-bin/nvim"
-export MANPAGER="nvim +Man!"
+[[ $- == *i* ]] || return
 
+# UTILITIES --------------------------------------------------------------------
 command_exists() {
     command -v "$1" >/dev/null
 }
 
-# STOP IF NON-INTERACTIVE ------------------------------------------------------
-[[ $- == *i* ]] || return
-
-# UTILITIES --------------------------------------------------------------------
 alias_if_exists() {
     command_exists "$2" && alias "$1=$2"
 }
