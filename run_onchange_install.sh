@@ -21,7 +21,7 @@ packages=(
     github-cli
     hyperfine
     lazygit
-    opencode
+    opencode-bin
     ripgrep
     skim
     starship
