@@ -25,6 +25,7 @@ packages=(
     ripgrep
     skim
     starship
+    tlrc-bin
     tmux
     trash-cli
     tree
@@ -73,6 +74,7 @@ packages=(
     gnome-keyring
     vicinae-bin
 
+    helium-browser-bin
     hunspell-es_es
     speech-dispatcher
     zen-browser-bin
