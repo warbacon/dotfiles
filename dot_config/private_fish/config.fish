@@ -2,7 +2,7 @@ status is-interactive
 or return
 
 set -g fish_greeting
-dircolors -c | string replace "setenv" "set -x" | source
+dircolors -c | string replace setenv "set -x" | source
 
 abbr_if_exists ff fastfetch
 abbr_if_exists lg lazygit
@@ -14,7 +14,7 @@ function __prompt_newline --on-event fish_prompt
     or set -g __should_add_newline true
 end
 
-test "$TERM" != "linux"
+test "$TERM" != linux
 and command -q starship
 and starship init fish --print-full-init | source
 
