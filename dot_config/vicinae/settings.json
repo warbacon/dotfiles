@@ -95,6 +95,9 @@
             "open-default-config": {
                "enabled": false
             },
+            "prune-memory": {
+               "enabled": false
+            },
             "reload-scripts": {
                "enabled": false
             },
@@ -142,7 +145,7 @@
                "alias": "reiniciar"
             },
             "suspend": {
-               "alias": "suspernder"
+               "alias": "suspender"
             }
          }
       },
