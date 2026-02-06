@@ -1,11 +1,20 @@
 status is-interactive
 or return
 
+# OPTIONS
 set -g fish_greeting
-dircolors -c | string replace setenv "set -x" | source
+
+# ALIASES
+abbr -a rm rm -v
+abbr -a cp cp -iv
+abbr -a mv mv -iv
 
 abbr_if_exists ff fastfetch
 abbr_if_exists lg lazygit
+
+# APPEARANCE
+dircolors -c | string replace setenv "set -x" | source
+fish_config theme choose richer
 
 function __prompt_newline --on-event fish_prompt
     set -q __should_add_newline
@@ -14,14 +23,13 @@ function __prompt_newline --on-event fish_prompt
     or set -g __should_add_newline true
 end
 
-test "$TERM" != linux
-and command -q starship
-and starship init fish --print-full-init | source
+if test "$TERM" != linux; and command -q starship
+    starship init fish --print-full-init | source
+else
+    fish_config prompt choose astronaut
+end
 
+# KEYBINDS
 if type -q skim_key_bindings
-    set -x SKIM_DEFAULT_OPTIONS "--layout=reverse --algo=frizbee"
-    set -x SKIM_CTRL_T_COMMAND "fd -H --color=never"
-    set -x SKIM_ALT_C_COMMAND "fd -H --color=never --type d"
-    set -x SKIM_ALT_C_OPTS '--preview="tree -C -L 3 {}"'
     skim_key_bindings
 end
