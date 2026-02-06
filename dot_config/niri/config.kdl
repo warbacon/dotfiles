@@ -130,7 +130,7 @@ window-rule {
 
 binds {
     // Applications
-    Mod+Q hotkey-overlay-title="Open a Terminal" { spawn "footclient"; }
+    Mod+Q hotkey-overlay-title="Open a Terminal" { spawn-sh "alacritty msg create-window || alacritty"; }
     Mod+D hotkey-overlay-title="Show the launcher: vicinae" repeat=false { spawn "vicinae" "toggle"; }
     Mod+E hotkey-overlay-title="Open the file explorer: nautilus" { spawn "nautilus"; }
     Mod+B hotkey-overlay-title="Open the Bluetooth manager: bluetui" { spawn "xdg-terminal-exec" "bluetui"; }

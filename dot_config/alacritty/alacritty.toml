@@ -1,0 +1,28 @@
+[general]
+import = ["themes/clearpine.toml"]
+
+[window]
+padding = { x = 2, y = 2 }
+
+[font]
+size = 14
+
+[terminal]
+shell = "fish"
+
+[mouse]
+hide_when_typing = true
+
+[keyboard]
+bindings = [
+  { key = "Plus", mods = "Control", action = "IncreaseFontsize" },
+  { key = "Plus", mods = "Control", action = "IncreaseFontsize" },
+  { key = "Plus", mods = "Control", action = "IncreaseFontsize" },
+  { key = "Plus", mods = "Control", action = "IncreaseFontsize" },
+  { key = "Minus", mods = "Control", action = "DecreaseFontsize" },
+  { key = "Minus", mods = "Control", action = "DecreaseFontsize" },
+  { key = "Minus", mods = "Control", action = "DecreaseFontsize" },
+  { key = "Minus", mods = "Control", action = "DecreaseFontsize" },
+  { key = "S", mods = "Control|Shift", action = "PasteSelection" },
+  { key = "D", mods = "Control|Shift", action = "CreateNewWindow" },
+]
