@@ -5,51 +5,10 @@ pkg_install() {
 }
 
 packages=(
-    base-devel
-    bash-completion
-    man-db
-    man-pages
-    man-pages-es
-
-    7zip
-    btop
-    dust
-    fastfetch
-    fd
-    fish
-    fzf
-    github-cli
-    hyperfine
-    lazygit
-    opencode-bin
-    ripgrep
-    skim
-    starship
-    tlrc-bin
-    tmux
-    trash-cli
-    tree
-    unzip
-    wget
-
-    bob
-    tree-sitter-cli
-    bash-language-server
-    shellcheck
-    shfmt
-    lua-language-server
-    stylua
-    vscode-css-languageserver
-    vscode-html-languageserver
-    vscode-json-languageserver
-    yaml-language-server
-    clang
-    taplo-cli
-
     niri
     xdg-desktop-portal-gnome
     xwayland-satellite
-    foot
+    alacritty
     hyprpicker
     mako
     quickshell
@@ -88,10 +47,6 @@ packages=(
     ttf-nerd-fonts-symbols
 )
 
-# PACMAN CONFIG
-sudo sed -i 's/#Color/Color/g' /etc/pacman.conf
-sudo sed -i '/^OPTIONS=/ { /!debug/! s/\bdebug\b/!debug/ }' /etc/makepkg.conf
-
 # X11 KEYMAP (FOR XWAYLAND)
 localectl set-x11-keymap es
 
@@ -113,9 +68,6 @@ if [[ "$HOSTNAME" = "zenarch" ]]; then
     sudo systemctl enable --now tlp.service
 fi
 
-# BOB
-bob use nightly
-
 # GNOME SETTINGS
 gsettings set org.gnome.desktop.interface color-scheme prefer-dark
 gsettings set org.gnome.desktop.interface font-name "sans-serif 10"
@@ -127,9 +79,4 @@ xdg-mime default "$(xdg-terminal-exec --print-id)" x-scheme-handler/terminal
 
 # SERVICES
 sudo systemctl enable ly@tty1.service
-systemctl enable --user --now foot-server.socket
 systemctl enable --user --now vicinae.service
-
-# MANDB
-echo "Rebuilding man database..."
-sudo mandb -q
