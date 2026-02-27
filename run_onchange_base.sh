@@ -21,9 +21,8 @@ packages=(
     github-cli
     hyperfine
     lazygit
-    opencode-bin
+    opencode
     ripgrep
-    skim
     starship
     tlrc-bin
     tmux

@@ -30,6 +30,6 @@ else
 end
 
 # KEYBINDS
-if type -q skim_key_bindings
-    skim_key_bindings
+if type -q fzf_key_bindings
+    fzf_key_bindings
 end

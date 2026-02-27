@@ -59,7 +59,7 @@ else
     PROMPT_COMMAND="__prompt; $PROMPT_COMMAND"
 fi
 
-# SKIM -------------------------------------------------------------------------
-if command_exists sk; then
-    init_cached "sk.sh" sk --shell bash --shell-bindings
+# FZF -------------------------------------------------------------------------
+if command_exists fzf; then
+    init_cached "fzf.sh" fzf --bash
 fi

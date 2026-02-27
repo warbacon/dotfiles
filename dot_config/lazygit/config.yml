@@ -8,39 +8,23 @@ gui:
   spinner:
     rate: 80
     frames:
-    - "⠋"
-    - "⠙"
-    - "⠹"
-    - "⠸"
-    - "⠼"
-    - "⠴"
-    - "⠦"
-    - "⠧"
-    - "⠇"
-    - "⠏"
+      - "⠋"
+      - "⠙"
+      - "⠹"
+      - "⠸"
+      - "⠼"
+      - "⠴"
+      - "⠦"
+      - "⠧"
+      - "⠇"
+      - "⠏"
   theme:
     activeBorderColor:
-      - "#ff9e64"
+      - "#5aaacc"
       - "bold"
     inactiveBorderColor:
-      - "#27a1b9"
-    searchingActiveBorderColor:
-      - "#ff9e64"
-      - "bold"
-    optionsTextColor:
-      - "#7aa2f7"
+      - "#716c90"
     selectedLineBgColor:
-      - "#283457"
-    cherryPickedCommitFgColor:
-      - "#7aa2f7"
-    cherryPickedCommitBgColor:
-      - "#bb9af7"
-    markedBaseCommitFgColor:
-      - "#7aa2f7"
-    markedBaseCommitBgColor:
-      - "#e0af68"
-    unstagedChangesColor:
-      - "#db4b4b"
+      - "#2d4356"
     defaultFgColor:
-      - "#c0caf5"
-
+      - "#cdcae4"

@@ -12,6 +12,7 @@ packages=(
     hyprpicker
     mako
     quickshell
+    bibata-cursor-theme-bin
 
     fuse2
     libnotify

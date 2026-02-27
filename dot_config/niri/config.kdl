@@ -283,5 +283,10 @@ binds {
 prefer-no-csd
 screenshot-path "~/Imágenes/Capturas de pantalla/Captura desde %Y-%m-%d %H-%M-%S.png"
 
+cursor {
+    xcursor-theme "Bibata-Modern-Ice"
+    xcursor-size 24
+}
+
 hotkey-overlay { skip-at-startup; }
 debug          { honor-xdg-activation-with-invalid-serial; }
