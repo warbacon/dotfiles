@@ -1,13 +1,13 @@
 // ====================================================================
 // STARTUP
-// https://yalter.github.io/niri/Configuration:-Miscellaneous.html#spawn-at-startup
+// https://niri-wm.github.io/niri/Configuration:-Miscellaneous.html#spawn-at-startup
 // ====================================================================
 
 spawn-at-startup "qs"
 
 // ====================================================================
 // OUTPUTS
-// https://yalter.github.io/niri/Configuration:-Outputs.html
+// https://niri-wm.github.io/niri/Configuration:-Outputs.html
 // ====================================================================
 
 output "eDP-1" {
@@ -23,7 +23,7 @@ output "LG Electronics LG ULTRAGEAR 102NTZNG9205" {
 
 // ====================================================================
 // INPUTS
-// https://yalter.github.io/niri/Configuration:-Input.html
+// https://niri-wm.github.io/niri/Configuration:-Input.html
 // ====================================================================
 
 input {
@@ -47,7 +47,7 @@ input {
 
 // ====================================================================
 // LAYOUT
-// https://yalter.github.io/niri/Configuration:-Layout.html
+// https://niri-wm.github.io/niri/Configuration:-Layout.html
 // ====================================================================
 
 layout {
@@ -85,7 +85,7 @@ layout {
 
     border {
         width 2
-        active-color "#3a94b7"
+        active-color "#5aaacc"
         inactive-color "#ffffff30"
         urgent-color "#ffb58d"
     }
@@ -101,7 +101,7 @@ layout {
 
 // ====================================================================
 // RECENT WINDOWS
-// https://yalter.github.io/niri/Configuration:-Miscellaneous.html#recent-windows
+// https://niri-wm.github.io/niri/Configuration:-Miscellaneous.html#recent-windows
 // ====================================================================
 
 recent-windows {
@@ -110,7 +110,7 @@ recent-windows {
 
 // ====================================================================
 // WINDOW RULES
-// https://yalter.github.io/niri/Configuration:-Window-Rules.html
+// https://niri-wm.github.io/niri/Configuration:-Window-Rules.html
 // ====================================================================
 
 window-rule {
@@ -119,13 +119,13 @@ window-rule {
 }
 
 window-rule {
-    geometry-corner-radius 8
+    // geometry-corner-radius 8
     clip-to-geometry true
 }
 
 // ====================================================================
 // KEY BINDINGS
-// https://yalter.github.io/niri/Configuration:-Key-Bindings.html
+// https://niri-wm.github.io/niri/Configuration:-Key-Bindings.html
 // ====================================================================
 
 binds {
@@ -257,6 +257,7 @@ binds {
     Mod+Shift+R     { switch-preset-window-height; }
     Mod+Ctrl+R      { reset-window-height; }
     Mod+F           { maximize-column; }
+    Mod+M           { maximize-window-to-edges; }
     Mod+Shift+F     { fullscreen-window; }
     Mod+Ctrl+F      { expand-column-to-available-width; }
     Mod+Ctrl+C      { center-column; }
@@ -277,7 +278,7 @@ binds {
 
 // ====================================================================
 // MISCELLANEOUS
-// https://yalter.github.io/niri/Configuration:-Miscellaneous.html
+// https://niri-wm.github.io/niri/Configuration:-Miscellaneous.html
 // ====================================================================
 
 prefer-no-csd

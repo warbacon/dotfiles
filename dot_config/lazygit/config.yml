@@ -5,6 +5,7 @@ gui:
   nerdFontsVersion: "3"
   showBottomLine: false
   showRandomTip: false
+  border: single
   spinner:
     rate: 80
     frames:
@@ -23,8 +24,8 @@ gui:
       - "#5aaacc"
       - "bold"
     inactiveBorderColor:
-      - "#716c90"
+      - "#635e7f"
     selectedLineBgColor:
-      - "#2d4356"
+      - "#2a3449"
     defaultFgColor:
       - "#cdcae4"

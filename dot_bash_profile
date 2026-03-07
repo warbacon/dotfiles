@@ -7,25 +7,24 @@ export FZF_CTRL_T_COMMAND="fd -H --color=never"
 export FZF_ALT_C_COMMAND="fd -H --color=never --type d"
 export FZF_DEFAULT_OPTS="$FZF_DEFAULT_OPTS \
     --highlight-line \
-    --border=sharp \
     --color=fg:#cdcae4 \
     --color=bg:#191724 \
     --color=gutter:#191724 \
     --color=border:#5aaacc \
     --color=separator:#5aaacc \
-    --color=scrollbar:#716c90 \
+    --color=scrollbar:#635e7f \
     --color=hl:#eb6f92 \
     --color=hl+:#eb6f92 \
     --color=fg+:#cdcae4 \
-    --color=bg+:#2d4356 \
+    --color=bg+:#304259 \
     --color=pointer:#ebbcba \
     --color=prompt:#ebbcba \
     --color=spinner:#ebbcba \
     --color=marker:#ebbcba \
     --color=header:#5aaacc \
-    --color=info:#716c90 \
+    --color=info:#8f8aae \
     --color=preview-border:#5aaacc \
-    --color=preview-scrollbar:#716c90"
+    --color=preview-scrollbar:#635e7f"
 
 if [[ -f ~/.bashrc ]]; then
     source ~/.bashrc

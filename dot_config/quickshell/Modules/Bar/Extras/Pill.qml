@@ -25,6 +25,11 @@ WrapperMouseArea {
         color: root.containsMouse && root.clickable ? Color.mSurfaceHighest : Color.mSurfaceHigh
         radius: 99
 
+        border {
+            width: 1
+            color: Color.mOutline
+        }
+
         implicitHeight: 25
         rightMargin: 10
         leftMargin: 10

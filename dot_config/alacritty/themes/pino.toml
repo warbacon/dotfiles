@@ -1,7 +1,7 @@
 [colors.primary]
 background = "#191724"
 foreground = "#cdcae4"
-dim_foreground = "#716c90"
+dim_foreground = "#8f8aae"
 
 [colors.search.matches]
 foreground = "#191724"
@@ -25,7 +25,7 @@ background = "#221f32"
 
 [colors.selection]
 text = "CellForeground"
-background = "#2d4356"
+background = "#304259"
 
 [colors.normal]
 black = "#2c2841"
@@ -35,10 +35,10 @@ yellow = "#f4c276"
 blue = "#5aaacc"
 magenta = "#c4a7e7"
 cyan = "#9ccfd8"
-white = "#9e99be"
+white = "#8f8aae"
 
 [colors.bright]
-black = "#716c90"
+black = "#635e7f"
 red = "#ff82a4"
 green = "#a7daa0"
 yellow = "#ffd689"

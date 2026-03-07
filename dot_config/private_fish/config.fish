@@ -16,16 +16,18 @@ abbr_if_exists lg lazygit
 dircolors -c | string replace setenv "set -x" | source
 fish_config theme choose richer
 
-function __prompt_newline --on-event fish_prompt
-    set -q __should_add_newline
-    and test $__should_add_newline = true
-    and echo
-    or set -g __should_add_newline true
-end
+# function __prompt_newline --on-event fish_prompt
+#     set -q __should_add_newline
+#     and test $__should_add_newline = true
+#     and echo
+#     or set -g __should_add_newline true
+# end
 
 if test "$TERM" != linux; and command -q starship
     starship init fish --print-full-init | source
 else
+    set __fish_git_prompt_showuntrackedfiles 1
+    set __fish_git_prompt_show_informative_status 1
     fish_config prompt choose astronaut
 end
 

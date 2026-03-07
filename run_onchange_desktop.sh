@@ -39,8 +39,8 @@ packages=(
     speech-dispatcher
     zen-browser-bin
 
-    adobe-source-han-sans-otc-fonts
     adwaita-fonts
+    noto-fonts-cjk
     noto-fonts-emoji
     ttf-dejavu
     ttf-google-sans-code-vf
@@ -64,19 +64,15 @@ fi
 
 # Laptop
 if [[ "$HOSTNAME" = "zenarch" ]]; then
-    pkg_install bluez tlp bluetui brightnessctl
+    pkg_install bluez power-profiles-daemon bluetui brightnessctl
     sudo systemctl enable --now bluetooth.service
-    sudo systemctl enable --now tlp.service
 fi
 
 # GNOME SETTINGS
 gsettings set org.gnome.desktop.interface color-scheme prefer-dark
-gsettings set org.gnome.desktop.interface font-name "sans-serif 10"
-gsettings set org.gnome.desktop.wm.preferences button-layout appmenu:none
 
 # TERMINAL
 gsettings set com.github.stunkymonkey.nautilus-open-any-terminal terminal "$(xdg-terminal-exec --print-cmd)"
-xdg-mime default "$(xdg-terminal-exec --print-id)" x-scheme-handler/terminal
 
 # SERVICES
 sudo systemctl enable ly@tty1.service
