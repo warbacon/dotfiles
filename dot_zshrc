@@ -1,0 +1,59 @@
+CACHE_DIR="${XDG_CACHE_HOME:-$HOME/.cache}/zsh"
+[[ ! -d "$CACHE_DIR" ]] && mkdir -p "$CACHE_DIR"
+
+init_cached() {
+    local cache_file="${CACHE_DIR}/$1"
+    local cache_dir="${cache_file%/*}"
+    shift 1
+    [[ -d "$cache_dir" ]] || mkdir -p "$cache_dir"
+    [[ -f "$cache_file" ]] || "$@" >"$cache_file"
+    if [[ "$cache_file" -nt "${cache_file}.zwc" || ! -f "{$cache_file}.zwc" ]]; then
+        zcompile "$cache_file"
+    fi
+    source "$cache_file"
+}
+
+command_exists() {
+    command -v "$1" >/dev/null
+}
+
+alias_if_exists() {
+    command_exists "$2" && alias "$1=$2"
+}
+
+bindkey -e
+bindkey -M emacs '\e[1;5D' backward-word
+bindkey -M emacs '\e[1;3D' backward-word
+bindkey -M emacs '\e[1;5C' forward-word
+bindkey -M emacs '\e[1;3C' forward-word
+bindkey -M emacs '\e[3~' delete-char
+bindkey -M emacs '^H' backward-delete-word
+
+init_cached "dircolors.zsh" dircolors -b
+init_cached "fzf.zsh" fzf --zsh
+
+alias ls='ls -vF --color=auto --group-directories-first'
+alias ll='ls -lh'
+alias la='ls -lAh'
+alias grep='grep --color=auto'
+alias cp='cp -iv'
+alias mv='mv -iv'
+alias rm='rm -v'
+alias_if_exists lg lazygit
+alias_if_exists ff fastfetch
+
+setopt AUTOCD
+
+zstyle ':completion:*' matcher-list '' 'm:{a-zA-Z}={A-Za-z}'
+zstyle ':completion:*' menu select
+zstyle ':completion:*' completer _complete _approximate
+zstyle ':completion:*' rehash
+zstyle ':completion:*:default' list-colors ${(s.:.)LS_COLORS}
+
+ZCOMPDUMP_FILE="$CACHE_DIR/.zcompdump"
+autoload -Uz compinit && compinit -d "$ZCOMPDUMP_FILE"
+if [[ "$ZCOMPDUMP_FILE" -nt "${ZCOMPDUMP_FILE}.zwc" || ! -f "{$ZCOMPDUMP_FILE}.zwc" ]]; then
+    zcompile "$ZCOMPDUMP_FILE"
+fi
+
+PS1="%B%F{cyan}%~%f%b%# "

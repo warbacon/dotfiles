@@ -3,6 +3,7 @@ or return
 
 # OPTIONS
 set -g fish_greeting
+fish_add_path -P "$HOME/.bun/bin"
 
 # ALIASES
 abbr -a rm rm -v

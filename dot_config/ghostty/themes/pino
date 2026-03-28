@@ -1,0 +1,38 @@
+background = #181624
+foreground = #cdcbdd
+cursor-color = #cdcbdd
+cursor-text = #181624
+selection-background = #2b3b51
+selection-foreground = cell-foreground
+
+# Black
+palette = 0=#2b283f
+palette = 8=#625f7e
+
+# Red
+palette = 1=#e97294
+palette = 9=#ff79a4
+
+# Green
+palette = 2=#91c488
+palette = 10=#97dc8c
+
+# Yellow
+palette = 3=#f3c175
+palette = 11=#ffd16a
+
+# Blue
+palette = 4=#52abcf
+palette = 12=#3fc0f2
+
+# Magenta
+palette = 5=#c3a3ed
+palette = 13=#deabff
+
+# Cyan
+palette = 6=#96cfd9
+palette = 14=#8de8f7
+
+# White
+palette = 7=#8e8aac
+palette = 15=#cdcbdd

@@ -1,3 +1,5 @@
+"$schema" = 'https://starship.rs/config-schema.json'
+
 format = '$username$shell$directory$git_branch$git_commit$git_status$jobs$line_break$status$character'
 add_newline = false
 
@@ -12,8 +14,6 @@ style = 'white'
 
 [directory]
 read_only = ' 󰌾'
-repo_root_style = 'bold bright-cyan'
-style = 'cyan'
 truncate_to_repo = false
 truncation_length = 0
 

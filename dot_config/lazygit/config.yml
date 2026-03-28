@@ -21,11 +21,11 @@ gui:
       - "⠏"
   theme:
     activeBorderColor:
-      - "#5aaacc"
+      - "#52abcf"
       - "bold"
     inactiveBorderColor:
-      - "#635e7f"
+      - "#8e8aac"
     selectedLineBgColor:
-      - "#2a3449"
+      - "#2b3b51"
     defaultFgColor:
-      - "#cdcae4"
+      - "#cdcbdd"
